@@ -8,7 +8,7 @@ package controladores;
 import entidades.Acceso;
 
 /**
- *
+ * 
  * @author RyuujiMD
  */
 public class AccesoControlador extends Controlador<Acceso>{

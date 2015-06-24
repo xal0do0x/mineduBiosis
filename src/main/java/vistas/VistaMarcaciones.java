@@ -5,6 +5,7 @@
  */
 package vistas;
 
+import com.lowagie.text.DocumentException;
 import com.opencsv.CSVWriter;
 import controladores.MarcacionControlador;
 import entidades.Empleado;
@@ -22,6 +23,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -31,6 +33,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
 import org.jdesktop.observablecollections.ObservableCollections;
+import pruebareportes.rptEmpleadosSinMarcar;
 import utiles.UsuarioActivo;
 import vistas.dialogos.DlgOficina;
 
@@ -45,6 +48,9 @@ public class VistaMarcaciones extends javax.swing.JInternalFrame {
      */
     private List<Marcacion> lista;
     private MarcacionControlador mc;
+    private EmpleadoControlador ec;
+    private List<Integer> listaEmpleadosOficina = new ArrayList<>();
+    private List<Integer> listaEmpleadosSinMarcar = new ArrayList<>();
 
     public VistaMarcaciones() {
         initComponents();
@@ -87,6 +93,11 @@ public class VistaMarcaciones extends javax.swing.JInternalFrame {
         btnSiguiente = new javax.swing.JButton();
         btnUltimo = new javax.swing.JButton();
         cboTamanio = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
+        numeroEmpleadosOficina = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        numeroEmpleadosMarcando = new javax.swing.JTextField();
+        btnReporteEmpleadosSinMarcar = new javax.swing.JButton();
         dcFechaInicio = new com.toedter.calendar.JDateChooser();
         dcFechaFin = new com.toedter.calendar.JDateChooser();
         radFechas = new javax.swing.JRadioButton();
@@ -257,21 +268,47 @@ public class VistaMarcaciones extends javax.swing.JInternalFrame {
         });
         pnlNavegacion.add(cboTamanio);
 
+        jLabel2.setText("#EmpleadosOficina:");
+        pnlNavegacion.add(jLabel2);
+
+        numeroEmpleadosOficina.setEnabled(false);
+        numeroEmpleadosOficina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numeroEmpleadosOficinaActionPerformed(evt);
+            }
+        });
+        pnlNavegacion.add(numeroEmpleadosOficina);
+
+        jLabel3.setText("#EmpleadosMarcando:");
+        pnlNavegacion.add(jLabel3);
+
+        numeroEmpleadosMarcando.setEnabled(false);
+        numeroEmpleadosMarcando.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numeroEmpleadosMarcandoActionPerformed(evt);
+            }
+        });
+        pnlNavegacion.add(numeroEmpleadosMarcando);
+
+        btnReporteEmpleadosSinMarcar.setText("-> Reporte");
+        btnReporteEmpleadosSinMarcar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteEmpleadosSinMarcarActionPerformed(evt);
+            }
+        });
+        pnlNavegacion.add(btnReporteEmpleadosSinMarcar);
+
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 17;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel1.add(pnlNavegacion, gridBagConstraints);
-
-        dcFechaInicio.setDateFormatString("dd/MM/yyyy");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 8;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
         jPanel1.add(dcFechaInicio, gridBagConstraints);
-
-        dcFechaFin.setDateFormatString("dd/MM/yyyy");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 10;
         gridBagConstraints.gridy = 0;
@@ -478,6 +515,27 @@ public class VistaMarcaciones extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnOficinaActionPerformed
 
+    private void numeroEmpleadosOficinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroEmpleadosOficinaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numeroEmpleadosOficinaActionPerformed
+
+    private void numeroEmpleadosMarcandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroEmpleadosMarcandoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numeroEmpleadosMarcandoActionPerformed
+
+    private void btnReporteEmpleadosSinMarcarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteEmpleadosSinMarcarActionPerformed
+        try {
+            /**
+             * Aca se ejecuta el metodo que envia los parametros a la clase generadora del reporte
+             */
+            imprimirEmpleadosSinMarcar();
+        } catch (IOException ex) {
+            Logger.getLogger(VistaMarcaciones.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(VistaMarcaciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnReporteEmpleadosSinMarcarActionPerformed
+
     private Departamento oficinaSeleccionada;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
@@ -487,6 +545,7 @@ public class VistaMarcaciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnOficina;
     private javax.swing.JButton btnPrimero;
+    private javax.swing.JButton btnReporteEmpleadosSinMarcar;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnUltimo;
     private javax.swing.JComboBox cboTamanio;
@@ -495,8 +554,12 @@ public class VistaMarcaciones extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup grpOpcion;
     private javax.swing.ButtonGroup grpSeleccion;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField numeroEmpleadosMarcando;
+    private javax.swing.JTextField numeroEmpleadosOficina;
     private javax.swing.JPanel pnlNavegacion;
     private javax.swing.JRadioButton radEmpleado;
     private javax.swing.JRadioButton radFechas;
@@ -556,7 +619,8 @@ public class VistaMarcaciones extends javax.swing.JInternalFrame {
         lista.clear();
 
         lista.addAll(this.listar(this.obtenerDNIEntero(), fechaInicio, fechaFin, paginaActual, tamanioPagina));
-
+        //Numero de empleados por oficina
+        numeroEmpleadosOficina.setText(Integer.toString(this.obtenerDNIEntero().size()));
         tblEmpleado.packAll();
     }
 
@@ -572,8 +636,32 @@ public class VistaMarcaciones extends javax.swing.JInternalFrame {
         } else {
             if(radFechas.isSelected()){
                 total = mc.totalXFecha(empleados,fechaInicio, fechaFin);
+                List<Marcacion> listaMarcaciones = mc.buscarXFechaTotal(this.obtenerDNIEntero(), fechaInicio, fechaFin);
+                List<Integer> empleadosMarcando = new ArrayList<>();
+//                if(listaEmpleadosOficina!=null){
+//                    listaEmpleadosOficina.clear();
+//                }                
+                for(Marcacion marcacion : listaMarcaciones){
+                    if(!empleadosMarcando.contains(marcacion.getEmpleado())){
+                        listaEmpleadosOficina.add(marcacion.getEmpleado());
+                        empleadosMarcando.add(marcacion.getEmpleado());
+                    }
+                }
+                
+                
+                numeroEmpleadosMarcando.setText(Integer.toString(empleadosMarcando.size()));
             }else{
-                total = mc.totalXFechaXHora(empleados,fechaInicio, (Date) spHoraInicio.getValue(),(Date) spHoraFin.getValue());
+                total = mc.totalXFechaIyFXHora(empleados,fechaInicio, fechaFin, (Date) spHoraInicio.getValue(),(Date) spHoraFin.getValue());
+                List<Marcacion> listaMarcaciones = mc.buscarXFechaXHoraTotal(this.obtenerDNIEntero(),fechaInicio,fechaFin, (Date) spHoraInicio.getValue(),(Date) spHoraFin.getValue());
+                List<Integer> empleadosMarcando = new ArrayList<>();
+                listaEmpleadosOficina.clear();
+                for(Marcacion marcacion : listaMarcaciones){
+                    if(!empleadosMarcando.contains(marcacion.getEmpleado())){
+                        listaEmpleadosOficina.add(marcacion.getEmpleado());
+                        empleadosMarcando.add(marcacion.getEmpleado());
+                    }
+                }
+                numeroEmpleadosMarcando.setText(Integer.toString(empleadosMarcando.size()));
             }
 //            total = mc.totalXEmpleadoXFecha(empleados, fechaInicio, fechaFin);
         }
@@ -598,7 +686,7 @@ public class VistaMarcaciones extends javax.swing.JInternalFrame {
             if (radFechas.isSelected()) {
                 return this.mc.buscarXFecha(empleados, fechaInicio, fechaFin, (pagina - 1) * tamanio, tamanio);
             } else {
-                return this.mc.buscarXFechaXHora(empleados, fechaInicio, (Date) spHoraInicio.getValue(), (Date) spHoraFin.getValue(), (pagina - 1) * tamanio, tamanio);
+                return this.mc.buscarXFechaXHora1(empleados, fechaInicio, fechaFin, (Date) spHoraInicio.getValue(), (Date) spHoraFin.getValue(), (pagina - 1) * tamanio, tamanio);
             }
 
         }
@@ -672,30 +760,69 @@ public class VistaMarcaciones extends javax.swing.JInternalFrame {
         FormularioUtil.activarComponente(spHoraFin, radHora.isSelected());
     }
 
-    private final EmpleadoControlador ec = new EmpleadoControlador();
+//    private final EmpleadoControlador ec = new EmpleadoControlador();
     private final ReporteUtil rUtil = new ReporteUtil();
     private final DateFormat dfFecha = new SimpleDateFormat("dd/MM/yyyy");
     private final DateFormat dfHora = new SimpleDateFormat("HH:mm:ss");
+//
+//    private void imprimir() {
+//        String rutaReporte = "reportes/r_marcaciones.jasper";
+//        File ficheroReporte = new File(rutaReporte);
+//        Map<String, Object> mapa = new HashMap<>();
+//        mapa.put("usuario", UsuarioActivo.getUsuario().getLogin());
+//        mapa.put("fecha_inicio", dcFechaInicio.getDate());
+//        mapa.put("por_fecha", radFechas.isSelected());
+//        if (radFechas.isSelected()) {
+//            mapa.put("fecha_fin", dcFechaFin.getDate());
+//        } else {
+//            mapa.put("hora_inicio", (Date) spHoraInicio.getValue());
+//            mapa.put("hora_fin", (Date) spHoraFin.getValue());
+//        }
+//
+//        mapa.put("CONEXION_EMPLEADOS", ec.getDao().getConexion());
+//        rUtil.setConn(this.mc.getDao().getConexion());
+//        rUtil.generarReporte(ficheroReporte, mapa, JOptionPane.getFrameForComponent(this));
+//    }
 
-    private void imprimir() {
-        String rutaReporte = "reportes/r_marcaciones.jasper";
-        File ficheroReporte = new File(rutaReporte);
-        Map<String, Object> mapa = new HashMap<>();
-        mapa.put("usuario", UsuarioActivo.getUsuario().getLogin());
-        mapa.put("fecha_inicio", dcFechaInicio.getDate());
-        mapa.put("por_fecha", radFechas.isSelected());
-        if (radFechas.isSelected()) {
-            mapa.put("fecha_fin", dcFechaFin.getDate());
-        } else {
-            mapa.put("hora_inicio", (Date) spHoraInicio.getValue());
-            mapa.put("hora_fin", (Date) spHoraFin.getValue());
+    private void imprimirEmpleadosSinMarcar() throws IOException, DocumentException{
+        Calendar cal = Calendar.getInstance();
+
+        String usuario = UsuarioActivo.getUsuario().getLogin();
+
+        List<Empleado> empleados = new ArrayList<>();
+        for(Integer i : listaEmpleadosOficina){
+            System.out.println("Dni: "+i);
         }
+        empleados = ec.buscarPorListaInt(listaEmpleadosOficina);
+        List<String> dnis = new ArrayList<>();
+        for(Empleado e:empleados){
+            dnis.add(e.getNroDocumento());
+        }
+        String reporte = "";
 
-        mapa.put("CONEXION_EMPLEADOS", ec.getDao().getConexion());
-        rUtil.setConn(this.mc.getDao().getConexion());
-        rUtil.generarReporte(ficheroReporte, mapa, JOptionPane.getFrameForComponent(this));
+        int anio;
+        int mes;
+        Date fechaInicio = new Date();
+        Date fechaFin = new Date();
+        String rangoTitulo = "";
+        String rangoValor = "";        
+
+
+        rptEmpleadosSinMarcar reporteEmpleadosSinMarcar = new rptEmpleadosSinMarcar();
+        String grupoOficina = "";
+        String tipo = "";
+        if(oficinaSeleccionada!=null){
+            if (oficinaSeleccionada.getNombre()!=null) {
+                grupoOficina = oficinaSeleccionada.getNombre();
+                tipo = "O";
+            }
+        }else{
+            System.out.println("No se ingresaron datos");
+        }
+        
+        reporteEmpleadosSinMarcar.crearPdf("RptEmpSinM-"+grupoOficina+ ".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario, (Date) spHoraInicio.getValue(),(Date) spHoraFin.getValue());
     }
-
+    
     private void exportar() {
         try {
             String url = FormularioUtil.chooserFichero(this, "Seleccione donde guardar");

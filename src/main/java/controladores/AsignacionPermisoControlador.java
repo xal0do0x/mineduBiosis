@@ -50,11 +50,13 @@ public class AsignacionPermisoControlador extends Controlador<AsignacionPermiso>
     }
     
     //Query para comprobacion de permisos en rango de hora
-    public List<AsignacionPermiso> buscarXHora(String dni, Date horaInicio){
-        String jpl = "SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND :horaInicio BETWEEN a.permiso.horaInicio and a.permiso.horaFin ";
+    public List<AsignacionPermiso> buscarXHora(String dni, Date horaInicio, Date fechaInicio){
+        String jpl = "SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND :horaInicio BETWEEN a.permiso.horaInicio and a.permiso.horaFin "
+                + "AND :fechaInicio BETWEEN a.permiso.fechaInicio and a.permiso.fechaFin";
         Map<String, Object> mapa = new HashMap<>();
         mapa.put("dni", dni);
         mapa.put("horaInicio", horaInicio);
+        mapa.put("fechaInicio", fechaInicio);
         return this.getDao().buscar(jpl, mapa);
     }
     public int contarXEmpleadoXFecha(String dni, Date fechaInicio, Date fechaFin) {
@@ -78,7 +80,35 @@ public class AsignacionPermisoControlador extends Controlador<AsignacionPermiso>
     }
     
     public AsignacionPermiso buscarXDia(String dni, Date dia){
-        String jpql = "SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND a.permiso.porFecha = TRUE AND :dia BETWEEN a.permiso.fechaInicio AND a.permiso.fechaFin";
+        String jpql = "SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND a.permiso.opcion = 'F' AND :dia BETWEEN a.permiso.fechaInicio AND a.permiso.fechaFin";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dia", dia);
+        mapa.put("dni", dni);
+        List<AsignacionPermiso> asignacion = this.getDao().buscar(jpql, mapa, -1, 1);
+        if(asignacion.isEmpty()){
+            return null;
+        }else{
+            return asignacion.get(0);
+        }        
+    }
+    
+    public AsignacionPermiso buscarOnlyHora(String dni, Date hora, Date fecha){
+        String jpql = "SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND a.permiso.opcion = 'H' "
+                + "AND :fecha BETWEEN a.permiso.fechaInicio AND a.permiso.fechaFin AND :hora BETWEEN a.permiso.horaInicio AND a.permiso.horaFin";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dni", dni);
+        mapa.put("hora", hora);
+        mapa.put("fecha",fecha);
+        List<AsignacionPermiso> asignacion = this.getDao().buscar(jpql, mapa, -1, 1);
+        if(asignacion.isEmpty()){
+            return null;
+        }else{
+            return asignacion.get(0);
+        }   
+    }
+
+    public AsignacionPermiso buscarXTODOS(String dni, Date dia){
+        String jpql = "SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND :dia BETWEEN a.permiso.fechaInicio AND a.permiso.fechaFin";
         Map<String, Object> mapa = new HashMap<>();
         mapa.put("dia", dia);
         mapa.put("dni", dni);

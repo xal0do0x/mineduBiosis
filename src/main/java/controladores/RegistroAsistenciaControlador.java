@@ -30,6 +30,23 @@ public class RegistroAsistenciaControlador extends Controlador<RegistroAsistenci
         return this.getDao().buscar(jpql, mapa, desde, tamanio);
     }
     
+    public List<RegistroAsistencia> buscarXEmpleadoXFecha2(String dni,Date fechaInicio, Date fechaFin){
+        String jpql = "SELECT r FROM RegistroAsistencia r WHERE r.empleado = :dni AND r.fecha BETWEEN :fechaInicio AND :fechaFin";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dni", dni);
+        mapa.put("fechaInicio", fechaInicio);
+        mapa.put("fechaFin", fechaFin);
+        return this.getDao().buscar(jpql, mapa);
+    }
+    public List<RegistroAsistencia> buscarXEmpleadoXFecha1(List<String> dnis, Date fechaInicio, Date fechaFin){
+        String jpql = "SELECT r FROM RegistroAsistencia r WHERE r.empleado IN :dnis AND r.fecha BETWEEN :fechaInicio AND :fechaFin";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dnis", dnis);
+        mapa.put("fechaInicio", fechaInicio);
+        mapa.put("fechaFin", fechaFin);
+        return this.getDao().buscar(jpql, mapa);
+    }
+    
     public int contarXEmpleadoXFecha(List<String> dnis, Date fechaInicio, Date fechaFin){
         String jpql = "SELECT COUNT(r.id) FROM RegistroAsistencia r WHERE r.empleado IN :dnis AND r.fecha BETWEEN :fechaInicio AND :fechaFin";
         Map<String, Object> mapa = new HashMap<>();

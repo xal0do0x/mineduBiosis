@@ -685,7 +685,7 @@ public class VistaRegistroAsistencia extends javax.swing.JInternalFrame {
             }
             List<Empleado> empleados = radPersonalizado.isSelected() ? empleadoList : ec.buscarPorLista(dnis);
             tcsc.getDao().getEntityManager().clear();
-            analisis.analizarEmpleados(empleados);
+//            analisis.analizarEmpleados(empleados);
             mtRegistro.setEmpleadoList(empleados);
             registroAsistenciaList.clear();
 

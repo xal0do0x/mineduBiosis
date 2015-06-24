@@ -37,6 +37,7 @@ import javax.swing.DefaultListCellRenderer;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import org.apache.log4j.Logger;
 import org.jdesktop.beansbinding.AutoBinding;
 import org.jdesktop.observablecollections.ObservableCollections;
 import org.jdesktop.swingbinding.JComboBoxBinding;
@@ -555,10 +556,7 @@ public class AsignarVacacion extends javax.swing.JInternalFrame {
             this.accion = Controlador.MODIFICAR;
             controlador.setSeleccionado(this.listado.get(fila));
             periodo = periodoList.get(cboPeriodo.getSelectedIndex());
-            empleado = empleadoSeleccionado.getNroDocumento();
-            if(empleado == null){
-                System.out.println("Corregir aca carajo!");
-            }
+            empleadoSeleccionado = ec.buscarPorDni(controlador.getSeleccionado().getEmpleado());
             this.controles(accion);
             FormularioUtil.activarComponente(txtEmpleadoSeleccionado, false);
         }
@@ -572,9 +570,8 @@ public class AsignarVacacion extends javax.swing.JInternalFrame {
         }
         if (FormularioUtil.dialogoConfirmar(this, accion)) {
             Vacacion seleccionada = this.controlador.getSeleccionado();
-
-//            FormularioUtil.convertirMayusculas(this.pnlDatos);
-            
+            System.out.println("Dato: "+controlador.getSeleccionado().getEmpleado());
+                
             
             if(accion == Controlador.NUEVO){
                 seleccionada.setEmpleado(empleadoSeleccionado.getNroDocumento());
@@ -590,6 +587,7 @@ public class AsignarVacacion extends javax.swing.JInternalFrame {
             seleccionada.setFechaInicio(dcFechaInicio.getDate());
             seleccionada.setFechaFin(dcFechaFin.getDate());
             seleccionada.setHayInterrupcion(false);
+            seleccionada.setHayReprogramacion(false);
             seleccionada.setDocumento(txtDocumento.getText());
             seleccionada.setPeriodo(periodoList.get(cboPeriodo.getSelectedIndex()));
             
@@ -1063,15 +1061,11 @@ public class AsignarVacacion extends javax.swing.JInternalFrame {
             errores++;
             mensaje = ">La fecha de inicio debe ser menor que la fecha de fin\n";
         }
-//        //Traemos los dnis de los empleados
-////        String empleadoPrueba = this.controlador.getSeleccionado().getEmpleado();
-////        System.out.println(empleadoPrueba);
 //        Vacacion paraComprobar = this.controlador.getSeleccionado();
 //        if(paraComprobar != null){
-//            System.out.println("No es null"+paraComprobar.getEmpleado());
+//            System.out.println("No es null" + paraComprobar.getEmpleado());
 //        }
-//        //aSystem.out.println("dni" + empleadoPrueba.getNroDocumento());
-//        //Permiso paraComprobar = this.controlador.getSeleccionado();
+//
 //        List<Vacacion> vacaciones = controlador.buscarXEmpleadoXPeriodo(paraComprobar.getEmpleado(), periodoList.get(cboPeriodo.getSelectedIndex()));
 //        for (Vacacion vacacion : vacaciones) {
 //            if((vacacion.getFechaInicio().compareTo(fechaInicio) == 0) || 
@@ -1083,7 +1077,13 @@ public class AsignarVacacion extends javax.swing.JInternalFrame {
 //               break;
 //            }    
 //        }
-//            
+        if(accion==1){
+            List<Vacacion> vacaciones = controlador.buscarXEmpleadoXFechaXDni(empleadoSeleccionado.getNroDocumento(), dcFechaInicio.getDate());
+            if(!vacaciones.isEmpty()){
+                errores++;
+                mensaje = "El empleado "+empleadoSeleccionado.getNroDocumento()+" tiene conflicto con una vacación añadida anteriormente \n Ingrese otro rango de fechas \n";
+            }
+        }    
         
         
         if (errores > 0) {

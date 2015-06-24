@@ -11,6 +11,7 @@ import entidades.Empleado;
 import entidades.GrupoHorario;
 import entidades.Horario;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -67,4 +68,51 @@ public class AsignacionHorarioControlador extends Controlador<AsignacionHorario>
         return this.getDao().buscar(jpql, mapa);
     }
 
+    public AsignacionHorario buscarXEmpleadoXFechaFinNull(String dni, Date fecha){
+        String jpql = "SELECT a FROM AsignacionHorario a WHERE "
+                + "a.empleado = :dni  "
+                + "AND :fecha <= a.fechaInicio "
+                + "AND a.fechaFin IS NULL "
+                + "ORDER BY a.fechaInicio DESC";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dni", dni);
+        mapa.put("fecha", fecha);
+        
+        List<AsignacionHorario> asig = this.getDao().buscar(jpql, mapa, -1, 1);
+        if (asig.isEmpty()) {
+            return null;
+        } else {
+            return asig.get(0);
+        }
+    }
+    
+    public AsignacionHorario buscarXEmpleadoXFechaFinNull2(String dni, Date fecha){
+        String jpql = "SELECT a FROM AsignacionHorario a WHERE "
+                + "a.empleado = :dni  "
+                + "AND :fecha > a.fechaInicio "
+                + "AND a.fechaFin IS NULL "
+                + "ORDER BY a.fechaInicio DESC";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dni", dni);
+        mapa.put("fecha", fecha);
+        
+        List<AsignacionHorario> asig = this.getDao().buscar(jpql, mapa, -1, 1);
+        if (asig.isEmpty()) {
+            return null;
+        } else {
+            return asig.get(0);
+        }
+    }
+    
+    public List<AsignacionHorario> buscarXEmpleadosXFecha(String dni, Date fecha){
+        String jpql = "SELECT a FROM AsignacionHorario a WHERE "
+                + "a.empleado = :dni  "
+                + "AND :fecha BETWEEN a.fechaInicio AND a.fechaFin "
+                + "ORDER BY a.fechaFin DESC";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dni", dni);
+        mapa.put("fecha", fecha);
+        
+        return this.getDao().buscar(jpql, mapa);
+    }
 }

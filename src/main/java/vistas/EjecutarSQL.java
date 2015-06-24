@@ -43,7 +43,7 @@ public class EjecutarSQL extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
-        setTitle("ALDOFOFOFOFO");
+        setTitle("Ventana de ejecución SQL");
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setText("SQL:");

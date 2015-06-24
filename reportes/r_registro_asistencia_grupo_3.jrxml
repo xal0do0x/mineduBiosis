@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r_registro_asistencia_grupo_2" pageWidth="595" pageHeight="842" columnWidth="585" leftMargin="5" rightMargin="5" topMargin="5" bottomMargin="5" uuid="2351c35a-4e16-4c1c-aaf5-8e900d7ae54e">
-	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="usuario" class="java.lang.String"/>
@@ -37,6 +37,7 @@ registro_asistencia."tipo_asistencia" AS tipo_asistencia,
      Feriado."nombre" AS Feriado_nombre,
      Vacacion."documento" AS Vacacion_documento,
      Permiso."documento" AS Permiso_documento,
+     tipo_permiso.nombre AS nombre_permiso,
      detalle_registro_asistencia."minutos_tardanza" AS detalle_registro_asistencia_minutos_tardanza,
      detalle_registro_asistencia."hora_fin" AS detalle_registro_asistencia_hora_fin,
      detalle_registro_asistencia."hora_inicio" AS detalle_registro_asistencia_hora_inicio,
@@ -45,11 +46,11 @@ detalle_registro_asistencia."tipo_registro" AS detalle_registro_tipo,
 detalle_registro_asistencia."minutos_extra" AS detalle_registro_minutos_extra,
 tipo_permiso.clase as clase_permiso
 FROM
-     "dbo"."registro_asistencia" registro_asistencia LEFT JOIN "dbo"."detalle_registro_asistencia" detalle_registro_asistencia ON registro_asistencia."id" = detalle_registro_asistencia."registro_asistencia_id"
+   "dbo"."registro_asistencia" registro_asistencia LEFT JOIN "dbo"."detalle_registro_asistencia" detalle_registro_asistencia ON registro_asistencia."id" = detalle_registro_asistencia."registro_asistencia_id"
      LEFT JOIN "dbo"."Permiso" Permiso ON detalle_registro_asistencia."permiso_id" = Permiso."id"
-     AND Permiso."id" = registro_asistencia."permiso_id"
+     or Permiso."id" = registro_asistencia."permiso_id"
      LEFT JOIN "dbo"."Vacacion" Vacacion ON registro_asistencia."vacacion_id" = Vacacion."id"
-     LEFT JOIN "dbo"."Feriado" Feriado ON registro_asistencia."feriado_fecha_inicio" = Feriado."fecha_inicio" LEFT JOIN tipo_permiso on Permiso.tipo_permiso_codigo = tipo_permiso.codigo
+     LEFT JOIN "dbo"."Feriado" Feriado ON registro_asistencia."feriado_fecha_inicio" = Feriado."fecha_inicio" LEFT JOIN "dbo"."tipo_permiso" tipo_permiso on Permiso.tipo_permiso_codigo = tipo_permiso.codigo
 WHERE
 $X{IN,registro_asistencia.empleado_nro_documento,lista} AND registro_asistencia.fecha BETWEEN $P{fecha_inicio} AND $P{fecha_fin}
 ORDER BY registro_asistencia.empleado_nro_documento,registro_asistencia.fecha ASC,detalle_registro_asistencia.orden ASC]]>
@@ -72,6 +73,7 @@ ORDER BY registro_asistencia.empleado_nro_documento,registro_asistencia.fecha AS
 	<field name="detalle_registro_tipo" class="java.lang.String"/>
 	<field name="detalle_registro_minutos_extra" class="java.math.BigDecimal"/>
 	<field name="clase_permiso" class="java.lang.String"/>
+	<field name="nombre_permiso" class="java.lang.String"/>
 	<variable name="sum-min-tardanza-total" class="java.math.BigDecimal" resetType="Group" resetGroup="g-empleado" calculation="Sum">
 		<variableExpression><![CDATA[$F{detalle_registro_asistencia_minutos_tardanza}]]></variableExpression>
 	</variable>
@@ -371,8 +373,7 @@ ORDER BY registro_asistencia.empleado_nro_documento,registro_asistencia.fecha AS
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font fontName="Serif" size="6"/>
 				</textElement>
-				<textFieldExpression><![CDATA[
-$F{detalle_registro_asistencia_hora_fin} == null ?
+				<textFieldExpression><![CDATA[$F{detalle_registro_asistencia_hora_fin} == null ?
 "N.M." : new SimpleDateFormat("HH:mm:ss").format($F{detalle_registro_asistencia_hora_fin})]]></textFieldExpression>
 			</textField>
 			<textField isBlankWhenNull="true">
@@ -452,7 +453,7 @@ $F{detalle_registro_asistencia_hora_fin} == null ?
 ? "FALTA" : $F{tipo_asistencia}.equals("R")
 ? "ASIT. REGULAR" : $F{tipo_asistencia}.equals("T")
 ? "TARDANZA" : $F{tipo_asistencia}.equals("P")
-? "PERMISO" : $F{tipo_asistencia}.equals("V")
+? "PERMISO - "+$F{nombre_permiso} : $F{tipo_asistencia}.equals("V")
 ? "VACACIONES - "+$F{Vacacion_documento} : ""]]></textFieldExpression>
 			</textField>
 			<subreport>

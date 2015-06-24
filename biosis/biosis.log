@@ -1,0 +1,1450 @@
+2015-03-16 00:39:15.717	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:307	MSJE:Unable to build entity manager factory
+2015-03-16 00:39:30.729	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:Unable to build entity manager factory
+2015-03-16 00:39:45.676	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:323	MSJE:Unable to build entity manager factory
+2015-03-16 00:48:33.535	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid column name 'documento_reprogramacion'.
+2015-03-16 00:48:33.548	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:167	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-03-16 00:57:57.587	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid column name 'documento_reprogramacion'.
+2015-03-16 00:57:57.587	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:167	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-03-16 00:58:01.486	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid column name 'documento_reprogramacion'.
+2015-03-16 00:58:01.486	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:167	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-03-16 00:58:25.107	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid column name 'documento_reprogramacion'.
+2015-03-16 00:58:25.109	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:167	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-03-16 01:03:27.348	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid column name 'documento_reprogramacion'.
+2015-03-16 01:03:27.348	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:167	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-03-17 12:01:25.968	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The DELETE statement conflicted with the REFERENCE constraint "FK_94qp7gux46hivpic1tp79vqv0". The conflict occurred in database "db_biosis", table "dbo.detalle_registro_asistencia", column 'registro_asistencia_id'.
+2015-03-17 17:17:32.789	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid column name 'opcion'.
+2015-03-17 17:17:32.813	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:167	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-03-17 17:33:14.463	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.Permiso.diferencia org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.Permiso.diferencia
+2015-03-17 17:33:14.476	ERROR	[AWT-EventQueue-0]	CLASE: AssertionFailure	 METODO: <init>	LINEA:50	MSJE:HHH000099: an assertion failure occured (this may indicate a bug in Hibernate, but is more likely due to unsafe use of the session): org.hibernate.AssertionFailure: null id in entidades.Permiso entry (don't flush the Session after an exception occurs)
+2015-03-17 17:46:49.819	ERROR	[AWT-EventQueue-0]	CLASE: AssertionFailure	 METODO: <init>	LINEA:50	MSJE:HHH000099: an assertion failure occured (this may indicate a bug in Hibernate, but is more likely due to unsafe use of the session): org.hibernate.AssertionFailure: null id in entidades.Permiso entry (don't flush the Session after an exception occurs)
+2015-03-29 23:56:47.617	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Column "Vacacion.fecha_inicio" is invalid in the ORDER BY clause because it is not contained in either an aggregate function or the GROUP BY clause.
+2015-03-29 23:56:47.632	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: contar	LINEA:187	MSJE:ERROR AL CONTAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-03-29 23:56:47.656	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Column "Vacacion.fecha_inicio" is invalid in the ORDER BY clause because it is not contained in either an aggregate function or the GROUP BY clause.
+2015-03-29 23:56:47.657	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: contar	LINEA:187	MSJE:ERROR AL CONTAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-03-29 23:56:56.964	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Column "Vacacion.fecha_inicio" is invalid in the ORDER BY clause because it is not contained in either an aggregate function or the GROUP BY clause.
+2015-03-29 23:56:56.965	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: contar	LINEA:187	MSJE:ERROR AL CONTAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-04-10 09:20:26.922	ERROR	[AWT-EventQueue-0]	CLASE: ReporteUtil	 METODO: obtenerReporte	LINEA:127	MSJE:
+net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: 
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:114)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:103)
+	at com.personal.utiles.ReporteUtil.obtenerReporte(ReporteUtil.java:112)
+	at pruebareportes.RptTardanzaConsolidado.imprimir(RptTardanzaConsolidado.java:633)
+	at pruebareportes.RptTardanzaConsolidado.jButton2ActionPerformed(RptTardanzaConsolidado.java:389)
+	at pruebareportes.RptTardanzaConsolidado.access$1000(RptTardanzaConsolidado.java:57)
+	at pruebareportes.RptTardanzaConsolidado$11.actionPerformed(RptTardanzaConsolidado.java:361)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: java.io.FileNotFoundException: 
+	... 43 more
+2015-04-11 14:55:39.733	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-04-11 14:55:39.763	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:167	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-04-20 16:36:17.760	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The DELETE statement conflicted with the REFERENCE constraint "FK_p23j2xme96k62oljjslant404". The conflict occurred in database "db_biosis", table "dbo.registro_asistencia", column 'feriado_fecha_inicio'.
+2015-04-20 16:36:17.834	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Error while committing the transaction Error while committing the transaction
+2015-04-20 16:37:44.650	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Error occurred while storing entity [entidades.Feriado@1a13719]. An entity copy [entidades.Feriado#2015-04-20] was already assigned to a different entity [entidades.Feriado#2015-04-20]. Error occurred while storing entity [entidades.Feriado@1a13719]. An entity copy [entidades.Feriado#2015-04-20] was already assigned to a different entity [entidades.Feriado#2015-04-20].
+2015-04-20 16:38:32.652	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Error occurred while storing entity [entidades.Feriado@5eb558a3]. An entity copy [entidades.Feriado#2015-04-20] was already assigned to a different entity [entidades.Feriado#2015-04-20]. Error occurred while storing entity [entidades.Feriado@5eb558a3]. An entity copy [entidades.Feriado#2015-04-20] was already assigned to a different entity [entidades.Feriado#2015-04-20].
+2015-04-20 16:43:02.759	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Transaction already active Transaction already active
+2015-04-20 16:45:47.925	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Transaction already active Transaction already active
+2015-04-20 16:51:08.592	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The DELETE statement conflicted with the REFERENCE constraint "FK_p23j2xme96k62oljjslant404". The conflict occurred in database "db_biosis", table "dbo.registro_asistencia", column 'feriado_fecha_inicio'.
+2015-04-20 16:51:08.603	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Error while committing the transaction Error while committing the transaction
+2015-04-20 16:54:37.883	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The DELETE statement conflicted with the REFERENCE constraint "FK_p23j2xme96k62oljjslant404". The conflict occurred in database "db_biosis", table "dbo.registro_asistencia", column 'feriado_fecha_inicio'.
+2015-05-20 13:27:43.134	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-05-20 13:27:43.177	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-05-25 13:54:50.028	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:105: unexpected token: anda
+2015-05-25 13:54:50.049	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:105: unexpected token: anda
+line 1:105: unexpected token: anda
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.concatenation(HqlBaseParser.java:668)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.betweenList(HqlBaseParser.java:3035)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.relationalExpression(HqlBaseParser.java:2872)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.equalityExpression(HqlBaseParser.java:2582)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.negatedExpression(HqlBaseParser.java:2546)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalAndExpression(HqlBaseParser.java:2472)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalOrExpression(HqlBaseParser.java:2427)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.expression(HqlBaseParser.java:2137)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalExpression(HqlBaseParser.java:1913)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.whereClause(HqlBaseParser.java:474)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:729)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.contar(DAO.java:178)
+	at controladores.MarcacionControlador.totalXFechaIyFXHora(MarcacionControlador.java:311)
+	at vistas.VistaMarcaciones.listar(VistaMarcaciones.java:652)
+	at vistas.VistaMarcaciones.buscar(VistaMarcaciones.java:619)
+	at vistas.VistaMarcaciones.btnBuscarActionPerformed(VistaMarcaciones.java:415)
+	at vistas.VistaMarcaciones.access$100(VistaMarcaciones.java:44)
+	at vistas.VistaMarcaciones$2.actionPerformed(VistaMarcaciones.java:140)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-05-25 13:54:50.075	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:131: unexpected token: BETWEEN
+2015-05-25 13:54:50.075	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:131: unexpected token: BETWEEN
+line 1:131: unexpected token: BETWEEN
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:764)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.contar(DAO.java:178)
+	at controladores.MarcacionControlador.totalXFechaIyFXHora(MarcacionControlador.java:311)
+	at vistas.VistaMarcaciones.listar(VistaMarcaciones.java:652)
+	at vistas.VistaMarcaciones.buscar(VistaMarcaciones.java:619)
+	at vistas.VistaMarcaciones.btnBuscarActionPerformed(VistaMarcaciones.java:415)
+	at vistas.VistaMarcaciones.access$100(VistaMarcaciones.java:44)
+	at vistas.VistaMarcaciones$2.actionPerformed(VistaMarcaciones.java:140)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-05-25 13:54:50.082	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: contar	LINEA:190	MSJE:ERROR AL CONTAR: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: anda near line 1, column 105 [SELECT COUNT(m.id) FROM entidades.Marcacion m WHERE m.empleado IN :dni AND m.fecha BETWEEN :fechaInicio anda :fechaFin AND m.hora BETWEEN :horaI AND :horaF ] org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: anda near line 1, column 105 [SELECT COUNT(m.id) FROM entidades.Marcacion m WHERE m.empleado IN :dni AND m.fecha BETWEEN :fechaInicio anda :fechaFin AND m.hora BETWEEN :horaI AND :horaF ]
+2015-05-25 13:54:50.084	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:74: unexpected token: BEETWEN
+2015-05-25 13:54:50.084	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:74: unexpected token: BEETWEN
+line 1:74: unexpected token: BEETWEN
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.atom(HqlBaseParser.java:3688)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.unaryExpression(HqlBaseParser.java:3376)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.multiplyExpression(HqlBaseParser.java:3248)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.additiveExpression(HqlBaseParser.java:2954)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.concatenation(HqlBaseParser.java:590)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.relationalExpression(HqlBaseParser.java:2721)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.equalityExpression(HqlBaseParser.java:2582)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.negatedExpression(HqlBaseParser.java:2546)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalAndExpression(HqlBaseParser.java:2472)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalOrExpression(HqlBaseParser.java:2427)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.expression(HqlBaseParser.java:2137)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalExpression(HqlBaseParser.java:1913)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.whereClause(HqlBaseParser.java:474)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:729)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.buscar(DAO.java:150)
+	at dao.DAO.buscar(DAO.java:142)
+	at controladores.MarcacionControlador.buscarXFechaXHoraTotal(MarcacionControlador.java:245)
+	at vistas.VistaMarcaciones.listar(VistaMarcaciones.java:653)
+	at vistas.VistaMarcaciones.buscar(VistaMarcaciones.java:619)
+	at vistas.VistaMarcaciones.btnBuscarActionPerformed(VistaMarcaciones.java:415)
+	at vistas.VistaMarcaciones.access$100(VistaMarcaciones.java:44)
+	at vistas.VistaMarcaciones$2.actionPerformed(VistaMarcaciones.java:140)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-05-25 13:54:50.092	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:112: unexpected token: m
+2015-05-25 13:54:50.092	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:112: unexpected token: m
+line 1:112: unexpected token: m
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.concatenation(HqlBaseParser.java:668)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.relationalExpression(HqlBaseParser.java:2721)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.equalityExpression(HqlBaseParser.java:2582)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.negatedExpression(HqlBaseParser.java:2546)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalAndExpression(HqlBaseParser.java:2472)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalOrExpression(HqlBaseParser.java:2427)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.expression(HqlBaseParser.java:2137)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalExpression(HqlBaseParser.java:1913)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.whereClause(HqlBaseParser.java:474)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:729)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.buscar(DAO.java:150)
+	at dao.DAO.buscar(DAO.java:142)
+	at controladores.MarcacionControlador.buscarXFechaXHoraTotal(MarcacionControlador.java:245)
+	at vistas.VistaMarcaciones.listar(VistaMarcaciones.java:653)
+	at vistas.VistaMarcaciones.buscar(VistaMarcaciones.java:619)
+	at vistas.VistaMarcaciones.btnBuscarActionPerformed(VistaMarcaciones.java:415)
+	at vistas.VistaMarcaciones.access$100(VistaMarcaciones.java:44)
+	at vistas.VistaMarcaciones$2.actionPerformed(VistaMarcaciones.java:140)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-05-25 13:54:50.099	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: BEETWEN near line 1, column 74 [SELECT m FROM entidades.Marcacion m WHERE m.empleado IN :dni AND m.fecha BEETWEN :fechaInicio AND :fechaFinAND m.hora BETWEEN :horaI AND :horaF ORDER BY m.hora ASC] org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: BEETWEN near line 1, column 74 [SELECT m FROM entidades.Marcacion m WHERE m.empleado IN :dni AND m.fecha BEETWEN :fechaInicio AND :fechaFinAND m.hora BETWEEN :horaI AND :horaF ORDER BY m.hora ASC]
+2015-05-25 14:27:03.635	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:112: unexpected token: m
+2015-05-25 14:27:03.635	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:112: unexpected token: m
+line 1:112: unexpected token: m
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.concatenation(HqlBaseParser.java:668)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.betweenList(HqlBaseParser.java:3038)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.relationalExpression(HqlBaseParser.java:2872)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.equalityExpression(HqlBaseParser.java:2582)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.negatedExpression(HqlBaseParser.java:2546)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalAndExpression(HqlBaseParser.java:2472)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalOrExpression(HqlBaseParser.java:2427)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.expression(HqlBaseParser.java:2137)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalExpression(HqlBaseParser.java:1913)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.whereClause(HqlBaseParser.java:474)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:729)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.buscar(DAO.java:150)
+	at dao.DAO.buscar(DAO.java:142)
+	at controladores.MarcacionControlador.buscarXFechaXHoraTotal(MarcacionControlador.java:245)
+	at vistas.VistaMarcaciones.listar(VistaMarcaciones.java:653)
+	at vistas.VistaMarcaciones.buscar(VistaMarcaciones.java:619)
+	at vistas.VistaMarcaciones.btnBuscarActionPerformed(VistaMarcaciones.java:415)
+	at vistas.VistaMarcaciones.access$100(VistaMarcaciones.java:44)
+	at vistas.VistaMarcaciones$2.actionPerformed(VistaMarcaciones.java:140)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-05-25 14:27:03.645	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:119: unexpected token: BETWEEN
+2015-05-25 14:27:03.645	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:119: unexpected token: BETWEEN
+line 1:119: unexpected token: BETWEEN
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:764)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.buscar(DAO.java:150)
+	at dao.DAO.buscar(DAO.java:142)
+	at controladores.MarcacionControlador.buscarXFechaXHoraTotal(MarcacionControlador.java:245)
+	at vistas.VistaMarcaciones.listar(VistaMarcaciones.java:653)
+	at vistas.VistaMarcaciones.buscar(VistaMarcaciones.java:619)
+	at vistas.VistaMarcaciones.btnBuscarActionPerformed(VistaMarcaciones.java:415)
+	at vistas.VistaMarcaciones.access$100(VistaMarcaciones.java:44)
+	at vistas.VistaMarcaciones$2.actionPerformed(VistaMarcaciones.java:140)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-05-25 14:27:03.645	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: m near line 1, column 112 [SELECT m FROM entidades.Marcacion m WHERE m.empleado IN :dni AND m.fecha BETWEEN :fechaInicio AND :fechaFinAND m.hora BETWEEN :horaI AND :horaF ORDER BY m.hora ASC] org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: m near line 1, column 112 [SELECT m FROM entidades.Marcacion m WHERE m.empleado IN :dni AND m.fecha BETWEEN :fechaInicio AND :fechaFinAND m.hora BETWEEN :horaI AND :horaF ORDER BY m.hora ASC]
+2015-05-29 00:02:28.944	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-05-29 00:02:28.960	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-05-29 00:09:14.064	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-05-29 00:09:14.069	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-01 02:57:24.109	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: attempt to create create event with null entity attempt to create create event with null entity
+2015-06-01 02:57:24.196	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.197	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.197	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.198	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.198	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.199	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.199	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.199	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.200	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.200	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.201	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.201	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.202	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.202	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.203	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.205	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.205	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 02:57:24.205	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.611	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: attempt to create create event with null entity attempt to create create event with null entity
+2015-06-01 03:02:54.617	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.617	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.618	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.618	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.619	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.619	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.619	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.620	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.620	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.621	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.621	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.622	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.622	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.623	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.623	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.626	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.627	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:02:54.627	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.796	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: attempt to create create event with null entity attempt to create create event with null entity
+2015-06-01 03:17:37.799	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.799	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.800	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.800	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.800	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.800	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.801	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.801	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.801	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.801	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.802	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.802	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.802	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.802	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.803	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.804	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.804	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:17:37.804	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.131	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: attempt to create create event with null entity attempt to create create event with null entity
+2015-06-01 03:21:33.134	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.135	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.135	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.135	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.135	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.136	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.136	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.136	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.136	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.137	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.137	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.137	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.137	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.137	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.138	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.139	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.139	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:21:33.139	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.761	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: attempt to create create event with null entity attempt to create create event with null entity
+2015-06-01 03:26:22.768	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.768	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.768	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.768	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.769	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.769	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.769	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.769	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.770	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.770	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.770	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.770	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.771	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.771	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.771	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.773	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.773	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-01 03:26:22.773	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-02 12:44:26.287	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.Permiso.diferencia org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.Permiso.diferencia
+2015-06-02 14:11:25.307	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.AsignacionPermiso.permiso org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.AsignacionPermiso.permiso
+2015-06-02 14:14:17.997	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.AsignacionPermiso.permiso org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.AsignacionPermiso.permiso
+2015-06-03 10:27:28.602	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-06-03 10:27:28.616	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-03 17:03:11.109	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-06-03 17:03:11.123	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-03 17:39:06.581	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-06-03 17:39:06.585	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-04 11:00:15.209	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near 'asistencia'.
+2015-06-05 11:36:57.794	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.Vacacion.periodo org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.Vacacion.periodo
+2015-06-05 11:36:57.805	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.805	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.805	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.805	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.806	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.806	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.806	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.806	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.807	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.807	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.807	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.807	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.808	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.808	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.808	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.809	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.809	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.810	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.810	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.810	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.810	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.810	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.811	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.811	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.811	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.811	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.812	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.812	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.812	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.812	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.812	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.813	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.813	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.813	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.813	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.813	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.814	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.814	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.814	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.814	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.814	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.815	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.815	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.815	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.815	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.815	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.816	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.816	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.816	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.816	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.816	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.817	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.817	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.817	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.817	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.817	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.820	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.820	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.820	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.820	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.821	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.821	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.821	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.821	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.821	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.822	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.822	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.822	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.822	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.823	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.825	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.826	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.827	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.830	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.834	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.836	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.836	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.837	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.837	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.837	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.838	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.838	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.838	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.838	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.839	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.839	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.839	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.840	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.840	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.840	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.841	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.841	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.841	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.842	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.842	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.842	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.843	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.843	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.843	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.843	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.844	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.844	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.845	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.845	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.849	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.853	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.856	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.857	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.857	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.857	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.857	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.859	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.862	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.865	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.868	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.870	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.873	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.873	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.873	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.873	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.873	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.874	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.874	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.875	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.878	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.880	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.883	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.886	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.888	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.891	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.894	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.897	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.902	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.907	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.912	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.915	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.916	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.917	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.918	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.918	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.919	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.919	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.920	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.920	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.920	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.921	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.921	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.921	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.922	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.922	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.922	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.923	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.923	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.923	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.924	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.924	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.924	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.925	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.925	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.925	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.925	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.926	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.926	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.926	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.927	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.927	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.927	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.928	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.928	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.928	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.928	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.929	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.929	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.929	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.930	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.930	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.930	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.931	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.931	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.932	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.932	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.932	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.933	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.933	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.934	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.934	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.934	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.935	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.935	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.936	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.936	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.936	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.937	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.937	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.937	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.938	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.938	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.939	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.939	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.940	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.941	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.941	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.942	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.942	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.942	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.942	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.943	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.943	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.943	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.943	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.944	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.944	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.944	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.945	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.945	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.945	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.946	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.946	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.946	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.947	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.947	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.947	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.947	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.948	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.948	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.948	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.949	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.949	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.949	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.949	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.950	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.950	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.951	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.952	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.952	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.953	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.954	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.954	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.955	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.955	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.955	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.956	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.956	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.956	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.957	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.957	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.957	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.958	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.958	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.958	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.959	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.959	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.959	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.960	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.960	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.960	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.961	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.961	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.961	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.962	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.962	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.962	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.963	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.963	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.963	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.964	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.964	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.964	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.965	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.965	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.965	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.966	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.966	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.966	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.967	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.967	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.968	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.968	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.968	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.968	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.969	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.969	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.969	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.970	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.970	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.970	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.971	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.971	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.971	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.972	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.972	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.972	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.973	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.973	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.973	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.974	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.974	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.974	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.975	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.975	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.975	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.976	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.976	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.976	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.977	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.977	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.978	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.978	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.979	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.979	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.980	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.980	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.981	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.981	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.981	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.982	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.982	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.982	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.982	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.983	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.983	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.983	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.984	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.984	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.984	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.984	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.987	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.988	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.988	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.988	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.989	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.989	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.989	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.990	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.990	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.990	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.991	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.991	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.991	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.992	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.992	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.992	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.993	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.993	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.993	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.994	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.994	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.994	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.995	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-05 11:36:57.995	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: Transaction already active Transaction already active
+2015-06-07 19:08:51.461	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-06-07 19:08:51.483	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-07 19:13:15.839	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-07 19:13:15.844	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-07 19:23:19.945	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: No data type for node: org.hibernate.hql.internal.ast.tree.IdentNode 
+ \-[IDENT] IdentNode: 'e' {originalText=e}
+ No data type for node: org.hibernate.hql.internal.ast.tree.IdentNode 
+ \-[IDENT] IdentNode: 'e' {originalText=e}
+
+2015-06-07 19:27:29.974	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: No data type for node: org.hibernate.hql.internal.ast.tree.IdentNode 
+ \-[IDENT] IdentNode: 'e' {originalText=e}
+ No data type for node: org.hibernate.hql.internal.ast.tree.IdentNode 
+ \-[IDENT] IdentNode: 'e' {originalText=e}
+
+2015-06-07 19:30:20.583	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-07 19:30:20.588	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-07 20:13:11.485	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-06-07 20:13:11.489	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-07 20:22:45.618	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:36: unexpected token: LIMIT
+2015-06-07 20:22:45.624	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:36: unexpected token: LIMIT
+line 1:36: unexpected token: LIMIT
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromClassOrOuterQueryPath(HqlBaseParser.java:1993)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromRange(HqlBaseParser.java:1515)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromClause(HqlBaseParser.java:1359)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectFrom(HqlBaseParser.java:1077)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:723)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.buscar(DAO.java:150)
+	at dao.DAO.buscar(DAO.java:138)
+	at controladores.EmpleadoControlador.buscarTodosX(EmpleadoControlador.java:111)
+	at vistas.reportes.RptVacacionesEx.obtenerDNI(RptVacacionesEx.java:308)
+	at vistas.reportes.RptVacacionesEx.imprimir(RptVacacionesEx.java:255)
+	at vistas.reportes.RptVacacionesEx.jButton2ActionPerformed(RptVacacionesEx.java:240)
+	at vistas.reportes.RptVacacionesEx.access$300(RptVacacionesEx.java:35)
+	at vistas.reportes.RptVacacionesEx$4.actionPerformed(RptVacacionesEx.java:189)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-06-07 20:22:45.663	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: LIMIT near line 1, column 36 [SELECT e FROM entidades.Empleado e LIMIT 2100] org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: LIMIT near line 1, column 36 [SELECT e FROM entidades.Empleado e LIMIT 2100]
+2015-06-07 20:26:34.061	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:8: unexpected token: TOP
+2015-06-07 20:26:34.064	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:8: unexpected token: TOP
+line 1:8: unexpected token: TOP
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.identPrimaryBase(HqlBaseParser.java:4648)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.identPrimary(HqlBaseParser.java:4146)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.primaryExpression(HqlBaseParser.java:882)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.atom(HqlBaseParser.java:3604)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.unaryExpression(HqlBaseParser.java:3376)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.multiplyExpression(HqlBaseParser.java:3248)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.additiveExpression(HqlBaseParser.java:2954)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.concatenation(HqlBaseParser.java:590)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.relationalExpression(HqlBaseParser.java:2721)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.equalityExpression(HqlBaseParser.java:2582)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.negatedExpression(HqlBaseParser.java:2546)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalAndExpression(HqlBaseParser.java:2462)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalOrExpression(HqlBaseParser.java:2427)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.expression(HqlBaseParser.java:2137)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.aliasedExpression(HqlBaseParser.java:2380)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectedPropertiesList(HqlBaseParser.java:1406)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectClause(HqlBaseParser.java:1316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectFrom(HqlBaseParser.java:1053)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:723)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.buscar(DAO.java:150)
+	at dao.DAO.buscar(DAO.java:138)
+	at controladores.EmpleadoControlador.buscarTodosX(EmpleadoControlador.java:111)
+	at vistas.reportes.RptVacacionesEx.obtenerDNI(RptVacacionesEx.java:308)
+	at vistas.reportes.RptVacacionesEx.imprimir(RptVacacionesEx.java:255)
+	at vistas.reportes.RptVacacionesEx.jButton2ActionPerformed(RptVacacionesEx.java:240)
+	at vistas.reportes.RptVacacionesEx.access$300(RptVacacionesEx.java:35)
+	at vistas.reportes.RptVacacionesEx$4.actionPerformed(RptVacacionesEx.java:189)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-06-07 20:26:34.120	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: TOP near line 1, column 8 [SELECT TOP 2100 e FROM entidades.Empleado e ] org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: TOP near line 1, column 8 [SELECT TOP 2100 e FROM entidades.Empleado e ]
+2015-06-07 20:29:00.726	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-06-07 20:29:00.733	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-07 22:04:10.808	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-07 22:05:05.475	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-07 22:05:56.803	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-07 22:31:47.538	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-07 22:31:47.751	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-09 17:02:08.796	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter with that name [id] did not exist Parameter with that name [id] did not exist
+2015-06-09 17:04:52.904	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [00000001] did not match expected type [java.lang.Integer (n/a)] Parameter value [00000001] did not match expected type [java.lang.Integer (n/a)]
+2015-06-09 17:06:59.394	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-06-09 17:17:05.629	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [00000001] did not match expected type [java.lang.Integer (n/a)] Parameter value [00000001] did not match expected type [java.lang.Integer (n/a)]
+2015-06-09 17:24:11.396	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [00000001] did not match expected type [java.lang.Integer (n/a)] Parameter value [00000001] did not match expected type [java.lang.Integer (n/a)]
+2015-06-09 18:00:47.332	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [00000001] did not match expected type [java.lang.Integer (n/a)] Parameter value [00000001] did not match expected type [java.lang.Integer (n/a)]
+2015-06-15 14:24:31.512	ERROR	[main]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: No data type for node: org.hibernate.hql.internal.ast.tree.IdentNode 
+ \-[IDENT] IdentNode: 'e' {originalText=e}
+ No data type for node: org.hibernate.hql.internal.ast.tree.IdentNode 
+ \-[IDENT] IdentNode: 'e' {originalText=e}
+
+2015-06-15 14:27:38.678	ERROR	[main]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: No data type for node: org.hibernate.hql.internal.ast.tree.IdentNode 
+ \-[IDENT] IdentNode: 'e' {originalText=e}
+ No data type for node: org.hibernate.hql.internal.ast.tree.IdentNode 
+ \-[IDENT] IdentNode: 'e' {originalText=e}
+
+2015-06-15 15:43:18.141	ERROR	[main]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [00000001] did not match expected type [java.lang.Integer (n/a)] Parameter value [00000001] did not match expected type [java.lang.Integer (n/a)]
+2015-06-15 15:45:01.400	ERROR	[main]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid column name 'nUserID'.
+2015-06-15 15:45:01.404	ERROR	[main]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-16 15:16:48.789	ERROR	[AWT-EventQueue-0]	CLASE: ReporteUtil	 METODO: obtenerReporte	LINEA:188	MSJE:
+net.sf.jasperreports.engine.JRException: java.io.FileNotFoundException: 
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:114)
+	at net.sf.jasperreports.engine.util.JRLoader.loadObject(JRLoader.java:103)
+	at com.personal.utiles.ReporteUtil.obtenerReporte(ReporteUtil.java:173)
+	at vistas.reportes.RptAsistenciaTotal.imprimir(RptAsistenciaTotal.java:550)
+	at vistas.reportes.RptAsistenciaTotal.jButton2ActionPerformed(RptAsistenciaTotal.java:327)
+	at vistas.reportes.RptAsistenciaTotal.access$900(RptAsistenciaTotal.java:57)
+	at vistas.reportes.RptAsistenciaTotal$10.actionPerformed(RptAsistenciaTotal.java:299)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+Caused by: java.io.FileNotFoundException: 
+	... 43 more
+2015-06-16 17:58:54.967	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-06-16 17:58:54.991	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-17 10:36:38.419	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.QueryException: Not all named parameters have been set: [hora, fecha, dni] [SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND a.permiso.opcion = 'H' AND :fecha BETWEEN a.permiso.fechaInicio AND a.permiso.fechaFin AND :hora BETWEEN a.permiso.horaInicio AND a.permiso.horaFin] org.hibernate.QueryException: Not all named parameters have been set: [hora, fecha, dni] [SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND a.permiso.opcion = 'H' AND :fecha BETWEEN a.permiso.fechaInicio AND a.permiso.fechaFin AND :hora BETWEEN a.permiso.horaInicio AND a.permiso.horaFin]
+2015-06-18 15:50:54.162	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.AsignacionHorario.fechaFin org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.AsignacionHorario.fechaFin
+2015-06-18 15:57:14.679	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.DetalleGrupoHorario.fechaFin org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.DetalleGrupoHorario.fechaFin
+2015-06-18 16:16:20.290	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Transaction already active Transaction already active
+2015-06-22 15:44:36.605	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:45: unexpected token: WHEREa
+2015-06-22 15:44:36.634	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:45: unexpected token: WHEREa
+line 1:45: unexpected token: WHEREa
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromClassOrOuterQueryPath(HqlBaseParser.java:1993)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromRange(HqlBaseParser.java:1515)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromClause(HqlBaseParser.java:1359)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectFrom(HqlBaseParser.java:1077)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:723)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.buscar(DAO.java:150)
+	at dao.DAO.buscar(DAO.java:142)
+	at controladores.AsignacionHorarioControlador.buscarXEmpleadoXFechaFinNull(AsignacionHorarioControlador.java:81)
+	at vistas.FrmAsignacionHorario_1.erroresFormulario(FrmAsignacionHorario_1.java:640)
+	at vistas.FrmAsignacionHorario_1.btnGuardarActionPerformed(FrmAsignacionHorario_1.java:390)
+	at vistas.FrmAsignacionHorario_1.access$1100(FrmAsignacionHorario_1.java:40)
+	at vistas.FrmAsignacionHorario_1$12.actionPerformed(FrmAsignacionHorario_1.java:318)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-06-22 15:44:36.662	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: WHEREa near line 1, column 45 [SELECT a FROM entidades.AsignacionHorario a WHEREa.empleado = :dni  AND :fecha > a.fechaInicio AND a.fechaFin IS NULLORDER BY a.fechaInicio DESC] org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: WHEREa near line 1, column 45 [SELECT a FROM entidades.AsignacionHorario a WHEREa.empleado = :dni  AND :fecha > a.fechaInicio AND a.fechaFin IS NULLORDER BY a.fechaInicio DESC]
+2015-06-22 15:45:50.481	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:45: unexpected token: WHEREa
+2015-06-22 15:45:50.484	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:45: unexpected token: WHEREa
+line 1:45: unexpected token: WHEREa
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromClassOrOuterQueryPath(HqlBaseParser.java:1993)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromRange(HqlBaseParser.java:1515)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.fromClause(HqlBaseParser.java:1359)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectFrom(HqlBaseParser.java:1077)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:723)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.buscar(DAO.java:150)
+	at dao.DAO.buscar(DAO.java:142)
+	at controladores.AsignacionHorarioControlador.buscarXEmpleadoXFechaFinNull(AsignacionHorarioControlador.java:81)
+	at vistas.FrmAsignacionHorario_1.erroresFormulario(FrmAsignacionHorario_1.java:640)
+	at vistas.FrmAsignacionHorario_1.btnGuardarActionPerformed(FrmAsignacionHorario_1.java:390)
+	at vistas.FrmAsignacionHorario_1.access$1100(FrmAsignacionHorario_1.java:40)
+	at vistas.FrmAsignacionHorario_1$12.actionPerformed(FrmAsignacionHorario_1.java:318)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-06-22 15:45:50.489	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: WHEREa near line 1, column 45 [SELECT a FROM entidades.AsignacionHorario a WHEREa.empleado = :dni  AND :fecha > a.fechaInicio AND a.fechaFin IS NULLORDER BY a.fechaInicio DESC] org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: WHEREa near line 1, column 45 [SELECT a FROM entidades.AsignacionHorario a WHEREa.empleado = :dni  AND :fecha > a.fechaInicio AND a.fechaFin IS NULLORDER BY a.fechaInicio DESC]
+2015-06-22 15:47:06.658	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:115: unexpected token: NULLORDER
+2015-06-22 15:47:06.661	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:115: unexpected token: NULLORDER
+line 1:115: unexpected token: NULLORDER
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.atom(HqlBaseParser.java:3716)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.unaryExpression(HqlBaseParser.java:3376)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.multiplyExpression(HqlBaseParser.java:3248)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.additiveExpression(HqlBaseParser.java:2954)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.concatenation(HqlBaseParser.java:590)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.relationalExpression(HqlBaseParser.java:2721)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.equalityExpression(HqlBaseParser.java:2677)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.negatedExpression(HqlBaseParser.java:2546)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalAndExpression(HqlBaseParser.java:2472)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalOrExpression(HqlBaseParser.java:2427)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.expression(HqlBaseParser.java:2137)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalExpression(HqlBaseParser.java:1913)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.whereClause(HqlBaseParser.java:474)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:729)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.buscar(DAO.java:150)
+	at dao.DAO.buscar(DAO.java:142)
+	at controladores.AsignacionHorarioControlador.buscarXEmpleadoXFechaFinNull(AsignacionHorarioControlador.java:81)
+	at vistas.FrmAsignacionHorario_1.erroresFormulario(FrmAsignacionHorario_1.java:640)
+	at vistas.FrmAsignacionHorario_1.btnGuardarActionPerformed(FrmAsignacionHorario_1.java:390)
+	at vistas.FrmAsignacionHorario_1.access$1100(FrmAsignacionHorario_1.java:40)
+	at vistas.FrmAsignacionHorario_1$12.actionPerformed(FrmAsignacionHorario_1.java:318)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-06-22 15:47:06.706	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:142: unexpected token: DESC
+2015-06-22 15:47:06.707	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:142: unexpected token: DESC
+line 1:142: unexpected token: DESC
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:764)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.buscar(DAO.java:150)
+	at dao.DAO.buscar(DAO.java:142)
+	at controladores.AsignacionHorarioControlador.buscarXEmpleadoXFechaFinNull(AsignacionHorarioControlador.java:81)
+	at vistas.FrmAsignacionHorario_1.erroresFormulario(FrmAsignacionHorario_1.java:640)
+	at vistas.FrmAsignacionHorario_1.btnGuardarActionPerformed(FrmAsignacionHorario_1.java:390)
+	at vistas.FrmAsignacionHorario_1.access$1100(FrmAsignacionHorario_1.java:40)
+	at vistas.FrmAsignacionHorario_1$12.actionPerformed(FrmAsignacionHorario_1.java:318)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3320)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:735)
+	at java.awt.EventQueue.access$200(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:694)
+	at java.awt.EventQueue$3.run(EventQueue.java:692)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:708)
+	at java.awt.EventQueue$4.run(EventQueue.java:706)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:705)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-06-22 15:47:06.708	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: NULLORDER near line 1, column 115 [SELECT a FROM entidades.AsignacionHorario a WHERE a.empleado = :dni  AND :fecha > a.fechaInicio AND a.fechaFin IS NULLORDER BY a.fechaInicio DESC] org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: NULLORDER near line 1, column 115 [SELECT a FROM entidades.AsignacionHorario a WHERE a.empleado = :dni  AND :fecha > a.fechaInicio AND a.fechaFin IS NULLORDER BY a.fechaInicio DESC]
+2015-06-22 23:50:07.074	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.DetalleGrupoHorario.fechaInicio org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.DetalleGrupoHorario.fechaInicio

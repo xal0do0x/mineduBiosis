@@ -1277,41 +1277,59 @@ public class AsignarPermiso extends javax.swing.JInternalFrame {
                 mensaje = ">La fecha de inicio debe ser menor que la fecha de fin\n";
             }
             //Traemos los dnis de los empleados
-            Permiso paraComprobar = this.controlador.getSeleccionado();
-            //List<String> dnis = new ArrayList<>();
-            for (AsignacionPermiso asignacion : paraComprobar.getAsignacionPermisoList()) {
-                //dnis.add(asignacion.getEmpleado());
-                System.out.println(asignacion.getEmpleado());
-                List<AsignacionPermiso> lista = ac.buscarXFechaDni(asignacion.getEmpleado(), fechaInicio);
-                if(lista.isEmpty()){
-                    
-                }else{
-                   errores++;
-                   mensaje = "El empleado "+asignacion.getEmpleado()+" tiene conflicto con un permiso añadido anteriormente \n Ingrese otro rango de fechas \n";
-                   break;
+            if(accion==1){
+                Permiso paraComprobar = this.controlador.getSeleccionado();
+                //List<String> dnis = new ArrayList<>();
+                for (AsignacionPermiso asignacion : paraComprobar.getAsignacionPermisoList()) {
+                    //dnis.add(asignacion.getEmpleado());
+                    System.out.println(asignacion.getEmpleado());
+                    List<AsignacionPermiso> lista = ac.buscarXFechaDni(asignacion.getEmpleado(), fechaInicio);
+                    System.out.println("Fecha y hora: "+fechaInicio.toString());
+                    if(lista.isEmpty()){
+                        
+                    }else{
+                       errores++;
+                       mensaje = "El empleado "+asignacion.getEmpleado()+" tiene conflicto con un permiso añadido anteriormente \n Ingrese otro rango de fechas \n";
+                       break;
+                    }
                 }
             }
             //Traemos los permisos por dni
         }
-        if(radHora.isSelected()){
+        if(radHora.isSelected()){ 
             Date horaInicio = (Date) spHoraInicio.getValue();
             Date horaFin = (Date) spHoraFin.getValue();
+//            
+//            Calendar fechaConHora = Calendar.getInstance();
+//            fechaConHora.setTime(fechaInicio);
+//            
+//            Calendar hora = Calendar.getInstance();
+//            hora.setTime(horaInicio);
+// 
+//            fechaConHora.set(Calendar.HOUR_OF_DAY, hora.get(Calendar.HOUR_OF_DAY));
+//            fechaConHora.set(Calendar.MINUTE, hora.get(Calendar.MINUTE));
+//            fechaConHora.set(Calendar.SECOND, hora.get(Calendar.SECOND));
+//      
+//            Date fechaValidada = fechaConHora.getTime();
             if(horaInicio.compareTo(horaFin) > 0){
                 errores++;
                 mensaje = ">La hora de inicio debe ser menor que la hora de fin \n";
             }
-            Permiso paraComprobar = this.controlador.getSeleccionado();
-            for(AsignacionPermiso asignacion : paraComprobar.getAsignacionPermisoList()){
-                List<AsignacionPermiso> lista = ac.buscarXHora(asignacion.getEmpleado(), horaInicio);
-                if(lista.isEmpty()){
-                
-                }else{
-                    errores++;
-                    mensaje = "El empleado "+asignacion.getEmpleado()+" tiene conflicto con un permiso añadido anteriormente \n Ingrese otro rango de horas\n";
-                    break;
+            if(accion==1){
+                Permiso paraComprobar = this.controlador.getSeleccionado();
+                for(AsignacionPermiso asignacion : paraComprobar.getAsignacionPermisoList()){
+                    List<AsignacionPermiso> lista = ac.buscarXHora(asignacion.getEmpleado(), horaInicio, fechaInicio);
+                    if(lista.isEmpty()){
+                        
+                    }else{
+                        errores++;
+                        mensaje = "El empleado "+asignacion.getEmpleado()+" tiene conflicto con un permiso añadido anteriormente \n Ingrese otro rango de horas\n";
+                        break;
+                    }
                 }
             }
         }
+        System.out.println("Nombre: "+this.controlador.getSeleccionado().getMotivo() );
         if (errores > 0) {
             JOptionPane.showMessageDialog(this, "Se ha(n) encontrado el(los) siguiente(s) error(es):\n" + mensaje, "Mensaje del sistema", JOptionPane.ERROR_MESSAGE);
         }

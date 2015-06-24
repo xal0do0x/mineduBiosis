@@ -32,4 +32,15 @@ public class DepartamentoControlador extends Controlador<Departamento> {
         return this.getDao().buscar(jpql, param);
     }
 
+    public Departamento buscarXDni(String dni){
+        String jpql="SELECT d FROM Departamento d, EmpleadoBiostar e WHERE e.id = :dni AND e.departamento = d.id";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dni", dni);
+        List<Departamento> departamentos = this.getDao().buscar(jpql, mapa, -1, 1);
+        if (departamentos.isEmpty()) {
+            return null;
+        } else {
+            return departamentos.get(0);
+        }
+    }
 }

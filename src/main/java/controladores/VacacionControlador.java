@@ -34,6 +34,13 @@ public class VacacionControlador extends Controlador<Vacacion> {
         return this.getDao().buscar(jpql, mapa, desde, tamanio);
     }
 
+    public List<Vacacion> buscarXEmpleadoXFechaXDni(String dni,Date fechaInicio){
+        String jpql = "SELECT v FROM Vacacion v WHERE v.empleado = :dni AND :fechaInicio BETWEEN v.fechaInicio AND v.fechaFin";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dni",dni);
+        mapa.put("fechaInicio",fechaInicio);
+        return this.getDao().buscar(jpql, mapa);
+    }
     public List<Vacacion> buscarXFecha(Date fechaInicio, Date fechaFin, int desde, int tamanio) {
         String jpql = "SELECT v FROM Vacacion v"
                 + " WHERE v.fechaInicio BETWEEN :fechaInicio AND :fechaFin"

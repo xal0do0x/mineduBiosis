@@ -58,4 +58,12 @@ public class DetalleGrupoControlador extends Controlador<DetalleGrupoHorario>{
         
         return this.getDao().buscar(jpql, mapa);
     }
+
+    public List<DetalleGrupoHorario> buscarDetallesXBorrar(Empleado empleado){
+            String jpql = "SELECT a FROM DetalleGrupoHorario a WHERE "
+                + "a.empleado = :empleado";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("empleado", empleado.getNroDocumento());
+        return this.getDao().buscar(jpql, mapa);
+    }
 }

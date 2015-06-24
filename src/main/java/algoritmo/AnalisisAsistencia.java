@@ -90,14 +90,18 @@ public class AnalisisAsistencia {
             partida = new TCAnalisis();
             TCSistema sistema = tcsc.buscarPorId("BIOSIS");
             Date contrato = empleado.getFechaInicioContrato();
+            System.out.println("Fecha de contrato: "+empleado.getFechaInicioContrato().toString());
             Date fechaCero = sistema.getFechaCero();
 
             if (contrato.compareTo(fechaCero) < 0) {
+                System.out.println("Comparacion: "+contrato.compareTo(fechaCero));
                 partida.setFecha(fechaCero);
                 partida.setHora(sistema.getHoraCero());
+                System.out.println("Hora del sistema: "+sistema.getHoraCero());
             } else {
+                System.out.println("Comparacion: "+contrato.compareTo(fechaCero));
                 partida.setFecha(contrato);
-                partida.setHora(contrato);
+                partida.setHora(sistema.getHoraCero());
             }
         }
         return partida;
@@ -223,7 +227,7 @@ public class AnalisisAsistencia {
                     registro.setTipoAsistencia('P');
                 } else {
                     Vacacion vacacion = this.vc.buscarXDia(empleado.getNroDocumento(), fInicio);
-
+                    
                     if (vacacion != null) {
                         //SE GUARDA EL REGISTRO COMO VACACION
                         registro.setVacacion(vacacion);
@@ -592,17 +596,20 @@ public class AnalisisAsistencia {
         Long diferenciaPermiso = permiso.getHoraFin().getTime() - permiso.getHoraInicio().getTime();
 
         //VERIFICAMOS SI OCUPA O NO HORA DE ENTRADA U HORA DE SALIDA
-        if (permiso.getHoraInicio().equals(jornada.getTurnoHE())) {
+        if (permiso.getHoraInicio().compareTo(jornada.getTurnoHE())==0) {
             horaInicio = jornada.getTurnoHE();
-        } else {
+        }else if(permiso.getHoraInicio().compareTo(jornada.getTurnoHE())<0){
+            horaInicio = jornada.getTurnoHE();
+        }
+        else{
             //BUSCAMOS MARCACION
             cal.setTime(permiso.getHoraInicio());
             cal.add(Calendar.MINUTE, MIN_ANTES_INICIO_PERMISO);
-            Date limiteSuperiorHoraInicio = cal.getTime();
+          //  Date limiteSuperiorHoraInicio = cal.getTime();
 
-            Marcacion inicioPermiso = mc.buscarXFechaXhora(dni, permiso.getFechaInicio(), permiso.getHoraInicio(), limiteSuperiorHoraInicio);
+            //Marcacion inicioPermiso = mc.buscarXFechaXhora(dni, permiso.getFechaInicio(), permiso.getHoraInicio(), limiteSuperiorHoraInicio);
 
-            horaInicio = (inicioPermiso == null) ? null : inicioPermiso.getHora();
+            horaInicio = permiso.getHoraInicio();
         }
 
         BigDecimal tardanzaEntradaPermiso = null;

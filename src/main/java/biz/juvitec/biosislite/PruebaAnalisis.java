@@ -30,19 +30,19 @@ public class PruebaAnalisis {
         List<Departamento> depas = dc.buscarXNombre("CASA DE LA LITERATURA");
         for (Departamento dep : depas) {
             System.out.println("----- DEP: " + dep.getNombre() + " -----");
-            List<Integer> dnis = dnis(dep.getEmpleadoList());
-            List<Empleado> empleados = ec.buscarPorListaEnteros(dnis);
-            System.out.println("> EMPS: " + empleados.size());
+   //         List<Integer> dnis = dnis(dep.getEmpleadoList());
+     //       List<Empleado> empleados = ec.buscarPorListaEnteros(dnis);
+       //     System.out.println("> EMPS: " + empleados.size());
         }
         System.exit(0);
     }
 
-    static List<Integer> dnis(List<EmpleadoBiostar> empleados) {
-        List<Integer> dni = new ArrayList<>();
-        for (EmpleadoBiostar e : empleados) {
-            dni.add(e.getId());
-        }
-        return dni;
-    }
+//    static List<Integer> dnis(List<EmpleadoBiostar> empleados) {
+//        List<Integer> dni = new ArrayList<>();
+//        for (EmpleadoBiostar e : empleados) {
+//            dni.add(e.getId());
+//        }
+//        return dni;
+//    }
 
 }

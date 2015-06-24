@@ -16,6 +16,8 @@ import vistas.dialogos.DlgEmpleado;
 import vistas.modelos.MTEmpleado;
 import vistas.modelos.MTGrupoHorario;
 import com.personal.utiles.FormularioUtil;
+import controladores.AsignacionPermisoControlador;
+import controladores.DetalleGrupoControlador;
 import java.util.ArrayList;
 import java.util.List;
 import org.jdesktop.observablecollections.ObservableCollections;
@@ -33,7 +35,9 @@ public class CRUDGrupoHorario extends javax.swing.JInternalFrame {
     private List<GrupoHorario> listado;
     private List<Empleado> integrantes;
     private GrupoHorarioControlador controlador;
+    private GrupoHorarioControlador tcontrolador;
     private EmpleadoControlador ec;
+    private DetalleGrupoControlador dgh;
     private int accion;
 
     public CRUDGrupoHorario() {
@@ -369,6 +373,9 @@ public class CRUDGrupoHorario extends javax.swing.JInternalFrame {
         List<String> dnis = importar.obtenerDNI();
         List<Empleado> empleados = ec.buscarPorLista(dnis);
         for (Empleado e : empleados) {
+            //Metodo agregar para borrar asignaciones de grupo horario, presenta fallas cuando se hace dos veces click a un grupo horario
+            //pendiente a revisar
+            this.borrarEmpleado(e);
             this.agregarEmpleado(e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -440,7 +447,7 @@ public class CRUDGrupoHorario extends javax.swing.JInternalFrame {
 
     private void inicializar() {
         this.accion = 0;
-
+        dgh = new DetalleGrupoControlador();
         controlador = new GrupoHorarioControlador();
         ec = new EmpleadoControlador();
         this.controles(accion);
@@ -466,14 +473,27 @@ public class CRUDGrupoHorario extends javax.swing.JInternalFrame {
         return listadoDNI;
     }
 
+    public void borrarEmpleado(Empleado empleado){
+        List<DetalleGrupoHorario> listaDetalles;
+        listaDetalles = dgh.buscarXEmpleado(empleado);
+        if(!listaDetalles.isEmpty()){
+            for (DetalleGrupoHorario listaDetalle : listaDetalles) {
+                System.out.println("Dni: "+listaDetalle.getEmpleado()+" GRUPO HORARIO: "+listaDetalle.getGrupoHorario().getNombre());
+                dgh.setSeleccionado(listaDetalle);
+                if(dgh.accion(3)){
+                    System.out.println("Borrado exitoso");
+                }
+            }
+        }
+    }
     public void agregarEmpleado(Empleado empleado) {
         if (!integrantes.contains(empleado)) {
             integrantes.add(empleado);
-
+                      
             DetalleGrupoHorario detalle = new DetalleGrupoHorario();
             detalle.setEmpleado(empleado.getNroDocumento());
             detalle.setGrupoHorario(controlador.getSeleccionado());
-
+            
             controlador.getSeleccionado().getDetalleGrupoHorarioList().add(detalle);
         }
 

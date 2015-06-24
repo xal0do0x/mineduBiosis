@@ -19,6 +19,9 @@ public class EmpleadoBiostar implements Serializable {
     @Column(name="sUserID")
     @Id
     private Integer id;
+    @Column(name = "nUserIdn")
+    @Basic
+    private Integer identificador;
     @ManyToOne(targetEntity = Departamento.class)
     @JoinColumn(name="nDepartmentIdn",referencedColumnName="nDepartmentIdn")
     private Departamento departamento;
@@ -49,5 +52,9 @@ public class EmpleadoBiostar implements Serializable {
 
     public void setDepartamento(Departamento departamento) {
         this.departamento = departamento;
+    }
+    
+    public Integer getIdentificador(){
+        return this.identificador;
     }
 }

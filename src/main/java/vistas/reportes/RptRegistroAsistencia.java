@@ -202,6 +202,11 @@ public class RptRegistroAsistencia extends javax.swing.JInternalFrame {
         pnlRango.add(cboMes, gridBagConstraints);
 
         cboPeriodo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboPeriodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboPeriodoActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -442,6 +447,10 @@ public class RptRegistroAsistencia extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnQuitarActionPerformed
 
+    private void cboPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboPeriodoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboPeriodoActionPerformed
+
     private Departamento oficinaSeleccionada;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -569,8 +578,10 @@ public class RptRegistroAsistencia extends javax.swing.JInternalFrame {
 
         List<String> dnis = obtenerDNI();
         empleados = this.ec.buscarPorLista(dnis);
-
-        analisis.analizarEmpleados(empleados);
+        for(Empleado empleado : empleados){
+            System.out.println("Empleado a imprimir: "+empleado.getNombre()+" "+empleado.getApellidoPaterno()+" "+empleado.getApellidoMaterno());
+        }
+        
 
         String reporte = "";
 
@@ -609,6 +620,8 @@ public class RptRegistroAsistencia extends javax.swing.JInternalFrame {
             fechaFin = cal.getTime();
             rangoValor = periodoList.get(cboPeriodo.getSelectedIndex()).getAnio() + "";
         }
+        
+        analisis.analizarEmpleados(empleados);
 
         File archivo = new File(reporte);
         Map<String, Object> parametros = new HashMap<>();
@@ -621,7 +634,7 @@ public class RptRegistroAsistencia extends javax.swing.JInternalFrame {
         parametros.put("mostrar_he", chkHFH.isSelected());
         parametros.put("CONEXION_SUP", ec.getDao().getConexion());
         parametros.put("CONEXION_BIOSTAR", mc.getDao().getConexion());
-        
+
 
         reporteador.setConn(pc.getDao().getConexion());
         Component report = reporteador.obtenerReporte(archivo, parametros);
@@ -649,13 +662,18 @@ public class RptRegistroAsistencia extends javax.swing.JInternalFrame {
         } else if (radPersonalizado.isSelected()) {
             for (Empleado empleado : empleadoList) {
                 lista.add(empleado.getNroDocumento());
+                System.out.println("Empleado de Oficina: " + empleado.getNombre() + " " + empleado.getNroDocumento());
             }
         } else if (radOficina.isSelected()) {
             List<EmpleadoBiostar> empleadoBiostar = oficinaSeleccionada.getEmpleadoList();
+            for (EmpleadoBiostar empleadoBiostar1 : empleadoBiostar) {
+                System.out.println("Empleado de Oficina: " + empleadoBiostar1.getNombre() + " " + empleadoBiostar1.getId());
+            }
             List<Integer> dniInt = dniInteger(empleadoBiostar);
             List<Empleado> empleados = ec.buscarPorListaEnteros(dniInt);
             for (Empleado empleado : empleados) {
                 lista.add(empleado.getNroDocumento());
+                System.out.println("Empleado tomando en cuenta: "+empleado.getNroDocumento());
             }
         }
 

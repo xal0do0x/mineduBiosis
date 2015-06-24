@@ -141,7 +141,10 @@ public class DAO<T> {
     public List<T> buscar(String queryJPQL, Map<String, Object> parametros) {
         return this.buscar(queryJPQL, parametros, -1, -1);
     }
-
+    public void ejecutarConsulta(String queryJPQL){
+        Query query = getEntityManager().createQuery(queryJPQL);
+        query.executeUpdate();
+    }
     public List<T> buscar(String queryJPQL, Map<String, Object> parametros, int inicio, int tamanio) {
         try {
             Query query = getEntityManager().createQuery(queryJPQL);

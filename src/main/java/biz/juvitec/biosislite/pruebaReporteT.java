@@ -46,7 +46,7 @@ public class pruebaReporteT {
         map.put("titulo", "TARDANZAS EN EL DIA");
         map.put("usuario", "admin");
         
-        reporteador.generarReporte(beans, reporte, map, null);
+       //reporteador.generarReporte(beans, reporte, map, null);
         
         System.exit(0);
     }
