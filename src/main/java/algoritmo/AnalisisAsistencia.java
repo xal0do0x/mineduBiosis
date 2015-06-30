@@ -677,7 +677,7 @@ public class AnalisisAsistencia {
             LOG.info("HUBO UN ERROR");
         }
         
-        pc.getDao().getEntityManager();
+        //pc.getDao().getEntityManager();
         
         return onomastico;
     }

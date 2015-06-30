@@ -91,7 +91,21 @@ public class AsignacionPermisoControlador extends Controlador<AsignacionPermiso>
             return asignacion.get(0);
         }        
     }
-    
+   
+    public AsignacionPermiso buscarXDiaOnosmatico(String dni, Date dia){
+        String jpql = "SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND a.permiso.opcion = 'F' AND "
+                + ":dia BETWEEN a.permiso.fechaInicio AND a.permiso.fechaFin AND "
+                + "a.permiso.tipoPermiso.codigo = 'ONO'";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dia", dia);
+        mapa.put("dni", dni);
+        List<AsignacionPermiso> asignacion = this.getDao().buscar(jpql, mapa, -1, 1);
+        if(asignacion.isEmpty()){
+            return null;
+        }else{
+            return asignacion.get(0);
+        }        
+    }
     public AsignacionPermiso buscarOnlyHora(String dni, Date hora, Date fecha){
         String jpql = "SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND a.permiso.opcion = 'H' "
                 + "AND :fecha BETWEEN a.permiso.fechaInicio AND a.permiso.fechaFin AND :hora BETWEEN a.permiso.horaInicio AND a.permiso.horaFin";

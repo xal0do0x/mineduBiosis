@@ -22,6 +22,7 @@ import entidades.AsignacionPermiso;
 import entidades.Permiso;
 import java.awt.Component;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultListCellRenderer;
@@ -32,6 +33,7 @@ import org.jdesktop.beansbinding.BindingGroup;
 import org.jdesktop.observablecollections.ObservableCollections;
 import org.jdesktop.swingbinding.JComboBoxBinding;
 import org.jdesktop.swingbinding.SwingBindings;
+import vistas.dialogos.DlgImportarDNI;
 
 /**
  *
@@ -47,6 +49,7 @@ public class FrmAsignacionHorario_1 extends javax.swing.JInternalFrame {
     private HorarioControlador hc;
     private AsignacionHorarioControlador controlador;
     private Empleado empleadoSeleccionado;
+    private List<Empleado> empleadoList;
     private Horario horarioSeleccionado;
     private EmpleadoControlador ec;
     private GrupoHorarioControlador gc;
@@ -95,6 +98,7 @@ public class FrmAsignacionHorario_1 extends javax.swing.JInternalFrame {
         dcFechaInicio = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         dcFechaFin = new com.toedter.calendar.JDateChooser();
+        btnCargar = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -272,7 +276,7 @@ public class FrmAsignacionHorario_1 extends javax.swing.JInternalFrame {
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 8;
         jPanel4.add(btnVerGrupoHorario, gridBagConstraints);
 
         jLabel2.setText("Fecha de inicio:");
@@ -299,6 +303,17 @@ public class FrmAsignacionHorario_1 extends javax.swing.JInternalFrame {
         gridBagConstraints.gridy = 6;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanel4.add(dcFechaFin, gridBagConstraints);
+
+        btnCargar.setText("Cargar");
+        btnCargar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 4;
+        jPanel4.add(btnCargar, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -396,33 +411,85 @@ public class FrmAsignacionHorario_1 extends javax.swing.JInternalFrame {
             FormularioUtil.convertirMayusculas(this.pnlDatos);
 
             seleccionada.setHorario(horarioList.get(cboHorario.getSelectedIndex()));
+            boolean bandera = true;
             if (radGrupoHorario.isSelected()) {
                 seleccionada.setGrupoHorario(grupoList.get(cboGrupo.getSelectedIndex()));
-            } else {
-                seleccionada.setEmpleado(empleadoSeleccionado.getNroDocumento());
-                //Agregado para manejar las fechas en empleados.
-                AsignacionHorario asigPrevia = this.controlador.buscarXEmpleadoXFechaFinNull2(empleadoSeleccionado.getNroDocumento(), dcFechaInicio.getDate());
-                if(asigPrevia!=null){
-                    asigPrevia.setFechaFin(dcFechaInicio.getDate());
-                    this.controlador.setSeleccionado(asigPrevia);
-                    this.controlador.accion(2);
-                    this.controlador.setSeleccionado(seleccionada);
-                }
-                
-                seleccionada.setFechaInicio(dcFechaInicio.getDate());
-                seleccionada.setFechaFin(dcFechaFin.getDate());
+            } else if(radEmpleado.isSelected()){
+                if(empleadoList==null){
+                    seleccionada.setEmpleado(empleadoSeleccionado.getNroDocumento());
+                    //Agregado para manejar las fechas en empleados.
+                    AsignacionHorario asigPrevia = this.controlador.buscarXEmpleadoXFechaFinNull2(empleadoSeleccionado.getNroDocumento(), dcFechaInicio.getDate());
+                    if(asigPrevia!=null){
+                        Calendar fechaAsig = Calendar.getInstance();
+                        fechaAsig.setTime(dcFechaInicio.getDate());
+                        fechaAsig.add(Calendar.DATE, -1);
+                        asigPrevia.setFechaFin(fechaAsig.getTime());
+                        this.controlador.setSeleccionado(asigPrevia);
+                        this.controlador.accion(2);
+                        this.controlador.setSeleccionado(seleccionada);
+                    }
+                    seleccionada.setFechaInicio(dcFechaInicio.getDate());
+                    seleccionada.setFechaFin(dcFechaFin.getDate());               
+                }else{
+                    for(Empleado e : empleadoList){
+                        System.out.println("Dni ingresado: "+e.getNroDocumento()+" "+e.getNombre());
+//                        seleccionada.setEmpleado(e.getNroDocumento());
+//                        //Agregado para manejar las fechas en empleados.
+                        AsignacionHorario asigPrevia;
+                        if(this.controlador.buscarXEmpleadoXFechaFinNull2(e.getNroDocumento(), dcFechaInicio.getDate())!=null){
+                            asigPrevia = this.controlador.buscarXEmpleadoXFechaFinNull2(e.getNroDocumento(), dcFechaInicio.getDate());
+                        }else{
+                            asigPrevia = null;
+                        }
+//                        
+                        if(asigPrevia!=null){
+                            Calendar fechaAsig = Calendar.getInstance();
+                            fechaAsig.setTime(dcFechaInicio.getDate());
+                            fechaAsig.add(Calendar.DATE, -1);
+                            asigPrevia.setFechaFin(fechaAsig.getTime());
+                            this.controlador.setSeleccionado(asigPrevia);
+                            this.controlador.accion(2);
+                            this.controlador.setSeleccionado(seleccionada);
+                        }
+//                        seleccionada.setFechaInicio(dcFechaInicio.getDate());
+//                        seleccionada.setFechaFin(dcFechaFin.getDate());
+//                        this.controlador.accion(1);
+                        //===============================================================
+                        AsignacionHorario newAsigh = new AsignacionHorario();
+                        newAsigh.setEmpleado(e.getNroDocumento());
+                        newAsigh.setFechaInicio(dcFechaInicio.getDate());
+                        newAsigh.setFechaFin(dcFechaFin.getDate());
+                        newAsigh.setGrupoHorario(null);
+                        newAsigh.setHorario(horarioList.get(cboHorario.getSelectedIndex()));
+                        newAsigh.setPorGrupo(false);
+                        this.controlador.setSeleccionado(newAsigh);
+                        if(controlador.accion(1)){
+                            System.out.println("Guardado");
+                        }else{
+                            System.out.println("Falla al ingresar");
+                        }               
+                    }
+                    bandera = false;
+                }              
             }
 
             seleccionada.setPorGrupo(radGrupoHorario.isSelected());
-
-            if (controlador.accion(accion)) {
-                FormularioUtil.mensajeExito(this, accion);
+            if(bandera){
+                if (controlador.accion(accion)) {
+                    FormularioUtil.mensajeExito(this, accion);
+                    this.accion = 0;
+                    FormularioUtil.limpiarComponente(this.pnlDatos);
+                    this.controles(accion);
+                    this.actualizarTabla();
+                } else {
+                    FormularioUtil.mensajeError(this, accion);
+                }
+            }else{
+                System.out.println("Se ingreso personal por csv");
                 this.accion = 0;
-                FormularioUtil.limpiarComponente(this.pnlDatos);
-                this.controles(accion);
-                this.actualizarTabla();
-            } else {
-                FormularioUtil.mensajeError(this, accion);
+                    FormularioUtil.limpiarComponente(this.pnlDatos);
+                    this.controles(accion);
+                    this.actualizarTabla();
             }
 
         }
@@ -487,9 +554,18 @@ public class FrmAsignacionHorario_1 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmpleadoActionPerformed
 
+    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
+        // TODO add your handling code here:
+        DlgImportarDNI importar = new DlgImportarDNI(this);
+        List<String> dnis = importar.obtenerDNI();
+        empleadoList = ec.buscarPorLista(dnis);
+        
+    }//GEN-LAST:event_btnCargarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnCargar;
     private javax.swing.JButton btnEmpleado;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
@@ -598,6 +674,7 @@ public class FrmAsignacionHorario_1 extends javax.swing.JInternalFrame {
             FormularioUtil.activarComponente(cboGrupo, porGrupo);
             FormularioUtil.activarComponente(txtEmpleado, false);
             FormularioUtil.activarComponente(dcFechaInicio, radEmpleado.isSelected());
+            FormularioUtil.activarComponente(btnCargar, radEmpleado.isSelected());
             FormularioUtil.activarComponente(dcFechaFin,radEmpleado.isSelected());
         }
 
@@ -633,42 +710,42 @@ public class FrmAsignacionHorario_1 extends javax.swing.JInternalFrame {
         Date fechaInicio = dcFechaInicio.getDate();
 
         String mensaje = "";
-        if (radEmpleado.isSelected()) {
-            if(dcFechaFin.getDate()!=null){
-                Date fechaFin = dcFechaFin.getDate();
-                if (fechaInicio.compareTo(fechaFin) > 0) {
-                    errores++;
-                    mensaje = ">La fecha de inicio debe ser menor que la fecha de fin\n";
-                }
-            }
-            
-            //Traemos los dnis de los empleados
-            if(accion==1){
-                //AsignacionHorario paraComprobar = this.controlador.getSeleccionado();
-                System.out.println("Empleado escogido: "+empleadoSeleccionado.getNroDocumento() + " "+empleadoSeleccionado.getNombre());
-                //System.out.println("Fecha de inicio de horario: "+paraComprobar.getFechaInicio().toString());
-                //List<AsignacionPermiso> lista = ac.buscarXFechaDni(asignacion.getEmpleado(), fechaInicio);
-                //Caso 1: La asignacion se ingresa reemplazando a una asignacion con una fecha fin nula.
-                AsignacionHorario lista1 = controlador.buscarXEmpleadoXFechaFinNull(empleadoSeleccionado.getNroDocumento(), dcFechaInicio.getDate());
-                //Caso 2: Buscar si la asignacion esta entre alguna fecha inicio o fin
-                List<AsignacionHorario> lista2 = controlador.buscarXEmpleadosXFecha(empleadoSeleccionado.getNroDocumento(), dcFechaInicio.getDate());
-                System.out.println("Fecha y hora: "+fechaInicio.toString());
-                if(lista1==null){
-
-                }else{
-                   errores++;
-                   mensaje = "El empleado "+empleadoSeleccionado.getNroDocumento()+" tiene conflicto con un horario añadido anteriormente \n Ingrese otro rango de fechas \n";
-                }
-                if(lista2.isEmpty()){
-
-                }else{
-                   errores++;
-                   mensaje = "El empleado "+empleadoSeleccionado.getNroDocumento()+" tiene conflicto con un horario añadido anteriormente \n Ingrese otro rango de fechas \n";
-                }
-                
-            }
-            //Traemos los permisos por dni
-        }
+//        if (radEmpleado.isSelected()) {
+//            if(dcFechaFin.getDate()!=null){
+//                Date fechaFin = dcFechaFin.getDate();
+//                if (fechaInicio.compareTo(fechaFin) > 0) {
+//                    errores++;
+//                    mensaje = ">La fecha de inicio debe ser menor que la fecha de fin\n";
+//                }
+//            }
+//            
+//            //Traemos los dnis de los empleados
+//            if(accion==1){
+//                //AsignacionHorario paraComprobar = this.controlador.getSeleccionado();
+//                //System.out.println("Empleado escogido: "+empleadoSeleccionado.getNroDocumento() + " "+empleadoSeleccionado.getNombre());
+//                //System.out.println("Fecha de inicio de horario: "+paraComprobar.getFechaInicio().toString());
+//                //List<AsignacionPermiso> lista = ac.buscarXFechaDni(asignacion.getEmpleado(), fechaInicio);
+//                //Caso 1: La asignacion se ingresa reemplazando a una asignacion con una fecha fin nula.
+//                AsignacionHorario lista1 = controlador.buscarXEmpleadoXFechaFinNull(empleadoSeleccionado.getNroDocumento(), dcFechaInicio.getDate());
+//                //Caso 2: Buscar si la asignacion esta entre alguna fecha inicio o fin
+//                List<AsignacionHorario> lista2 = controlador.buscarXEmpleadosXFecha(empleadoSeleccionado.getNroDocumento(), dcFechaInicio.getDate());
+//                System.out.println("Fecha y hora: "+fechaInicio.toString());
+//                if(lista1==null){
+//
+//                }else{
+//                   errores++;
+//                   mensaje = "El empleado "+empleadoSeleccionado.getNroDocumento()+" tiene conflicto con un horario añadido anteriormente \n Ingrese otro rango de fechas \n";
+//                }
+//                if(lista2.isEmpty()){
+//
+//                }else{
+//                   errores++;
+//                   mensaje = "El empleado "+empleadoSeleccionado.getNroDocumento()+" tiene conflicto con un horario añadido anteriormente \n Ingrese otro rango de fechas \n";
+//                }
+//                
+//            }
+//            //Traemos los permisos por dni
+//        }
         if (errores > 0) {
             JOptionPane.showMessageDialog(this, "Se ha(n) encontrado el(los) siguiente(s) error(es):\n" + mensaje, "Mensaje del sistema", JOptionPane.ERROR_MESSAGE);
         }

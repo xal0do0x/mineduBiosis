@@ -232,21 +232,46 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                 listaString.add(item);
             }
             int contadorV = 0;
-            String documento = listaString.get(0);
-            String dni = listaString.get(1);
+            //String documento = listaString.get(0);
+            //String dni = listaString.get(1);
+            String resolucion = "";
+            String documento = "";
+            String sinad = "";
+            String observacion = "";
+            Date fechaCalculo = null;
+            String dni = listaString.get(0);
+            try {
+                fechaCalculo = formatter.parse(listaString.get(1));
+            } catch (ParseException ex) {
+                Logger.getLogger(ImportarVacaciones.class.getName()).log(Level.SEVERE, null, ex);
+            }
             if(!listaString.get(2).isEmpty()){
+                resolucion = listaString.get(2);
+            }
+            if(!listaString.get(11).isEmpty()){
+                documento = listaString.get(11);
+            }
+            if(!listaString.get(12).isEmpty()){
+                sinad = listaString.get(12);
+            }
+            if(!listaString.get(13).isEmpty()){
+                observacion = listaString.get(13);
+            }
+            if(!listaString.get(3).isEmpty()){
                 try {
-                    System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(2)+" "+listaString.get(3));
-                    Date priVacacionInicio = formatter.parse(listaString.get(2));
-                    Date priVacacionFin = formatter.parse(listaString.get(3));
-                    date.setTime(priVacacionFin);
+                    System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(3)+" "+listaString.get(4));
+                    Date priVacacionInicio = formatter.parse(listaString.get(3));
+                    Date priVacacionFin = formatter.parse(listaString.get(4));
                     Vacacion ingreso = new Vacacion();
+                    ingreso.setResolucion(resolucion);
                     ingreso.setDocumento(documento);
+                    ingreso.setSinad(sinad);
+                    ingreso.setObservacion(observacion);
                     ingreso.setEmpleado(dni);
                     ingreso.setFechaInicio(priVacacionInicio);
                     ingreso.setFechaFin(priVacacionFin);
                     ingreso.setHayInterrupcion(false);
-                    date.setTime(priVacacionInicio);
+                    date.setTime(fechaCalculo);
                     ingreso.setPeriodo(pc.buscarPorAnio(date.get(Calendar.YEAR)));
                     listaVacaciones.add(ingreso);
                     numero++;
@@ -256,18 +281,21 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                     Logger.getLogger(ImportarVacaciones.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            if(!listaString.get(4).isEmpty()){
+            if(!listaString.get(5).isEmpty()){
                 try {
-                    System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(4)+" "+listaString.get(5));
-                    Date segVacacionInicio = formatter.parse(listaString.get(4));
-                    Date segVacacionFin = formatter.parse(listaString.get(5));  
+                    System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(5)+" "+listaString.get(6));
+                    Date segVacacionInicio = formatter.parse(listaString.get(5));
+                    Date segVacacionFin = formatter.parse(listaString.get(6));  
                     Vacacion ingreso = new Vacacion();
+                    ingreso.setResolucion(resolucion);
                     ingreso.setDocumento(documento);
+                    ingreso.setSinad(sinad);
+                    ingreso.setObservacion(observacion);
                     ingreso.setEmpleado(dni);
                     ingreso.setFechaInicio(segVacacionInicio);
                     ingreso.setFechaFin(segVacacionFin);
                     ingreso.setHayInterrupcion(false);
-                    date.setTime(segVacacionInicio);
+                    date.setTime(fechaCalculo);
                     ingreso.setPeriodo(pc.buscarPorAnio(date.get(Calendar.YEAR)));
                     listaVacaciones.add(ingreso);
                     numero++;
@@ -277,18 +305,21 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                     Logger.getLogger(ImportarVacaciones.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            if(!listaString.get(6).isEmpty()){
+            if(!listaString.get(7).isEmpty()){
                 try {
-                    System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(6)+" "+listaString.get(7));
-                    Date tercVacacionInicio = formatter.parse(listaString.get(6));
-                    Date tercVacacionFin = formatter.parse(listaString.get(7));
+                    System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(7)+" "+listaString.get(8));
+                    Date tercVacacionInicio = formatter.parse(listaString.get(7));
+                    Date tercVacacionFin = formatter.parse(listaString.get(8));
                     Vacacion ingreso = new Vacacion();
+                    ingreso.setResolucion(resolucion);
                     ingreso.setDocumento(documento);
+                    ingreso.setSinad(sinad);
+                    ingreso.setObservacion(observacion);
                     ingreso.setEmpleado(dni);
                     ingreso.setFechaInicio(tercVacacionInicio);
                     ingreso.setFechaFin(tercVacacionFin);
                     ingreso.setHayInterrupcion(false);
-                    date.setTime(tercVacacionInicio);
+                    date.setTime(fechaCalculo);
                     ingreso.setPeriodo(pc.buscarPorAnio(date.get(Calendar.YEAR)));
                     listaVacaciones.add(ingreso);
                     numero++;
@@ -298,18 +329,21 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                     Logger.getLogger(ImportarVacaciones.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            if(!listaString.get(8).isEmpty()){
+            if(!listaString.get(9).isEmpty()){
                 try {
-                    System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(2)+" "+listaString.get(3));
-                    Date cuartVacacionInicio = formatter.parse(listaString.get(8));
-                    Date cuartVacacionFin = formatter.parse(listaString.get(9));
+                    System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(9)+" "+listaString.get(10));
+                    Date cuartVacacionInicio = formatter.parse(listaString.get(9));
+                    Date cuartVacacionFin = formatter.parse(listaString.get(10));
                     Vacacion ingreso = new Vacacion();
+                   ingreso.setResolucion(resolucion);
                     ingreso.setDocumento(documento);
+                    ingreso.setSinad(sinad);
+                    ingreso.setObservacion(observacion);
                     ingreso.setEmpleado(dni);
                     ingreso.setFechaInicio(cuartVacacionInicio);
                     ingreso.setFechaFin(cuartVacacionFin);
                     ingreso.setHayInterrupcion(false);
-                    date.setTime(cuartVacacionInicio);
+                    date.setTime(fechaCalculo);
                     ingreso.setPeriodo(pc.buscarPorAnio(date.get(Calendar.YEAR)));
                     listaVacaciones.add(ingreso);
                     numero++;

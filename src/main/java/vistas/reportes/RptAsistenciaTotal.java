@@ -20,6 +20,7 @@ import vistas.dialogos.DlgEmpleado;
 import vistas.modelos.MTEmpleado;
 import com.personal.utiles.FormularioUtil;
 import com.personal.utiles.ReporteUtil;
+import controladores.DepartamentoControlador;
 import controladores.MarcacionControlador;
 import entidades.Departamento;
 import entidades.EmpleadoBiostar;
@@ -69,6 +70,7 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
 
         ec = new EmpleadoControlador();
         pc = new PeriodoControlador();
+        dc = new DepartamentoControlador();
         dfFecha = new SimpleDateFormat("dd/MM/yyyy");
         reporteador = new ReporteUtil();
 //        FormularioUtil.modeloSpinnerFechaHora(spFechaInicio, "dd/MM/yyyy");
@@ -97,6 +99,9 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
         cboPeriodo1 = new javax.swing.JComboBox();
         dcFechaInicio = new com.toedter.calendar.JDateChooser();
         dcFechaFin = new com.toedter.calendar.JDateChooser();
+        pnlRango1 = new javax.swing.JPanel();
+        radPorComp = new javax.swing.JRadioButton();
+        radMarcReales = new javax.swing.JRadioButton();
         pnlEmpleados = new javax.swing.JPanel();
         radGrupo = new javax.swing.JRadioButton();
         radPersonalizado = new javax.swing.JRadioButton();
@@ -181,6 +186,39 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
         gridBagConstraints.weightx = 0.1;
         getContentPane().add(pnlRango, gridBagConstraints);
 
+        pnlRango1.setBorder(javax.swing.BorderFactory.createTitledBorder("Rango"));
+        pnlRango1.setLayout(new java.awt.GridBagLayout());
+
+        radPorComp.setText("Mostrar compensación?");
+        radPorComp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radPorCompActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        pnlRango1.add(radPorComp, gridBagConstraints);
+
+        radMarcReales.setText("Mostrar marcaciones de salida?");
+        radMarcReales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radMarcRealesActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        pnlRango1.add(radMarcReales, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 0.1;
+        getContentPane().add(pnlRango1, gridBagConstraints);
+
         pnlEmpleados.setBorder(javax.swing.BorderFactory.createTitledBorder("Selección de empleados"));
         pnlEmpleados.setLayout(new java.awt.GridBagLayout());
 
@@ -217,6 +255,7 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         pnlEmpleados.add(cboGrupoHorario, gridBagConstraints);
 
+        tblTabla.setPreferredScrollableViewportSize(new java.awt.Dimension(0, 300));
         jScrollPane1.setViewportView(tblTabla);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -284,7 +323,7 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -308,7 +347,7 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         getContentPane().add(pnlBotones, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -388,6 +427,14 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnQuitarActionPerformed
 
+    private void radPorCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radPorCompActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radPorCompActionPerformed
+
+    private void radMarcRealesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radMarcRealesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radMarcRealesActionPerformed
+
     private Departamento oficinaSeleccionada;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -406,11 +453,14 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlEmpleados;
     private javax.swing.JPanel pnlRango;
+    private javax.swing.JPanel pnlRango1;
     private javax.swing.JTabbedPane pnlTab;
     private javax.swing.JRadioButton radGrupo;
+    private javax.swing.JRadioButton radMarcReales;
     private javax.swing.JRadioButton radMes;
     private javax.swing.JRadioButton radOficina;
     private javax.swing.JRadioButton radPersonalizado;
+    private javax.swing.JRadioButton radPorComp;
     private javax.swing.JRadioButton radPorFecha;
     private org.jdesktop.swingx.JXTable tblTabla;
     private javax.swing.JTextField txtOficina;
@@ -419,6 +469,7 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
     private List<Empleado> empleadoList;
     private List<Periodo> periodoList;
     private final PeriodoControlador pc;
+    private final DepartamentoControlador dc;
 
     private void inicializar() {
         JasperViewer jv = new JasperViewer(null);
@@ -509,14 +560,14 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
 //        }
 //        
 
-        String reporte = "";
-
         int anio;
         int mes;
         Date fechaInicio = new Date();
         Date fechaFin = new Date();
         String rangoTitulo = "";
         String rangoValor = "";
+        boolean isSelectedComp = false;
+        boolean isSelectedHora = false;
         if (radPorFecha.isSelected()) {
             rangoTitulo = "ENTRE: ";
             fechaInicio = dcFechaInicio.getDate();
@@ -535,22 +586,35 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
        
         String grupoOficina = "";
         String tipo = "";
-        if(oficinaSeleccionada!=null){
-            if (oficinaSeleccionada.getNombre()!=null) {
-                grupoOficina = oficinaSeleccionada.getNombre();
-                tipo = "O";
+        if(radOficina.isSelected()){
+            if(oficinaSeleccionada!=null){
+                if (oficinaSeleccionada.getNombre()!=null) {
+                    grupoOficina = oficinaSeleccionada.getNombre();
+                    tipo = "O";
+                }
             }
-        }else{
-            grupoOficina = "Reporte personal";
-            tipo = "O";
+        }else if(radPersonalizado.isSelected()){
+            grupoOficina = dc.buscarXDni(Integer.parseInt(dnis.get(0))).get(0).getNombre();
+            tipo = "P";
+        }else if(radGrupo.isSelected()){
+            grupoOficina = grupoSeleccionado.getNombre();
+            tipo="G";
+        }
+        
+        //Validamos si se quiere mostrar la columna de compensaciones y si se quiere ver las horas reales de marcaciones de salida
+        if(radPorComp.isSelected()){
+            isSelectedComp = true;
+        }
+        if(radMarcReales.isSelected()){
+            isSelectedHora = true;
         }
         
         String fechaImpreso = pruebareportes.ReporteUtil.obtenerFechaFormateada(fechaInicio,"-");
         rptAsistenciaTotal rptAsisE = new rptAsistenciaTotal();
         if(oficinaSeleccionada!=null){
-            rptAsisE.crearPdf("RptAstTotal "+oficinaSeleccionada.getNombre().substring(0,4)+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario);
+            rptAsisE.crearPdf("RptAstTotal "+oficinaSeleccionada.getNombre().split(" ", 0)[0]+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario, isSelectedComp, isSelectedHora);
         }else{
-            rptAsisE.crearPdf("RptAstTotal"+"Personal"+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario);
+            rptAsisE.crearPdf("RptAstTotal"+"Personal"+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario, isSelectedComp, isSelectedHora);
         }
         
     }

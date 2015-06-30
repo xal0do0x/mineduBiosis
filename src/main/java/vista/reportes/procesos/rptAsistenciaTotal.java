@@ -9,7 +9,7 @@ import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Font;
-import com.lowagie.text.HeaderFooter;
+import com.lowagie.text.Image;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Phrase;
@@ -18,12 +18,15 @@ import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
 import controladores.AsignacionHorarioControlador;
 import controladores.AsignacionPermisoControlador;
+import controladores.Controlador;
 import controladores.DetalleGrupoControlador;
 import controladores.EmpleadoControlador;
 import controladores.EmpleadoOpcionInfoControlador;
+import controladores.FeriadoControlador;
 import controladores.MarcacionControlador;
 import controladores.PermisoControlador;
 import controladores.RegistroAsistenciaControlador;
+import controladores.TipoPermisoControlador;
 import controladores.VacacionControlador;
 import entidades.AsignacionHorario;
 import entidades.AsignacionPermiso;
@@ -33,15 +36,17 @@ import entidades.EmpleadoOpcionInfo;
 import entidades.Horario;
 import entidades.Jornada;
 import entidades.Marcacion;
+import entidades.Permiso;
 import entidades.Vacacion;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import static org.castor.mapping.AbstractMappingLoaderFactory.LOG;
 import pruebareportes.ReporteUtil;
 
 /**
@@ -58,41 +63,63 @@ public class rptAsistenciaTotal {
     private final PermisoControlador pc = new PermisoControlador();
     private final MarcacionControlador mc = new MarcacionControlador();
     private final EmpleadoOpcionInfoControlador eoc = new EmpleadoOpcionInfoControlador();
+    private final FeriadoControlador fc = new FeriadoControlador();
+    private final TipoPermisoControlador tpc = new TipoPermisoControlador();
     
-    public void crearPdf(String nombreFile,List<String> dnis,Date fechaInicio,Date fechaFin, String oficina,String tipo, String usuario) 
+    public void crearPdf(String nombreFile,List<String> dnis,Date fechaInicio,Date fechaFin, String oficina,String tipo, String usuario, boolean isSelectedComp, boolean isSelectedHoraM) 
             throws IOException, DocumentException{
         Document documento = new Document(PageSize.A4);
         PdfWriter.getInstance(documento, new FileOutputStream(nombreFile));
         documento.open();
+        Image cabecera = Image.getInstance("img/cabecera.png");
+        cabecera.setAlignment(1);
+        documento.add(cabecera);
         String nombreGrupoOficina = "";
         if(tipo=="O"){
-            nombreGrupoOficina = "OFICINA: ";
-        }else{
+            nombreGrupoOficina = "DEPENDENCIA:      ";
+        }else if(tipo=="G"){
             nombreGrupoOficina = "GRUPO HORARIO: ";
+        }else if(tipo=="P"){
+            nombreGrupoOficina = "DEPENDENCIA:      ";
         }
         Font font = new Font(Font.HELVETICA,10,Font.BOLD);
-        Chunk nombreReporte = new Chunk("REPORTE DE ASISTENCIA DE ENTRADA",font);
+        Chunk nombreReporte = new Chunk("REPORTE DE CONTROL DE ASISTENCIA",new Font(Font.HELVETICA,12,Font.BOLD));
         Chunk labelOficina = new Chunk(nombreGrupoOficina,font);
-        Chunk labelFechaInicio = new Chunk("FECHA INICIO: ",font);
-        Chunk labelFechaFin = new Chunk("FECHA FIN: ",font);
-        Chunk labelUsuario = new Chunk("USUARIO: ",font);
-      
+        Chunk labelFechaInicio = new Chunk("FECHA INICIO:        ",font);
+        Chunk labelFechaFin = new Chunk("       FECHA FIN: ",font);
+        //Chunk labelUsuario = new Chunk("USUARIO: ",font);
+        
+        
         Chunk nombreOficina = new Chunk(oficina,new Font(Font.HELVETICA,10));
         Chunk nombreFechaInicio = new Chunk(ReporteUtil.obtenerFechaFormateada(fechaInicio,"/").toUpperCase(),new Font(Font.HELVETICA,10));
         Chunk nombreFechaFin = new Chunk(ReporteUtil.obtenerFechaFormateada(fechaFin, "/").toUpperCase(),new Font(Font.HELVETICA,10));
-        Chunk nombreUsuario = new Chunk(usuario.toUpperCase(), new Font(Font.HELVETICA,10));
-        
-        documento.add(new Paragraph(nombreReporte));
-        documento.add(ReporteUtil.darEspaciado(15));
+        //Chunk nombreUsuario = new Chunk(usuario.toUpperCase(), new Font(Font.HELVETICA,10));
+              
+        Paragraph pNombreReporte = new Paragraph(nombreReporte);
+        pNombreReporte.setAlignment(1);
+        documento.add(pNombreReporte);
+        documento.add(ReporteUtil.darEspaciado(25));
         documento.add(new Paragraph(ReporteUtil.unirChunks(labelOficina,nombreOficina)));
         documento.add(ReporteUtil.darEspaciado(15));
-        documento.add(new Paragraph(ReporteUtil.unirChunks(labelFechaInicio,nombreFechaInicio)));
+        if(tipo=="P"){
+            Chunk labelDniEmpleado = new Chunk("DNI:                           ",font);
+            Chunk labelNombreEmpleado = new Chunk("NOMBRE:                ",font);
+            Empleado empleado = ec.buscarPorDni(dnis.get(0));
+            Chunk nombreDni = new Chunk(empleado.getNroDocumento(), new Font(Font.HELVETICA,10));
+            Chunk nombreEmpleado = new Chunk(empleado.getApellidoPaterno()+" "+empleado.getApellidoMaterno()+" "+empleado.getNombre(), new Font(Font.HELVETICA,10));
+            documento.add(new Paragraph(ReporteUtil.unirChunks(labelNombreEmpleado, nombreEmpleado)));
+            documento.add(ReporteUtil.darEspaciado(15));           
+            documento.add(new Paragraph(ReporteUtil.unirChunks(labelDniEmpleado, nombreDni)));
+            documento.add(ReporteUtil.darEspaciado(15));
+        }
+        documento.add(new Paragraph(ReporteUtil.unirChunks(labelFechaInicio,nombreFechaInicio,labelFechaFin,nombreFechaFin)));
         documento.add(ReporteUtil.darEspaciado(15));
-        documento.add(new Paragraph(ReporteUtil.unirChunks(labelFechaFin,nombreFechaFin)));
-        documento.add(ReporteUtil.darEspaciado(15));
-        documento.add(new Paragraph(ReporteUtil.unirChunks(labelUsuario,nombreUsuario)));
+        
+        //documento.add(new Paragraph(ReporteUtil.unirChunks(labelFechaFin,nombreFechaFin)));
+        //documento.add(ReporteUtil.darEspaciado(15));
+        //documento.add(new Paragraph(ReporteUtil.unirChunks(labelUsuario,nombreUsuario)));
         documento.add(ReporteUtil.darEspaciado(20));
-        PdfPTable tabla = new rptAsistenciaTotal().crearTabla(dnis, fechaInicio, fechaFin);
+        PdfPTable tabla = new rptAsistenciaTotal().crearTabla(dnis, fechaInicio, fechaFin, isSelectedComp,isSelectedHoraM,tipo);
         documento.add(tabla);
         documento.close();
         try {
@@ -102,57 +129,51 @@ public class rptAsistenciaTotal {
             ex.printStackTrace();
         }
     }
-    public PdfPTable crearTabla(List<String> dnis,Date fechaInicio,Date fechaFin) throws DocumentException{
+    public PdfPTable crearTabla(List<String> dnis,Date fechaInicio,Date fechaFin,boolean isSelectedComp, boolean isSelectedHoraM,String tipo) throws DocumentException{
         /**
          * Procesamiento para info para generar tablas
          */
-        Calendar fechaInicioC = Calendar.getInstance();
-        Calendar fechaFinC = Calendar.getInstance();
-        fechaInicioC.setTime(fechaInicio);
-        fechaFinC.setTime(fechaFin);
-        
-        int diaMesInicio,diaMesFin;
-        diaMesInicio = fechaInicioC.get(Calendar.DAY_OF_MONTH);
-        diaMesFin = fechaFinC.get(Calendar.DAY_OF_MONTH);
-        
-        // Dias contados desde un inicio y fin fecha
-        ArrayList<Integer> listaInt = new ArrayList<>();
-        for(int i=diaMesInicio;i<=diaMesFin;i++){
-            listaInt.add(i);
-        }
-        //Ordenamos arraylist
-        int indice,menor,aux;
-        for (int i = 0; i < listaInt.size(); i++) {
-            menor = listaInt.get(i);
-            indice = i;
-            aux=0;
-            for (int j = i+1; j < listaInt.size(); j++) {
-                aux = listaInt.get(j);
-                indice = aux < menor ? j : indice;
-                menor = aux < menor ? aux : menor;
-            }
-            listaInt.set(indice, listaInt.get(i));
-            listaInt.set(i,menor);
-        }
         /**
          * Procesamiento para elaborar tabla con datos
          */
-        int nroColumnas = 8;
+        int nroColumnas;
+        if(isSelectedComp){
+            nroColumnas = 9;
+        }else{
+            nroColumnas = 8;
+        }
+        if(tipo=="P"){
+            nroColumnas-=2;
+        }
+        //int nroColumnas = 8;
         PdfPTable tabla = new PdfPTable(nroColumnas);
         tabla.setWidthPercentage(100);
         //Asignamos los tamaños a las columnas 
         //MOdifique para tomar en cuenta la nueva columna de dewscuento
         int[] widthColumna = new int[nroColumnas];
-
-        widthColumna[0]=1;
-        widthColumna[1]=5;
-        widthColumna[2]=1;
-        widthColumna[3]=1;
-        widthColumna[4]=1;
-        widthColumna[5]=1;
-        widthColumna[6]=1;
-        widthColumna[7]=1;
-        //widthColumna[8]=1;
+        if(tipo=="P"){
+            widthColumna[0]=1;
+            widthColumna[1]=1;
+            widthColumna[2]=1;
+            widthColumna[3]=1;
+            widthColumna[4]=2;
+            widthColumna[5]=1;
+            if(isSelectedComp){
+                widthColumna[6]=1;
+            }
+        }else{
+            widthColumna[0]=1;
+            widthColumna[1]=4;
+            widthColumna[2]=1;
+            widthColumna[3]=1;
+            widthColumna[4]=1;
+            widthColumna[5]=1;
+            widthColumna[6]=2;
+            widthColumna[7]=1;
+            if(isSelectedComp){
+                widthColumna[8]=1;
+            }
+        }
                 
         tabla.setWidths(widthColumna);
         
@@ -161,17 +182,20 @@ public class rptAsistenciaTotal {
         Font fontCelda = new Font(Font.HELVETICA,7);
 //        HeaderFooter cabecera = new HeaderFooter(new Phrase("This is a header."), false);
 //        cabecera.
-        PdfPCell h0 = new PdfPCell(new Phrase("DNI",fontCabecera));
-        h0.setHorizontalAlignment(1);
-        h0.setGrayFill(0.7f);
-        h0.setColspan(1);
-        tabla.addCell(h0);
         
-        PdfPCell h1 = new PdfPCell(new Phrase("NOMBRE EMPLEADO",fontCabecera));
-        h1.setHorizontalAlignment(1);
-        h1.setGrayFill(0.7f);
-        h1.setColspan(1);
-        tabla.addCell(h1);
+        if(tipo!="P"){
+            PdfPCell h0 = new PdfPCell(new Phrase("DNI",fontCabecera));
+            h0.setHorizontalAlignment(1);
+            h0.setGrayFill(0.7f);
+            h0.setColspan(1);
+            tabla.addCell(h0);
+
+            PdfPCell h1 = new PdfPCell(new Phrase("NOMBRE EMPLEADO",fontCabecera));
+            h1.setHorizontalAlignment(1);
+            h1.setGrayFill(0.7f);
+            h1.setColspan(1);
+            tabla.addCell(h1);
+        }
         
         PdfPCell h2 = new PdfPCell(new Phrase("FECHA",fontCabecera));
         h2.setHorizontalAlignment(1);
@@ -191,7 +215,7 @@ public class rptAsistenciaTotal {
         h4.setColspan(1);
         tabla.addCell(h4);
        
-        PdfPCell h5 = new PdfPCell(new Phrase("ASIST.",fontCabecera));
+        PdfPCell h5 = new PdfPCell(new Phrase("ESTADO",fontCabecera));
         h5.setHorizontalAlignment(1);
         h5.setGrayFill(0.7f);
         h5.setColspan(1);
@@ -209,31 +233,73 @@ public class rptAsistenciaTotal {
         h7.setColspan(1);
         tabla.addCell(h7);
         
-//        PdfPCell h8 = new PdfPCell(new Phrase("COMPENSA",fontCabecera));
-//        h8.setHorizontalAlignment(1);
-//        h8.setGrayFill(0.7f);
-//        h8.setColspan(1);
-//        tabla.addCell(h8);
-//        
+        if(isSelectedComp){
+            PdfPCell h8 = new PdfPCell(new Phrase("COMPENSA",fontCabecera));
+            h8.setHorizontalAlignment(1);
+            h8.setGrayFill(0.7f);
+            h8.setColspan(1);
+            tabla.addCell(h8);
+        }
+        //Hacemos que la primera fila sea la cabecera
         tabla.setHeaderRows(1);
         /**
          * Procesamiento de los datos para generar los registros de la entrada
          */
         
-        Calendar cal = Calendar.getInstance();
         Calendar calC = Calendar.getInstance();
-        for(String dni : dnis){
-            //cal.setTime(fechaInicio);
-            for(int i=0;i<listaInt.size();i++){
-                cal.setTime(fechaInicio);
-                int diaMarcacion = cal.get(Calendar.DAY_OF_MONTH)+i;
-                cal.set(Calendar.DAY_OF_MONTH, diaMarcacion);
+        for(String dni : dnis){ 
+            Calendar iterador = Calendar.getInstance();
+            iterador.setTime(fechaInicio);
+            while(iterador.getTime().compareTo(fechaFin) <= 0){
+                Date fecha = iterador.getTime();
                 //Descartar si es sabado o domingo
-                if(!ReporteUtil.isDiaLaboral(cal.getTime())){
+                System.out.println("Dni: "+dni+" Fecha: "+fecha.toString());
+                Empleado empleado = ec.buscarPorDni(dni);
+                boolean isFeriado = false;
+                String feriado = "";
+                //Para inicio de contrato
+                if(empleado.getFechaInicioContrato().compareTo(fecha)<=0){
+                    System.out.println("OK");
+                }else{
+                    iterador.add(Calendar.DATE, 1);
                     continue;
                 }
+                /**
+                 * Generacion de permiso por onomastico
+                 */
+                if(isOnosmatico(fecha, empleado)){
+                    Calendar fechaPermisoOno =Calendar.getInstance();
+                    fechaPermisoOno.setTime(fecha);
+
+                    while(fc.buscarXDia(fechaPermisoOno.getTime())!=null){
+                        fechaPermisoOno.add(Calendar.DATE, 1);
+                    }
+                    while(!ReporteUtil.isDiaLaboral(fechaPermisoOno.getTime())){
+                        fechaPermisoOno.add(Calendar.DATE, 1);
+                    }
+                    if(ReporteUtil.isDiaLaboral(fechaPermisoOno.getTime())){
+                        //busca onomastico
+                        if(aspc.buscarXDiaOnosmatico(dni, fechaPermisoOno.getTime())!=null){
+                            System.out.println("Hay cumpleañosd d_d");
+                        }else{
+                            System.out.println("Crear Cumple");
+                            crearOnomastico(fechaPermisoOno.getTime(), empleado);
+                        }
+                    }
+                }else{
+                    System.out.println("No cumple");
+                }
+                
+                if(!ReporteUtil.isDiaLaboral(fecha)){
+                    iterador.add(Calendar.DATE, 1);
+                    continue;
+                }
+                if(fc.buscarXDia(fecha)!=null){
+                    isFeriado = true;
+                    feriado = fc.buscarXDia(fecha).getNombre();
+                }
                 //Marcaciones del dia a procesar
-                List<Marcacion> marcaciones = mc.buscarXFecha(dni,cal.getTime());
+                List<Marcacion> marcaciones = mc.buscarXFecha(dni,fecha);
                 String Asistencia = "";
                 String Permiso = "";
                 String Vacaciones = "";
@@ -243,7 +309,7 @@ public class rptAsistenciaTotal {
                 String compensacion = "";
                 Marcacion primeraMarcacion = new Marcacion();
                 Marcacion ultimaMarcacion = new Marcacion();
-                Empleado empleado = ec.buscarPorDni(dni);
+                
 
                 List<EmpleadoOpcionInfo> infoEmpleado = eoc.buscarTodos(Integer.parseInt(dni));
                 if(!infoEmpleado.isEmpty()){
@@ -267,73 +333,121 @@ public class rptAsistenciaTotal {
                 if(condicion.equals("NORMAL")){
                     if(!marcaciones.isEmpty()){
                         primeraMarcacion = marcaciones.get(0);
-                        ultimaMarcacion = marcaciones.get(marcaciones.size()-1);
-                        marcacion = primeraMarcacion.getHora().toString();
-                        marcacion2 = ultimaMarcacion.getHora().toString();
+                        if(marcaciones.size()>1){
+                            ultimaMarcacion = marcaciones.get(marcaciones.size()-1);
+                            marcacion2 = ultimaMarcacion.getHora().toString();
+                        }else{
+                            marcacion2 = "---";
+                        }
+                        //ultimaMarcacion = marcaciones.get(marcaciones.size()-1);
+                        /**
+                         *Codigo para el manejo de asignaciones de horario
+                         */           
                         
                         if(!detallesGrupos.isEmpty()){
                             DetalleGrupoHorario detalleGrupoEmpleado = detallesGrupos.get(0);
+       
                             List<AsignacionHorario> asignaciones = ashc.buscarXGrupo(detalleGrupoEmpleado.getGrupoHorario());
-                            AsignacionHorario asignacionEmpleado = asignaciones.get(0);
+                            //List<AsignacionHorario> asignacionesHorario = ashc.bus
+                            List<AsignacionHorario> asignacionesHorarios = ashc.buscarXEmpleadosXAll(dni, fecha);
+                            //Declaramos la variable asighorario q usaremos
+                            /**
+                             * Vemos si tiene una asignacion horario en particular para asignar la jornada q le corresponde, sino la tiene se asigna la jornada por 
+                             * defecto del grupo horario general
+                             */
+                            AsignacionHorario asignacionEmpleado;
+                            if(!asignacionesHorarios.isEmpty()){
+                                asignacionEmpleado = asignacionesHorarios.get(0);
+                            }else{
+                                asignacionEmpleado = asignaciones.get(0);
+                            }
+                            //AsignacionHorario asignacionEmpleado = asignaciones.get(0);
                             Horario horarioEmpleado = asignacionEmpleado.getHorario();
                             Jornada jornadaEmpleado =  horarioEmpleado.getJornada();
 
                             //Validacion de asistencia
-                            if(primeraMarcacion.getHora().compareTo(ultimaMarcacion.getHora())<0){
-                                if((primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHE())==0 
-                                    || primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHE())<0) && 
-                                    (ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())==0
-                                    || ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())>0)){
-                                    Asistencia = "Asistencia Normal";
-                                    marcacion2 = jornadaEmpleado.getTurnoHS().toString();
-                                }else if(primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTardanzaHE())<0 
-                                        && primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHE())>0 ){
-                                    Asistencia = "Tardanza";
-                                    marcacion2 = jornadaEmpleado.getTurnoHS().toString();
-                                }else if(primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTardanzaHE())>0 
-                                        && ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())<0){
-                                    Asistencia = "Falta";
-                                }else if(primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTardanzaHE())<0 
-                                        && ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())<0){
-                                    Asistencia = "Falta";
-                                }else if(primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTardanzaHE())<0 
-                                        && ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())>0){
-                                    Asistencia = "Falta";
-                                    marcacion2 = jornadaEmpleado.getTurnoHS().toString();
-                                }else if(primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTardanzaHE())>0 
-                                        && ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())>0){
-                                    Asistencia = "Falta";
+                            if(ultimaMarcacion.getHora()!=null){
+                                if(!isSelectedHoraM){
                                     marcacion2 = jornadaEmpleado.getTurnoHS().toString();
                                 }
-                                //Para la compensacion
-                                if(ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())>0){
-                                    calC.setTime(ultimaMarcacion.getHora());
-                                    int horaUM = cal.get(Calendar.HOUR_OF_DAY);
-                                    int minUM = cal.get(Calendar.MINUTE);
-                                    calC.setTime(jornadaEmpleado.getTurnoHS());
-                                    int horaHS = cal.get(Calendar.HOUR_OF_DAY);
-                                    int minHS = cal.get(Calendar.MINUTE);
-                                    if(horaUM>horaHS){
-                                        if(minUM>minHS){
-                                            compensacion = ""+(horaUM-horaHS)+" H";
-                                        }else{
-                                            compensacion = "0 H";
-                                        }
-                                        
+                                if(primeraMarcacion.getHora().compareTo(ultimaMarcacion.getHora())<0){
+                                    if((primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHE())==0 
+                                        || primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHE())<0) && 
+                                        (ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())==0
+                                        || ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())>0)){
+                                        Asistencia = " ";
+                                        //marcacion2 = jornadaEmpleado.getTurnoHS().toString();
+                                    }else if(primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTardanzaHE())<0 
+                                            && primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHE())>0 ){
+                                        Asistencia = "TARDANZA";
+                                        //marcacion2 = jornadaEmpleado.getTurnoHS().toString();
+                                    }else if(primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTardanzaHE())>0 
+                                            && ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())<0){
+                                        Asistencia = "FALTA";
+                                        //Cambio hasta tener directiva
+                                        //Asistencia = "TARDANZA";
+                                    }else if(primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTardanzaHE())<0 
+                                            && ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())<0){
+                                        System.out.println("Hora de salida jornada: "+jornadaEmpleado.getTurnoHS().toString());
+                                        Asistencia = "FALTA";
+                                        //Cambio hasta tener directiva
+                                        //Asistencia = "TARDANZA";
+                                    }else if(primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTardanzaHE())<0 
+                                            && ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())>0){
+                                        //Asistencia = "Falta";
+                                        //Cambio hasta tener directiva
+                                        Asistencia = "TARDANZA";
+                                        //marcacion2 = jornadaEmpleado.getTurnoHS().toString();
+                                    }else if(primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTardanzaHE())>0 
+                                            && ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())>0){
+                                        //Asistencia = "Falta";
+                                        //Cambio hasta tener directiva
+                                        Asistencia = "TARDANZA";
+                                        //marcacion2 = jornadaEmpleado.getTurnoHS().toString();
                                     }
+                                    //Para la compensacion
+                                    if(isSelectedComp){
+                                        if(ultimaMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())>0){
+                                            calC.setTime(ultimaMarcacion.getHora());
+                                            int horaUM = calC.get(Calendar.HOUR_OF_DAY);
+                                            int minUM = calC.get(Calendar.MINUTE);
+                                            calC.setTime(jornadaEmpleado.getTurnoHS());
+                                            int horaHS = calC.get(Calendar.HOUR_OF_DAY);
+                                            int minHS = calC.get(Calendar.MINUTE);
+                                            System.out.println("Horas: "+" "+horaUM+" "+minUM+" "+horaHS+" "+minHS);
+                                            if(horaUM>horaHS){
+                                                if(minUM>minHS){
+                                                    compensacion = ""+(horaUM-horaHS)+" H";
+                                                }else{
+                                                    compensacion = (horaUM-(horaHS+1))+" H";
+                                                }
+                                            }else{
+                                                compensacion = "0 H";
+                                            }
+                                        }
+                                    }        
+                                }else{
+                                    Asistencia = "FALTA";
                                 }
                             }else{
-                                Asistencia = "Falta";
+                                Asistencia = "FALTA";
                             }
+                            if(primeraMarcacion.getHora().compareTo(jornadaEmpleado.getTurnoHS())>=0){
+                                marcacion2 = primeraMarcacion.getHora().toString();   
+                                marcacion = "---";
+                            }else{
+                                marcacion = primeraMarcacion.getHora().toString();        
+                            }
+                            
                         }else{
                             Asistencia = "No tiene grupo horario";
                         }
                     }else{
                         marcacion = "---";
                         marcacion2 = "---";
-                        Asistencia = "Falta";
+                        Asistencia = "FALTA";
                     }
-                }else if(condicion.equals("Exonerado")){
+                }else if(condicion.equals("EXONERADO")){
                     if(!marcaciones.isEmpty()){
                         primeraMarcacion = marcaciones.get(0);
                         ultimaMarcacion = marcaciones.get(marcaciones.size()-1);
@@ -347,7 +461,7 @@ public class rptAsistenciaTotal {
                         marcacion2 = "---";
                         Asistencia = condicion;
                     }
-                }else if(condicion.equals("Designado")){
+                }else if(condicion.equals("DESIGNADO")){
                     if(!marcaciones.isEmpty()){
                         primeraMarcacion = marcaciones.get(0);
                         ultimaMarcacion = marcaciones.get(marcaciones.size()-1);
@@ -361,7 +475,7 @@ public class rptAsistenciaTotal {
                         marcacion2 = "---";
                         Asistencia = condicion;
                     }
-                }else if(condicion.equals("Otra sede")){
+                }else if(condicion.equals("OTRA SEDE")){
                     if(!marcaciones.isEmpty()){
                         primeraMarcacion = marcaciones.get(0);
                         ultimaMarcacion = marcaciones.get(marcaciones.size()-1);
@@ -383,7 +497,7 @@ public class rptAsistenciaTotal {
 
                 //Validacion de permiso
                 //Procesar permisos con horas tbm si no encuentra permisos por fechas 
-                AsignacionPermiso asignacionPermisoEmpleadoDia = aspc.buscarXDia(dni, cal.getTime());
+                AsignacionPermiso asignacionPermisoEmpleadoDia = aspc.buscarXDia(dni, fecha);
                 Calendar horaESinCero = Calendar.getInstance();
                 Calendar horaFSinCero = Calendar.getInstance();
                 if(primeraMarcacion.getHora()!=null){
@@ -395,39 +509,46 @@ public class rptAsistenciaTotal {
                     horaFSinCero.set(Calendar.SECOND, 0);
                 }
                 
-                AsignacionPermiso asigPerEntrada = aspc.buscarOnlyHora(dni, horaESinCero.getTime(), cal.getTime());
-                AsignacionPermiso asigPerSalida = aspc.buscarOnlyHora(dni, horaFSinCero.getTime(), cal.getTime());
+                AsignacionPermiso asigPerEntrada = aspc.buscarOnlyHora(dni, horaESinCero.getTime(), fecha);
+                AsignacionPermiso asigPerSalida = aspc.buscarOnlyHora(dni, horaFSinCero.getTime(), fecha);
                 if(asignacionPermisoEmpleadoDia!=null){
-                    Permiso = asignacionPermisoEmpleadoDia.getPermiso().getTipoPermiso().getNombre().toLowerCase();
-                    Asistencia = "Permiso";
+                    Permiso = asignacionPermisoEmpleadoDia.getPermiso().getDocumento().toUpperCase();
+                    Asistencia = asignacionPermisoEmpleadoDia.getPermiso().getTipoPermiso().getNombre().toUpperCase();
                 }else if(asigPerEntrada!=null){
-                    Permiso = asigPerEntrada.getPermiso().getTipoPermiso().getNombre().toLowerCase();
-                    Asistencia = "Permiso";
+                    Permiso = asigPerEntrada.getPermiso().getDocumento().toUpperCase();
+                    Asistencia = asigPerEntrada.getPermiso().getTipoPermiso().getNombre().toLowerCase();
                 }else if(asigPerSalida!=null){
-                    Permiso = asigPerSalida.getPermiso().getTipoPermiso().getNombre().toLowerCase();
-                    Asistencia = "Permiso";
+                    Permiso = asigPerSalida.getPermiso().getDocumento().toUpperCase();
+                    Asistencia = asigPerSalida.getPermiso().getTipoPermiso().getNombre().toUpperCase();
                 }else{
                     Permiso = "";
                 }
                 //Validacion de Vacaciones
-                Vacacion vacacionEmpleado = vc.buscarXDia(dni, cal.getTime());
+                Vacacion vacacionEmpleado = vc.buscarXDia(dni, fecha);
                 if(vacacionEmpleado!=null){
                     Vacaciones = ReporteUtil.obtenerFechaDiaMes(vacacionEmpleado.getFechaInicio())+" al "+ReporteUtil.obtenerFechaDiaMes(vacacionEmpleado.getFechaFin());
-                    Asistencia = "Vacaciones";
+                    Asistencia = "VACACIONES";
+                    Permiso = vacacionEmpleado.getDocumento().toUpperCase();
                 }else{
                     Vacaciones = "";
                 }
-                //DNI
+                if(isFeriado){
+                    Asistencia = feriado;
+                }
                 PdfPCell celdaNombre = new PdfPCell(new Phrase(empleado.getNroDocumento(),fontCelda));
-                celdaNombre.setHorizontalAlignment(1);
-                tabla.addCell(celdaNombre);
-                //Nombre
-                String celda0 = empleado.getApellidoPaterno()+" "+empleado.getApellidoMaterno()+" "+empleado.getNombre();
-                celdaNombre.setPhrase(new Phrase(celda0,fontCelda));
-                celdaNombre.setHorizontalAlignment(0);
-                tabla.addCell(celdaNombre);
+                celdaNombre.setMinimumHeight(15f);
+                if(tipo!="P"){
+                    //DNI
+                    celdaNombre.setHorizontalAlignment(1);
+                    tabla.addCell(celdaNombre);
+                    //Nombre
+                    String celda0 = empleado.getApellidoPaterno()+" "+empleado.getApellidoMaterno()+" "+empleado.getNombre();
+                    celdaNombre.setPhrase(new Phrase(celda0,fontCelda));
+                    celdaNombre.setHorizontalAlignment(0);
+                    tabla.addCell(celdaNombre);
+                }
                 //Fecha
-                String celdaA = ReporteUtil.obtenerFechaFormateada(cal.getTime(),"/");
+                String celdaA = ReporteUtil.obtenerFechaFormateada(fecha,"/");
                 celdaNombre.setPhrase(new Phrase(celdaA,fontCelda));
                 celdaNombre.setHorizontalAlignment(1);
                 tabla.addCell(celdaNombre);
@@ -457,19 +578,59 @@ public class rptAsistenciaTotal {
                 celdaNombre.setHorizontalAlignment(1);                             
                 tabla.addCell(celdaNombre);
                 //Compensacion
-//                String celda4 = compensacion;
-//                celdaNombre.setPhrase(new Phrase(celda4,fontCelda));
-//                celdaNombre.setHorizontalAlignment(1);
-//                tabla.addCell(celdaNombre);
-                
+                if(isSelectedComp){
+                    String celda4 = compensacion;
+                    celdaNombre.setPhrase(new Phrase(celda4,fontCelda));
+                    celdaNombre.setHorizontalAlignment(1);
+                    tabla.addCell(celdaNombre);
+                }
+                iterador.add(Calendar.DATE, 1);
             }
         }
         return tabla;
-    }    
-     
-//    public List<Date> prepararFechas(Date fechaInicio, Date fechaFin){
-//        return;
-//    }
-//    
-//    public 
+    }  
+    
+    private boolean isOnosmatico(Date fecha, Empleado empleado){
+        Calendar fechaOno = Calendar.getInstance();
+        fechaOno.setTime(fecha);
+        Calendar fechaNac = Calendar.getInstance();
+        fechaNac.setTime(empleado.getFechaNacimiento());
+        fechaNac.set(Calendar.YEAR, fechaOno.get(Calendar.YEAR));
+        
+        String f1 = ReporteUtil.obtenerFechaFormateada(fechaOno.getTime(), "-");
+        String f2 = ReporteUtil.obtenerFechaFormateada(fechaNac.getTime(),"-");
+        return f1.equals(f2);
+    } 
+    
+    private boolean crearOnomastico(Date fecha, Empleado empleado){
+        pc.prepararCrear();
+        Permiso onomastico = pc.getSeleccionado();
+        
+        //CREAMOS LA ASIGNACION
+        AsignacionPermiso ap = new AsignacionPermiso();        
+        ap.setEmpleado(empleado.getNroDocumento());
+        ap.setPermiso(onomastico);
+        
+        //
+        onomastico.getAsignacionPermisoList().add(ap);
+        onomastico.setFechaInicio(fecha);
+        onomastico.setFechaFin(fecha);
+        onomastico.setPorFecha(true);
+        onomastico.setTipoPermiso(tpc.buscarPorId("ONO"));
+        onomastico.setOpcion('F');
+        onomastico.setMotivo("LICENCIA POR ONOMÁSTICO");
+        onomastico.setDocumento("LICENCIA POR ONOMÁSTICO");
+        
+        long diferencia = onomastico.getFechaFin().getTime() - onomastico.getFechaInicio().getTime();
+        BigDecimal diferenciaMin = new BigDecimal(diferencia / (60 * 1000 * 60));
+        onomastico.setDiferencia(diferenciaMin);
+        
+        if(pc.accion(Controlador.NUEVO)){
+            LOG.info("SE GUARDO EL PERMISO POR ONOMASTICO");
+            return true;
+        }else{
+            LOG.info("HUBO UN ERROR");
+            return false;
+        }
+    }
 }

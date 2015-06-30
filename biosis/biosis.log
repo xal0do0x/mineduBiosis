@@ -1448,3 +1448,138 @@ line 1:142: unexpected token: DESC
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
 2015-06-22 15:47:06.708	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: NULLORDER near line 1, column 115 [SELECT a FROM entidades.AsignacionHorario a WHERE a.empleado = :dni  AND :fecha > a.fechaInicio AND a.fechaFin IS NULLORDER BY a.fechaInicio DESC] org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: NULLORDER near line 1, column 115 [SELECT a FROM entidades.AsignacionHorario a WHERE a.empleado = :dni  AND :fecha > a.fechaInicio AND a.fechaFin IS NULLORDER BY a.fechaInicio DESC]
 2015-06-22 23:50:07.074	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.DetalleGrupoHorario.fechaInicio org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.DetalleGrupoHorario.fechaInicio
+2015-06-24 19:37:10.964	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-06-24 19:37:10.964	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-24 20:27:26.293	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:307	MSJE:Unable to build entity manager factory
+2015-06-24 20:27:26.729	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:Unable to build entity manager factory
+2015-06-24 20:28:01.807	ERROR	[AWT-EventQueue-0]	CLASE: DlgConfiguracion	 METODO: iniciar	LINEA:456	MSJE:Unable to build entity manager factory
+2015-06-24 20:28:14.383	ERROR	[AWT-EventQueue-0]	CLASE: DlgConfiguracion	 METODO: iniciar	LINEA:456	MSJE:Unable to build entity manager factory
+2015-06-25 12:31:58.634	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [43074713] did not match expected type [java.lang.Integer (n/a)] Parameter value [43074713] did not match expected type [java.lang.Integer (n/a)]
+2015-06-25 12:36:12.548	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-06-25 12:45:55.926	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [43074713] did not match expected type [java.lang.Integer (n/a)] Parameter value [43074713] did not match expected type [java.lang.Integer (n/a)]
+2015-06-25 12:47:30.027	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [43074713] did not match expected type [java.lang.Integer (n/a)] Parameter value [43074713] did not match expected type [java.lang.Integer (n/a)]
+2015-06-25 18:30:20.906	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-25 18:30:20.926	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-25 18:30:31.319	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-25 18:30:31.320	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-25 18:30:50.353	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-25 18:30:50.354	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-25 18:31:11.508	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Cannot insert the value NULL into column 'id', table 'db_biosis_minedu.dbo.detalle_grupo_horario'; column does not allow nulls. INSERT fails.
+2015-06-25 18:31:11.510	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: org.hibernate.exception.ConstraintViolationException: could not execute statement org.hibernate.exception.ConstraintViolationException: could not execute statement
+2015-06-25 18:31:58.330	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Transaction already active Transaction already active
+2015-06-25 18:32:45.847	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-25 18:32:45.852	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-25 18:32:54.222	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-25 18:32:54.223	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-25 18:33:13.822	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Cannot insert the value NULL into column 'id', table 'db_biosis_minedu.dbo.detalle_grupo_horario'; column does not allow nulls. INSERT fails.
+2015-06-25 18:33:13.823	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: org.hibernate.exception.ConstraintViolationException: could not execute statement org.hibernate.exception.ConstraintViolationException: could not execute statement
+2015-06-26 07:37:19.854	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-06-26 07:37:19.867	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-26 07:39:14.824	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-06-26 07:39:14.825	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-26 07:45:01.555	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Cannot insert the value NULL into column 'id', table 'db_biosis_minedu.dbo.asignacion_horario'; column does not allow nulls. INSERT fails.
+2015-06-26 07:45:01.563	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.exception.ConstraintViolationException: could not execute statement org.hibernate.exception.ConstraintViolationException: could not execute statement
+2015-06-26 07:45:01.595	ERROR	[AWT-EventQueue-0]	CLASE: AssertionFailure	 METODO: <init>	LINEA:50	MSJE:HHH000099: an assertion failure occured (this may indicate a bug in Hibernate, but is more likely due to unsafe use of the session): org.hibernate.AssertionFailure: null id in entidades.AsignacionHorario entry (don't flush the Session after an exception occurs)
+2015-06-26 07:45:01.595	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null id in entidades.AsignacionHorario entry (don't flush the Session after an exception occurs) null id in entidades.AsignacionHorario entry (don't flush the Session after an exception occurs)
+2015-06-26 07:58:47.334	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Cannot insert the value NULL into column 'id', table 'db_biosis_minedu.dbo.asignacion_horario'; column does not allow nulls. INSERT fails.
+2015-06-26 07:58:47.340	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.exception.ConstraintViolationException: could not execute statement org.hibernate.exception.ConstraintViolationException: could not execute statement
+2015-06-26 07:58:47.348	ERROR	[AWT-EventQueue-0]	CLASE: AssertionFailure	 METODO: <init>	LINEA:50	MSJE:HHH000099: an assertion failure occured (this may indicate a bug in Hibernate, but is more likely due to unsafe use of the session): org.hibernate.AssertionFailure: null id in entidades.AsignacionHorario entry (don't flush the Session after an exception occurs)
+2015-06-26 07:58:47.348	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null id in entidades.AsignacionHorario entry (don't flush the Session after an exception occurs) null id in entidades.AsignacionHorario entry (don't flush the Session after an exception occurs)
+2015-06-26 10:48:59.828	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:307	MSJE:Unable to build entity manager factory
+2015-06-26 10:49:14.563	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:Unable to build entity manager factory
+2015-06-26 10:49:29.330	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:323	MSJE:Unable to build entity manager factory
+2015-06-26 14:20:50.417	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-06-26 14:20:50.448	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-26 16:31:55.336	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-06-26 16:31:55.367	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-26 17:28:17.430	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:167: unexpected token: ANDa
+2015-06-26 17:28:17.445	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:167: unexpected token: ANDa
+line 1:167: unexpected token: ANDa
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.concatenation(HqlBaseParser.java:668)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.relationalExpression(HqlBaseParser.java:2721)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.equalityExpression(HqlBaseParser.java:2677)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.negatedExpression(HqlBaseParser.java:2546)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalAndExpression(HqlBaseParser.java:2472)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalOrExpression(HqlBaseParser.java:2437)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.expression(HqlBaseParser.java:2137)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalExpression(HqlBaseParser.java:1913)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.whereClause(HqlBaseParser.java:474)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:729)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at dao.DAO.buscar(DAO.java:150)
+	at dao.DAO.buscar(DAO.java:142)
+	at controladores.AsignacionHorarioControlador.buscarXEmpleadosXAll(AsignacionHorarioControlador.java:128)
+	at vista.reportes.procesos.rptAsistenciaTotal.crearTabla(rptAsistenciaTotal.java:335)
+	at vista.reportes.procesos.rptAsistenciaTotal.crearPdf(rptAsistenciaTotal.java:116)
+	at vistas.reportes.RptAsistenciaTotal.imprimir(RptAsistenciaTotal.java:617)
+	at vistas.reportes.RptAsistenciaTotal.jButton2ActionPerformed(RptAsistenciaTotal.java:367)
+	at vistas.reportes.RptAsistenciaTotal.access$1100(RptAsistenciaTotal.java:59)
+	at vistas.reportes.RptAsistenciaTotal$12.actionPerformed(RptAsistenciaTotal.java:339)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:747)
+	at java.awt.EventQueue.access$300(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:706)
+	at java.awt.EventQueue$3.run(EventQueue.java:704)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.awt.EventQueue$4.run(EventQueue.java:718)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:717)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-06-26 17:28:17.461	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: ANDa near line 1, column 167 [SELECT a FROM entidades.AsignacionHorario a WHERE a.empleado = :dni AND :fecha BETWEEN a.fechaInicio AND a.fechaFin OR a.fechaInicio <= :fecha AND a.fechaFin IS NULL ANDa.empleado = :dni] org.hibernate.hql.internal.ast.QuerySyntaxException: unexpected token: ANDa near line 1, column 167 [SELECT a FROM entidades.AsignacionHorario a WHERE a.empleado = :dni AND :fecha BETWEEN a.fechaInicio AND a.fechaFin OR a.fechaInicio <= :fecha AND a.fechaFin IS NULL ANDa.empleado = :dni]
+2015-06-28 12:26:53.891	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:307	MSJE:Unable to build entity manager factory
+2015-06-28 12:27:08.736	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:Unable to build entity manager factory
+2015-06-28 12:27:23.556	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:323	MSJE:Unable to build entity manager factory
+2015-06-28 12:28:46.763	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:307	MSJE:Unable to build entity manager factory
+2015-06-28 12:29:01.580	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:Unable to build entity manager factory
+2015-06-28 12:29:16.360	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:323	MSJE:Unable to build entity manager factory
+2015-06-28 21:11:01.104	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Cannot insert the value NULL into column 'id', table 'db_biosis_minedu.dbo.Permiso'; column does not allow nulls. INSERT fails.
+2015-06-28 21:11:01.187	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.exception.ConstraintViolationException: could not execute statement org.hibernate.exception.ConstraintViolationException: could not execute statement
+2015-06-28 21:11:01.212	ERROR	[AWT-EventQueue-0]	CLASE: AssertionFailure	 METODO: <init>	LINEA:50	MSJE:HHH000099: an assertion failure occured (this may indicate a bug in Hibernate, but is more likely due to unsafe use of the session): org.hibernate.AssertionFailure: null id in entidades.Permiso entry (don't flush the Session after an exception occurs)
+2015-06-28 21:11:01.213	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null id in entidades.Permiso entry (don't flush the Session after an exception occurs) null id in entidades.Permiso entry (don't flush the Session after an exception occurs)
+2015-06-28 22:01:00.309	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:Unable to build entity manager factory
+2015-06-28 22:02:34.990	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:Unable to build entity manager factory
+2015-06-28 23:55:48.631	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid column name 'observacion'.
+2015-06-28 23:55:48.688	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-06-29 00:28:12.534	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.Permiso.tipoPermiso org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.Permiso.tipoPermiso
+2015-06-29 00:28:33.223	ERROR	[AWT-EventQueue-0]	CLASE: AssertionFailure	 METODO: <init>	LINEA:50	MSJE:HHH000099: an assertion failure occured (this may indicate a bug in Hibernate, but is more likely due to unsafe use of the session): org.hibernate.AssertionFailure: null id in entidades.Permiso entry (don't flush the Session after an exception occurs)
+2015-06-29 00:28:35.772	ERROR	[AWT-EventQueue-0]	CLASE: AssertionFailure	 METODO: <init>	LINEA:50	MSJE:HHH000099: an assertion failure occured (this may indicate a bug in Hibernate, but is more likely due to unsafe use of the session): org.hibernate.AssertionFailure: null id in entidades.Permiso entry (don't flush the Session after an exception occurs)
+2015-06-29 00:28:42.510	ERROR	[AWT-EventQueue-0]	CLASE: AssertionFailure	 METODO: <init>	LINEA:50	MSJE:HHH000099: an assertion failure occured (this may indicate a bug in Hibernate, but is more likely due to unsafe use of the session): org.hibernate.AssertionFailure: null id in entidades.Permiso entry (don't flush the Session after an exception occurs)
+2015-06-30 09:20:18.783	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:307	MSJE:Unable to build entity manager factory
+2015-06-30 09:20:33.554	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:Unable to build entity manager factory

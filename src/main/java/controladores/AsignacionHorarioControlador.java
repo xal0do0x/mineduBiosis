@@ -115,4 +115,16 @@ public class AsignacionHorarioControlador extends Controlador<AsignacionHorario>
         
         return this.getDao().buscar(jpql, mapa);
     }
+    
+    public List<AsignacionHorario> buscarXEmpleadosXAll(String dni, Date fecha){
+        String jpql = "SELECT a FROM AsignacionHorario a WHERE "
+                +"a.empleado = :dni AND "
+                +":fecha BETWEEN a.fechaInicio AND a.fechaFin OR "
+                +"a.fechaInicio <= :fecha AND a.fechaFin IS NULL AND "
+                +"a.empleado = :dni";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dni", dni);
+        mapa.put("fecha", fecha);
+        return this.getDao().buscar(jpql, mapa);
+    }
 }

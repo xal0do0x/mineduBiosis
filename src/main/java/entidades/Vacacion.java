@@ -38,6 +38,17 @@ public class Vacacion implements Serializable {
     @Temporal(TemporalType.DATE)
     @Basic
     private Date fechaFin;
+    //Nuevos campos agregados @Aldo
+    @Column(unique = false, updatable = true, insertable = true, nullable = true, length = 255, scale = 0, precision = 0)
+    @Basic
+    private String resolucion;
+    @Column(unique = false, updatable = true, insertable = true, nullable = true, length = 255, scale = 0, precision = 0)
+    @Basic
+    private String sinad;
+    @Column(unique = false, updatable = true, insertable = true, nullable = true, length = 255, scale = 0, precision = 0)
+    @Basic
+    private String observacion;
+    //
     @ManyToOne(optional = false, targetEntity = Periodo.class)
     @JoinColumn(name = "periodo_anio", referencedColumnName = "anio", insertable = true, nullable = false, unique = false, updatable = true)
     private Periodo periodo;
@@ -150,4 +161,30 @@ public class Vacacion implements Serializable {
     public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
     }
+
+    public String getResolucion() {
+        return resolucion;
+    }
+
+    public void setResolucion(String resolucion) {
+        this.resolucion = resolucion;
+    }
+
+    public String getSinad() {
+        return sinad;
+    }
+
+    public void setSinad(String sinad) {
+        this.sinad = sinad;
+    }
+
+    public String getObservacion() {
+        return observacion;
+    }
+
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
+    }
+    
+    
 }

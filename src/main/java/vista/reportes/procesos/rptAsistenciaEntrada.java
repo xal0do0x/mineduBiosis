@@ -75,7 +75,7 @@ public class rptAsistenciaEntrada {
             nombreGrupoOficina = "GRUPO HORARIO: ";
         }
         Font font = new Font(Font.HELVETICA,10,Font.BOLD);
-        Chunk nombreReporte = new Chunk("REPORTE DE ASISTENCIA DE ENTRADA",font);
+        Chunk nombreReporte = new Chunk("REPORTE DE CONTROL DE ASISTENCIA",font);
         Chunk labelOficina = new Chunk(nombreGrupoOficina,font);
         Chunk labelMes = new Chunk("FECHA: ",font);
         Chunk labelUsuario = new Chunk("USUARIO: ",font);
