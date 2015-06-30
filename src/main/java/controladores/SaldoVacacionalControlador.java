@@ -34,4 +34,13 @@ public class SaldoVacacionalControlador extends Controlador<SaldoVacacional>{
             return lista.get(0);
         }
     }
+    
+    public List<SaldoVacacional> buscarXPeriodoAll(String dni, Periodo periodo){
+        String jpql = "SELECT s FROM SaldoVacacional s WHERE s.periodo = :periodo and s.empleado = :dni";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("dni", dni);
+        mapa.put("periodo", periodo);
+        
+        return this.getDao().buscar(jpql, mapa);
+    }
 }

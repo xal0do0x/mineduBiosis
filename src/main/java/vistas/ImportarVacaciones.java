@@ -195,19 +195,29 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                 System.out.println("Dni de empleado: "+vacacion.getEmpleado());
                 System.out.println("Periodo pasado a buscarcrear: "+vacacion.getPeriodo().getNombre());
                 Empleado empleado = ec.buscarPorDni(vacacion.getEmpleado());
+                //System.out.println("Empleado nombre: "+empleado.getNombre());
                 if(empleado!=null){
                     System.out.println("Diferente de null");
+                    dni.add(vacacion.getEmpleado());
+                    retrocederTiempo(dni, vacacion.getFechaInicio());
+
+                    SaldoVacacional sv = buscarCrear(empleado, vacacion.getPeriodo());
+                    int[] saldos = obtenerSaldos(empleado,vacacion.getPeriodo());
+                    System.out.println("Saldo 1: "+saldos[0]);
+                    System.out.println("Saldo 2: "+saldos[1]);
+                    System.out.println("Saldo 3: "+saldos[2]);
+                    if(sv!=null){
+                        sv.setDiasRestantes(30 - (saldos[0] + saldos[1] + saldos[2]));
+                        sv.setLunesViernes(saldos[0]);
+                        sv.setSabado(saldos[1]);
+                        sv.setDomingo(saldos[2]);
+                        svc.modificar(sv);
+                    }
+                    
+                }else{
+                    System.out.println("El dni no esta en la base de datos: "+vacacion.getEmpleado());
                 }
-                dni.add(vacacion.getEmpleado());
-                retrocederTiempo(dni, vacacion.getFechaInicio());
                 
-                SaldoVacacional sv = buscarCrear(empleado, vacacion.getPeriodo());
-                int[] saldos = obtenerSaldos(empleado,vacacion.getPeriodo());
-                sv.setDiasRestantes(30 - (saldos[0] + saldos[1] + saldos[2]));
-                sv.setLunesViernes(saldos[0]);
-                sv.setSabado(saldos[1]);
-                sv.setDomingo(saldos[2]);
-                svc.modificar(sv);
             }
 
         }     
