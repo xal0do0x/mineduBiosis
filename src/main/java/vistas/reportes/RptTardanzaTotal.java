@@ -20,6 +20,7 @@ import vistas.dialogos.DlgEmpleado;
 import vistas.modelos.MTEmpleado;
 import com.personal.utiles.FormularioUtil;
 import com.personal.utiles.ReporteUtil;
+import controladores.DepartamentoControlador;
 import controladores.MarcacionControlador;
 import entidades.Departamento;
 import entidades.EmpleadoBiostar;
@@ -49,14 +50,14 @@ import org.jdesktop.swingbinding.SwingBindings;
 import utiles.UsuarioActivo;
 import vistas.reportes.procesos.rptAsistenciaEntrada;
 import vistas.reportes.procesos.rptAsistenciaTotal;
-import vistas.reportes.procesos.rptFaltas;
+import vistas.reportes.procesos.rptTardanzaTotal;
 import vistas.dialogos.DlgOficina;
 
 /**
  *
  * @author Aldo
  */
-public class RptFaltas extends javax.swing.JInternalFrame {
+public class RptTardanzaTotal extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form RptRegistroAsistencia
@@ -65,11 +66,12 @@ public class RptFaltas extends javax.swing.JInternalFrame {
     private final DateFormat dfFecha;
     private final EmpleadoControlador ec;
 
-    public RptFaltas() {
+    public RptTardanzaTotal() {
         initComponents();
 
         ec = new EmpleadoControlador();
         pc = new PeriodoControlador();
+        dc = new DepartamentoControlador();
         dfFecha = new SimpleDateFormat("dd/MM/yyyy");
         reporteador = new ReporteUtil();
 //        FormularioUtil.modeloSpinnerFechaHora(spFechaInicio, "dd/MM/yyyy");
@@ -121,7 +123,7 @@ public class RptFaltas extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setMaximizable(true);
-        setTitle("REPORTE DE FALTAS");
+        setTitle("REPORTE DE TARDANZAS Y DESCUENTO");
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         pnlRango.setBorder(javax.swing.BorderFactory.createTitledBorder("Rango"));
@@ -218,6 +220,7 @@ public class RptFaltas extends javax.swing.JInternalFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         pnlEmpleados.add(cboGrupoHorario, gridBagConstraints);
 
+        tblTabla.setPreferredScrollableViewportSize(new java.awt.Dimension(0, 300));
         jScrollPane1.setViewportView(tblTabla);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -285,7 +288,7 @@ public class RptFaltas extends javax.swing.JInternalFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.gridheight = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -309,7 +312,7 @@ public class RptFaltas extends javax.swing.JInternalFrame {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         getContentPane().add(pnlBotones, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -420,6 +423,7 @@ public class RptFaltas extends javax.swing.JInternalFrame {
     private List<Empleado> empleadoList;
     private List<Periodo> periodoList;
     private final PeriodoControlador pc;
+    private final DepartamentoControlador dc;
 
     private void inicializar() {
         JasperViewer jv = new JasperViewer(null);
@@ -510,14 +514,14 @@ public class RptFaltas extends javax.swing.JInternalFrame {
 //        }
 //        
 
-        String reporte = "";
-
         int anio;
         int mes;
         Date fechaInicio = new Date();
         Date fechaFin = new Date();
         String rangoTitulo = "";
         String rangoValor = "";
+        boolean isSelectedComp = false;
+        boolean isSelectedHora = false;
         if (radPorFecha.isSelected()) {
             rangoTitulo = "ENTRE: ";
             fechaInicio = dcFechaInicio.getDate();
@@ -536,22 +540,28 @@ public class RptFaltas extends javax.swing.JInternalFrame {
        
         String grupoOficina = "";
         String tipo = "";
-        if(oficinaSeleccionada!=null){
-            if (oficinaSeleccionada.getNombre()!=null) {
-                grupoOficina = oficinaSeleccionada.getNombre();
-                tipo = "O";
+        if(radOficina.isSelected()){
+            if(oficinaSeleccionada!=null){
+                if (oficinaSeleccionada.getNombre()!=null) {
+                    grupoOficina = oficinaSeleccionada.getNombre();
+                    tipo = "O";
+                }
             }
-        }else{
-            grupoOficina = "Reporte personal";
-            tipo = "O";
+        }else if(radPersonalizado.isSelected()){
+            grupoOficina = dc.buscarXDni(Integer.parseInt(dnis.get(0))).get(0).getNombre();
+            tipo = "P";
+        }else if(radGrupo.isSelected()){
+            grupoOficina = grupoSeleccionado.getNombre();
+            tipo="G";
         }
-        
+       
+    
         String fechaImpreso = pruebareportes.ReporteUtil.obtenerFechaFormateada(fechaInicio,"-");
-        rptFaltas rptAsisE = new rptFaltas();
+        rptTardanzaTotal rptTard = new rptTardanzaTotal();
         if(oficinaSeleccionada!=null){
-            rptAsisE.crearPdf("RptFaltas "+oficinaSeleccionada.getNombre().substring(0,4)+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario);
+            rptTard.crearPdf("RptTardanzaTotal "+oficinaSeleccionada.getNombre().split(" ", 0)[0]+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario);
         }else{
-            rptAsisE.crearPdf("RptFaltas"+"Personal"+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario);
+            rptTard.crearPdf("RptTardTotal"+"Personal"+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario);
         }
         
     }
@@ -580,7 +590,9 @@ public class RptFaltas extends javax.swing.JInternalFrame {
             List<Integer> dniInt = dniInteger(empleadoBiostar);
             List<Empleado> empleados = ec.buscarPorListaEnteros(dniInt);
             for (Empleado empleado : empleados) {
-                lista.add(empleado.getNroDocumento());
+                if(!lista.contains(empleado.getNroDocumento())){
+                    lista.add(empleado.getNroDocumento());
+                }  
 //                System.out.println("Empleado tomando en cuenta: "+empleado.getNroDocumento());
             }
         }

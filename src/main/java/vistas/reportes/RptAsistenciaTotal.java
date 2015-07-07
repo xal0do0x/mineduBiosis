@@ -48,9 +48,10 @@ import org.jdesktop.observablecollections.ObservableCollections;
 import org.jdesktop.swingbinding.JComboBoxBinding;
 import org.jdesktop.swingbinding.SwingBindings;
 import utiles.UsuarioActivo;
-import vista.reportes.procesos.rptAsistenciaEntrada;
-import vista.reportes.procesos.rptAsistenciaTotal;
+import vistas.reportes.procesos.rptAsistenciaEntrada;
+import vistas.reportes.procesos.rptAsistenciaTotal;
 import vistas.dialogos.DlgOficina;
+import vistas.reportes.procesos.rptAsistenciaTotalTest;
 
 /**
  *
@@ -610,10 +611,10 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
         }
         
         String fechaImpreso = pruebareportes.ReporteUtil.obtenerFechaFormateada(fechaInicio,"-");
-        rptAsistenciaTotal rptAsisE = new rptAsistenciaTotal();
-        if(oficinaSeleccionada!=null){
+        rptAsistenciaTotalTest rptAsisE = new rptAsistenciaTotalTest();
+        if(radOficina.isSelected()){
             rptAsisE.crearPdf("RptAstTotal "+oficinaSeleccionada.getNombre().split(" ", 0)[0]+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario, isSelectedComp, isSelectedHora);
-        }else{
+        }else if(radPersonalizado.isSelected()){
             rptAsisE.crearPdf("RptAstTotal"+"Personal"+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario, isSelectedComp, isSelectedHora);
         }
         
@@ -643,7 +644,9 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
             List<Integer> dniInt = dniInteger(empleadoBiostar);
             List<Empleado> empleados = ec.buscarPorListaEnteros(dniInt);
             for (Empleado empleado : empleados) {
-                lista.add(empleado.getNroDocumento());
+                if(!lista.contains(empleado.getNroDocumento())){
+                    lista.add(empleado.getNroDocumento());
+                }                
 //                System.out.println("Empleado tomando en cuenta: "+empleado.getNroDocumento());
             }
         }

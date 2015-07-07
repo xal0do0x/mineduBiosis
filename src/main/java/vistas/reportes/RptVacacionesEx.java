@@ -29,7 +29,7 @@ import javax.swing.JButton;
 import net.sf.jasperreports.view.JasperViewer;
 import org.jdesktop.observablecollections.ObservableCollections;
 import utiles.UsuarioActivo;
-import vista.reportes.procesos.rptVacacionesExcel;
+import vistas.reportes.procesos.rptVacacionesExcel;
 import vistas.dialogos.DlgOficina;
 
 /**

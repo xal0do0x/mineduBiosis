@@ -31,8 +31,8 @@ import javax.swing.JButton;
 import net.sf.jasperreports.view.JasperViewer;
 import org.jdesktop.observablecollections.ObservableCollections;
 import utiles.UsuarioActivo;
-import vista.reportes.procesos.rptVacacionesExcel;
-import vista.reportes.procesos.rptAsistenciaEntrada;
+import vistas.reportes.procesos.rptVacacionesExcel;
+import vistas.reportes.procesos.rptAsistenciaEntrada;
 import vistas.dialogos.DlgOficina;
 
 /**

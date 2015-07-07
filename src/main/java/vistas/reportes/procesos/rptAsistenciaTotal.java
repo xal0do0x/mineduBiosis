@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista.reportes.procesos;
+package vistas.reportes.procesos;
 
 import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
@@ -447,7 +447,7 @@ public class rptAsistenciaTotal {
                         marcacion2 = "---";
                         Asistencia = "FALTA";
                     }
-                }else if(condicion.equals("EXONERADO")){
+                }else if(condicion.equals("Exonerado")){
                     if(!marcaciones.isEmpty()){
                         primeraMarcacion = marcaciones.get(0);
                         ultimaMarcacion = marcaciones.get(marcaciones.size()-1);
@@ -455,13 +455,13 @@ public class rptAsistenciaTotal {
                         //marcacion2 = ultimaMarcacion.getHora().toString();
                         marcacion = "---";
                         marcacion2 = "---";
-                        Asistencia = condicion;
+                        Asistencia = condicion.toUpperCase();
                     }else{
                         marcacion = "---";
                         marcacion2 = "---";
-                        Asistencia = condicion;
+                        Asistencia = condicion.toUpperCase();
                     }
-                }else if(condicion.equals("DESIGNADO")){
+                }else if(condicion.equals("Designado")){
                     if(!marcaciones.isEmpty()){
                         primeraMarcacion = marcaciones.get(0);
                         ultimaMarcacion = marcaciones.get(marcaciones.size()-1);
@@ -469,13 +469,13 @@ public class rptAsistenciaTotal {
                         //marcacion2 = ultimaMarcacion.getHora().toString();
                         marcacion = "---";
                         marcacion2 = "---";
-                        Asistencia = condicion;
+                        Asistencia = condicion.toUpperCase();
                     }else{
                         marcacion = "---";
                         marcacion2 = "---";
-                        Asistencia = condicion;
+                        Asistencia = condicion.toUpperCase();
                     }
-                }else if(condicion.equals("OTRA SEDE")){
+                }else if(condicion.equals("Otra sede")){
                     if(!marcaciones.isEmpty()){
                         primeraMarcacion = marcaciones.get(0);
                         ultimaMarcacion = marcaciones.get(marcaciones.size()-1);
@@ -483,16 +483,16 @@ public class rptAsistenciaTotal {
                         //marcacion2 = ultimaMarcacion.getHora().toString();
                         marcacion = "---";
                         marcacion2 = "---";
-                        Asistencia = condicion;
+                        Asistencia = condicion.toUpperCase();
                     }else{
                         marcacion = "---";
                         marcacion2 = "---";
-                        Asistencia = condicion;
+                        Asistencia = condicion.toUpperCase();
                     }
                 }else{
                     marcacion = "---";
                     marcacion2 = "---";
-                    Asistencia = "Condición sin especificar";
+                    Asistencia = "Condición sin especificar".toUpperCase();
                 }   
 
                 //Validacion de permiso

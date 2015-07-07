@@ -42,10 +42,11 @@ import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import pruebareportes.RptTardanzaConsolidado;
 import utiles.UsuarioActivo;
-import vista.reportes.procesos.rptVacacionesExcel;
+import vistas.reportes.procesos.rptVacacionesExcel;
 import vistas.reportes.RptAsistenciaEntrada;
 import vistas.reportes.RptAsistenciaTotal;
 import vistas.reportes.RptFaltas;
+import vistas.reportes.RptTardanzaTotal;
 import vistas.reportes.RptTardanzasFaltas;
 import vistas.reportes.RptVacacionesEx;
 
@@ -121,6 +122,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
         mnuConfiguracion = new javax.swing.JMenu();
         mnuPeriodos = new javax.swing.JMenuItem();
         mnuControlUsuario = new javax.swing.JMenuItem();
@@ -433,6 +435,14 @@ public class Principal extends javax.swing.JFrame {
         });
         mnuReportes.add(jMenuItem11);
 
+        jMenuItem12.setText("Reporte Descuento");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        mnuReportes.add(jMenuItem12);
+
         menuBar.add(mnuReportes);
 
         mnuConfiguracion.setMnemonic('h');
@@ -673,6 +683,12 @@ public class Principal extends javax.swing.JFrame {
         agregarAPanel(rptFaltas, true);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+        RptTardanzaTotal rptTar = new RptTardanzaTotal();
+        agregarAPanel(rptTar,true);
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsignarPermiso;
@@ -684,6 +700,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

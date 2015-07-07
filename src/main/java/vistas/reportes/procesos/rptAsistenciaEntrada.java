@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista.reportes.procesos;
+package vistas.reportes.procesos;
 
 import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;

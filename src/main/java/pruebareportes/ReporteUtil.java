@@ -76,4 +76,37 @@ public class ReporteUtil {
                 return false;
         }
     }
+    
+    public static int restarFechas(Date fechaInicio, Date fechaFin, String opcion){
+
+        Long milis1, milis2, diff;
+        
+        Calendar cinicio = Calendar.getInstance();
+        Calendar cfinal = Calendar.getInstance();
+
+        cinicio.setTime(fechaInicio);
+        cfinal.setTime(fechaFin);
+
+        milis1 = cinicio.getTimeInMillis();
+        milis2 = cfinal.getTimeInMillis();
+ 
+        diff = milis2-milis1;
+ 
+        switch (opcion) {
+            case "s":
+                Long diffSegundos =  Math.abs (diff / 1000);
+                return diffSegundos.intValue();
+            case "m":
+                Long diffMinutos =  Math.abs (diff / (60 * 1000));
+                return diffMinutos.intValue();
+            case "h":
+                Long diffHoras =   (diff / (60 * 60 * 1000));
+                return diffHoras.intValue();
+            case "d":
+                Long diffdias = Math.abs ( diff / (24 * 60 * 60 * 1000) );
+                return diffdias.intValue();
+            default:
+                return 0;
+        }
+    }
 }
