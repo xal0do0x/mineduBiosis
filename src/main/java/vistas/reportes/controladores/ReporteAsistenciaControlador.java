@@ -7,10 +7,12 @@ package vistas.reportes.controladores;
 
 import controladores.AsignacionHorarioControlador;
 import controladores.AsignacionPermisoControlador;
+import controladores.ContratoControlador;
 import controladores.Controlador;
 import controladores.DetalleGrupoControlador;
 import controladores.EmpleadoControlador;
 import controladores.EmpleadoOpcionInfoControlador;
+import controladores.EmpleadoTControlador;
 import controladores.FeriadoControlador;
 import controladores.MarcacionControlador;
 import controladores.PermisoControlador;
@@ -18,9 +20,11 @@ import controladores.TipoPermisoControlador;
 import controladores.VacacionControlador;
 import entidades.AsignacionHorario;
 import entidades.AsignacionPermiso;
+import entidades.Contrato;
 import entidades.DetalleGrupoHorario;
 import entidades.Empleado;
 import entidades.EmpleadoOpcionInfo;
+import entidades.EmpleadoT;
 import entidades.Horario;
 import entidades.Jornada;
 import entidades.Marcacion;
@@ -36,13 +40,15 @@ import java.util.logging.Logger;
 import static org.castor.mapping.AbstractMappingLoaderFactory.LOG;
 import pruebareportes.ReporteUtil;
 import vistas.reportes.beans.ReporteAsistenciaBean;
+import vistas.reportes.beans.RptAsistenciaBean;
 
 /**
  *
  * @author OGEPER02
  */
 public class ReporteAsistenciaControlador {
-    private final EmpleadoControlador ec = new EmpleadoControlador();
+    private final EmpleadoTControlador ec = new EmpleadoTControlador();
+    private final ContratoControlador cc = new ContratoControlador();
     private final AsignacionHorarioControlador ashc = new AsignacionHorarioControlador();
     private final DetalleGrupoControlador dc = new DetalleGrupoControlador();
     private final AsignacionPermisoControlador aspc = new AsignacionPermisoControlador();
@@ -151,17 +157,42 @@ public class ReporteAsistenciaControlador {
                 //Descartar si es sabado o domingo
                 System.out.println("Dni: "+dni+" Fecha: "+fecha.toString());
                 
-                Empleado empleado = ec.buscarPorDni(dni);
+                EmpleadoT empleado = ec.buscarPorDni(dni);
+                String regimeLaboral = empleado.getRegimenLaboral();
+                boolean usarContrato = true;
                 
+                if(regimeLaboral.equals("D.Ley Nro 276")){
+                    usarContrato = false;
+                }else if(regimeLaboral.equals("D.Ley Nro 728")){
+                    usarContrato = false;
+                }else if(regimeLaboral.equals("Ley Nro 24029")){
+                    usarContrato = false;
+                }else if(regimeLaboral.equals("Ley Nro 29944")){
+                    usarContrato = false;
+                }else if(regimeLaboral.equals("Ley Nro 30057")){
+                    usarContrato = false;
+                }else if(regimeLaboral.equals("SIN REGIMEN")){
+                    usarContrato = false;
+                }
+                Contrato contratoEmpleado;
+                String situacionCon = "";
+                if(usarContrato){
+                   contratoEmpleado = cc.buscarContratoXFechaXDni(empleado.getNroDocumento(), fecha);
+                   if(contratoEmpleado != null){
+                       System.out.println("OK");
+                   }else{
+                       situacionCon = "";
+                   }
+                }
                 boolean isFeriado = false;
                 String feriado = "";
                 //Para inicio de contrato
-                if(empleado.getFechaInicioContrato().compareTo(fecha)<=0){
-                    System.out.println("OK");
-                }else{
-                    iterador.add(Calendar.DATE, 1);
-                    continue;
-                }
+//                if(empleado.getFechaInicioContrato().compareTo(fecha)<=0){
+//                    System.out.println("OK");
+//                }else{
+//                    iterador.add(Calendar.DATE, 1);
+//                    continue;
+//                }
                 /**
                  * Generacion de permiso por onomastico
                  */
@@ -509,6 +540,9 @@ public class ReporteAsistenciaControlador {
                     Asistencia = "VACACIONES";
                     Permiso = vacacionEmpleado.getDocumento().toUpperCase();
                     tardanza = 0;
+                    //Cambio para reporte
+//                    marcacion = "---";
+//                    marcacion2 = "---";
                 }else{
                     Vacaciones = "";
                 }
@@ -522,7 +556,12 @@ public class ReporteAsistenciaControlador {
                 registro.setCondicion(condicion);
                 registro.setMarcacionEntrada(marcacion);
                 registro.setMarcacionSalida(marcacion2);
-                registro.setEstado(Asistencia);
+                if(situacionCon.equals("Contrato en espera")){
+                    registro.setEstado(situacionCon+" - "+Asistencia);
+                }else{
+                    registro.setEstado(Asistencia);
+                }
+           
                 registro.setObservacion(Permiso);
                 registro.setVacaciones(Vacaciones);
                 registro.setMinTardanza(tardanza);
@@ -536,7 +575,7 @@ public class ReporteAsistenciaControlador {
         System.out.println("SE TERMINARON LAS TAREAS EN LA HORA "+horaActual.getTime());
         return asistenciaEmpleados;
     }
-     private boolean isOnosmatico(Date fecha, Empleado empleado){
+     private boolean isOnosmatico(Date fecha, EmpleadoT empleado){
         Calendar fechaOno = Calendar.getInstance();
         fechaOno.setTime(fecha);
         Calendar fechaNac = Calendar.getInstance();
@@ -548,7 +587,7 @@ public class ReporteAsistenciaControlador {
         return f1.equals(f2);
     } 
     
-    private boolean crearOnomastico(Date fecha, Empleado empleado){
+    private boolean crearOnomastico(Date fecha, EmpleadoT empleado){
         pc.prepararCrear();
         Permiso onomastico = pc.getSeleccionado();
         
@@ -638,4 +677,14 @@ public class ReporteAsistenciaControlador {
         int minutosT = (diasDescuento+diasDescuentoSimple) * 480;
         return (int) (minutosT + minDescuento);
     }
+    
+    /**
+     * Prueba para procedimiento almacenado
+     */
+    public List<RptAsistenciaBean> analisisAsistenciaSP(){
+        List<RptAsistenciaBean> registros = new ArrayList<>();
+        
+        return registros;
+    }
+    
 }

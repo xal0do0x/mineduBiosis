@@ -219,9 +219,9 @@ public class rptAsistenciaTotalTest {
          */
         
         Calendar calC = Calendar.getInstance();
-        //List<ReporteAsistenciaBean> listaRegistros= rac.analisisAsistencia(fechaInicio, fechaFin, dnis, isSelectedComp, isSelectedHoraM);
-        List<ReporteAsistenciaBean> listaRegistrosThread = rac.iniciarAnalisis(fechaInicio, fechaFin, dnis);
-        for(ReporteAsistenciaBean registro : listaRegistrosThread){ 
+        List<ReporteAsistenciaBean> listaRegistros= rac.analisisAsistencia(fechaInicio, fechaFin, dnis, isSelectedComp, isSelectedHoraM);
+        //List<ReporteAsistenciaBean> listaRegistrosThread = rac.iniciarAnalisis(fechaInicio, fechaFin, dnis);
+        for(ReporteAsistenciaBean registro : listaRegistros){ 
             
                 PdfPCell celdaNombre = new PdfPCell(new Phrase(registro.getDni(),fontCelda));
                 celdaNombre.setMinimumHeight(15f);

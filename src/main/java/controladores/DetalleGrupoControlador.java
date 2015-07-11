@@ -7,6 +7,7 @@ package controladores;
 
 import entidades.DetalleGrupoHorario;
 import entidades.Empleado;
+import entidades.EmpleadoT;
 import entidades.GrupoHorario;
 import java.util.Date;
 import java.util.HashMap;
@@ -30,7 +31,13 @@ public class DetalleGrupoControlador extends Controlador<DetalleGrupoHorario>{
         mapa.put("empleado", empleado.getNroDocumento());
         return this.getDao().buscar(jpql, mapa);
     }
-    
+    public List<DetalleGrupoHorario> buscarXEmpleado(EmpleadoT empleado){
+        String jpql = "SELECT a FROM DetalleGrupoHorario a WHERE "
+                + "a.empleado = :empleado";
+        Map<String, Object> mapa = new HashMap<>();
+        mapa.put("empleado", empleado.getNroDocumento());
+        return this.getDao().buscar(jpql, mapa);
+    }
     public List<DetalleGrupoHorario> buscarXGrupo(GrupoHorario grupo){
         String jpql = "SELECT a FROM DetalleGrupoHorario a WHERE "
                 + "a.grupoHorario = :grupo";
