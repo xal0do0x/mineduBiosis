@@ -132,29 +132,4 @@ public class AsignacionHorarioControlador extends Controlador<AsignacionHorario>
         mapa.put("fecha", fecha);
         return this.getDao().buscar(jpql, mapa);
     }
-    private Logger logger = Logger.getLogger(this.getClass().getName());
-    
-    public List<RptAsistenciaBean> analisisAsistencia(int departamento, Date fechaInicio, Date fechaFin){
-        try {
-            StoredProcedureQuery sp = this.getDao().getEntityManager().createStoredProcedureQuery("pa_crear_registro_asistencia");
-            sp.registerStoredProcedureParameter("departamento", Integer.class, ParameterMode.IN);
-            sp.registerStoredProcedureParameter("fecha_inicio", Date.class, ParameterMode.IN);
-            sp.registerStoredProcedureParameter("fecha_fin", Date.class, ParameterMode.IN);
-            sp.setParameter("departamento", departamento);
-            sp.setParameter("fecha_inicio", fechaInicio);
-            sp.setParameter("fecha_fin", fechaFin);
-        // execute SP
-            sp.execute();
-        // get result
-
-             List<RptAsistenciaBean> registros = sp.getResultList();
-   
-            return registros;
-        } catch (Exception ex) {
-            logger.warning("Error "+ex.getMessage());
-            return null;
-        }finally{
-            this.getDao().getEntityManager().flush();
-        }
-    }
 }

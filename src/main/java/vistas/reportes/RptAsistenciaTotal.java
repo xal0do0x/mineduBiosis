@@ -553,8 +553,13 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
         String usuario = UsuarioActivo.getUsuario().getLogin();
 
         //List<Empleado> empleados;
-
+        int departamentoId = 0;
         List<String> dnis = obtenerDNI();
+        if(radOficina.isSelected()){
+            departamentoId = oficinaSeleccionada.getId().intValue();
+        }
+           
+        System.out.println("Departemento: "+departamentoId);
         //empleados = this.ec.buscarPorLista(dnis);
 //        for(Empleado empleado : empleados){
 //            System.out.println("Empleado a imprimir: "+empleado.getNombre()+" "+empleado.getApellidoPaterno()+" "+empleado.getApellidoMaterno());
@@ -613,9 +618,9 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
         String fechaImpreso = pruebareportes.ReporteUtil.obtenerFechaFormateada(fechaInicio,"-");
         rptAsistenciaTotalTest rptAsisE = new rptAsistenciaTotalTest();
         if(radOficina.isSelected()){
-            rptAsisE.crearPdf("RptAstTotal "+oficinaSeleccionada.getNombre().split(" ", 0)[0]+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario, isSelectedComp, isSelectedHora);
+            rptAsisE.crearPdf("RptAstTotal "+oficinaSeleccionada.getNombre().split(" ", 0)[0]+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario, isSelectedComp, isSelectedHora,departamentoId);
         }else if(radPersonalizado.isSelected()){
-            rptAsisE.crearPdf("RptAstTotal"+"Personal"+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario, isSelectedComp, isSelectedHora);
+            rptAsisE.crearPdf("RptAstTotal"+"Personal"+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario, isSelectedComp, isSelectedHora,departamentoId);
         }
         
     }

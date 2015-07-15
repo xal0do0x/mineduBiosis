@@ -5,23 +5,61 @@
  */
 package vistas.reportes.beans;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author OGEPER02
  */
-public class RptAsistenciaBean {
+@Entity
+public class RptAsistenciaBean implements Serializable {
+    
+    @Column(unique=false,updatable=true,insertable=true,nullable=true,length=255,scale=0,precision=0)
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long id;
+    @Column(name="dni_empleado",unique=false,updatable=true,insertable=true,nullable=false,length=255,scale=0,precision=0)
+    @Basic
     private String dni;
+    @Column(name="nombre",unique=false,updatable=true,insertable=true,nullable=false,length=255,scale=0,precision=0)
+    @Basic
     private String nombre;
+    @Column(name="fecha_registro",unique=false,updatable=true,insertable=true,nullable=false,length=255,scale=0,precision=0)
+    @Temporal(TemporalType.DATE)
+    @Basic
     private Date fechaRegistro;
+    @Column(name="condicion",unique=false,updatable=true,insertable=true,nullable=false,length=255,scale=0,precision=0)
+    @Basic
     private String condicion;
+    @Column(name="marcacion_entrada",unique=false,updatable=true,insertable=true,nullable=false,length=255,scale=0,precision=0)
+    @Basic
     private String MarcacionEntrada;
+    @Column(name="marcacion_salida",unique=false,updatable=true,insertable=true,nullable=false,length=255,scale=0,precision=0)
+    @Basic
     private String MarcacionSalida;
+    @Column(name="estado",unique=false,updatable=true,insertable=true,nullable=false,length=255,scale=0,precision=0)
+    @Basic
     private String estado;
+    @Column(name="observacion",unique=false,updatable=true,insertable=true,nullable=false,length=255,scale=0,precision=0)
+    @Basic
     private String observacion;
+    @Column(name="vacacion",unique=false,updatable=true,insertable=true,nullable=false,length=255,scale=0,precision=0)
+    @Basic
     private String vacaciones;
+    @Column(name="min_tardanza",unique=false,updatable=true,insertable=true,nullable=false,length=255,scale=0,precision=0)
+    @Basic
     private Integer minTardanza;
+    @Column(name="compensacion",unique=false,updatable=true,insertable=true,nullable=false,length=255,scale=0,precision=0)
+    @Basic
     private Integer minCompensacion;
 
 
@@ -115,4 +153,13 @@ public class RptAsistenciaBean {
     public void setMinCompensacion(Integer minCompensacion) {
         this.minCompensacion = minCompensacion;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
 }

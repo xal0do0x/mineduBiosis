@@ -46,6 +46,8 @@ import java.util.List;
 import java.util.Locale;
 import pruebareportes.ReporteUtil;
 import vistas.reportes.beans.ReporteAsistenciaBean;
+import vistas.reportes.beans.RptAsistenciaBean;
+import vistas.reportes.controladores.ProcAsistenciaControlador;
 import vistas.reportes.controladores.ReporteAsistenciaControlador;
 
 /**
@@ -59,8 +61,9 @@ public class rptTardanzaTotal {
     private final AsignacionPermisoControlador asp = new AsignacionPermisoControlador();
     private final PermisoControlador pc = new PermisoControlador();
     private final ReporteAsistenciaControlador rac = new ReporteAsistenciaControlador();
+    private final ProcAsistenciaControlador pac = new ProcAsistenciaControlador();
     
-    public void crearPdf(String nombreFile,List<String> dnis,Date fechaInicio,Date fechaFin, String oficina,String tipo, String usuario) 
+    public void crearPdf(String nombreFile,List<String> dnis,Date fechaInicio,Date fechaFin, String oficina,String tipo, String usuario, int departamentoId) 
             throws IOException, DocumentException{
         Document documento = new Document(PageSize.A4.rotate());
         PdfWriter.getInstance(documento, new FileOutputStream(nombreFile));
@@ -92,7 +95,7 @@ public class rptTardanzaTotal {
         documento.add(ReporteUtil.darEspaciado(15));
         documento.add(new Paragraph(ReporteUtil.unirChunks(labelUsuario,nombreUsuario)));
         documento.add(ReporteUtil.darEspaciado(20));
-        PdfPTable tabla = new rptTardanzaTotal().crearTabla(dnis, fechaInicio, fechaFin);
+        PdfPTable tabla = new rptTardanzaTotal().crearTabla(dnis, fechaInicio, fechaFin, departamentoId);
         documento.add(tabla);
         documento.close();
         try {
@@ -102,7 +105,7 @@ public class rptTardanzaTotal {
             ex.printStackTrace();
         }
     }
-    public PdfPTable crearTabla(List<String> dnis,Date fechaInicio,Date fechaFin) throws DocumentException{
+    public PdfPTable crearTabla(List<String> dnis,Date fechaInicio,Date fechaFin, int departamentoId) throws DocumentException{
         /**
          * Procesamiento para info para generar tablas
          */
@@ -201,7 +204,8 @@ public class rptTardanzaTotal {
         }
         
         Calendar cal = Calendar.getInstance();
-        List<ReporteAsistenciaBean> listaAsistencia = rac.analisisAsistencia(fechaInicio, fechaFin, dnis, false, false);
+        //List<ReporteAsistenciaBean> listaAsistencia = rac.analisisAsistencia(fechaInicio, fechaFin, dnis, false, false);
+        List<RptAsistenciaBean> listaAsistenciaPA = pac.analisisAsistencia(departamentoId, fechaInicio, fechaFin);
         List<Integer> conteoDias = new ArrayList<>();
         int minutosTarde = 0;
         int minutosDescuentoPermisos = 0;
@@ -210,14 +214,14 @@ public class rptTardanzaTotal {
         
         PdfPCell celdaNombre = new PdfPCell();
         for(String dni : dnis){
-            List<ReporteAsistenciaBean> registrosDni = new ArrayList<>();
-            for(ReporteAsistenciaBean registro : listaAsistencia){
+            List<RptAsistenciaBean> registrosDni = new ArrayList<>();
+            for(RptAsistenciaBean registro : listaAsistenciaPA){
                 if(dni.equals(registro.getDni())){
                     registrosDni.add(registro);                   
                 }
             }
             
-            for(ReporteAsistenciaBean registro : registrosDni){
+            for(RptAsistenciaBean registro : registrosDni){
                 if(banderaNombre){
                     if(dni.equals(registro.getDni())){
                         celdaNombre.setPhrase(new Phrase(registro.getNombre(),fontCelda));
@@ -229,7 +233,7 @@ public class rptTardanzaTotal {
                 for(Integer dia : listaDias){
                     cal.setTime(registro.getFechaRegistro());
                     if(cal.get(Calendar.DAY_OF_MONTH)==dia){
-                            if(!registro.getEstado().equals("FALTA")){
+                            if(!registro.getEstado().equals("FALTA") || registro.getEstado() == null){
                                 if(registro.getMinTardanza()!=null){
                                     int numero = registro.getMinTardanza();
                                     String celda = ""+numero;

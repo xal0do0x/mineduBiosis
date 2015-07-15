@@ -513,7 +513,13 @@ public class RptTardanzaTotal extends javax.swing.JInternalFrame {
 //            System.out.println("Empleado a imprimir: "+empleado.getNombre()+" "+empleado.getApellidoPaterno()+" "+empleado.getApellidoMaterno());
 //        }
 //        
-
+        int departamentoId = 0;
+   
+        if(radOficina.isSelected()){
+            departamentoId = oficinaSeleccionada.getId().intValue();
+        }
+           
+        System.out.println("Departemento: "+departamentoId);
         int anio;
         int mes;
         Date fechaInicio = new Date();
@@ -559,9 +565,9 @@ public class RptTardanzaTotal extends javax.swing.JInternalFrame {
         String fechaImpreso = pruebareportes.ReporteUtil.obtenerFechaFormateada(fechaInicio,"-");
         rptTardanzaTotal rptTard = new rptTardanzaTotal();
         if(oficinaSeleccionada!=null){
-            rptTard.crearPdf("RptTardanzaTotal "+oficinaSeleccionada.getNombre().split(" ", 0)[0]+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario);
+            rptTard.crearPdf("RptTardanzaTotal "+oficinaSeleccionada.getNombre().split(" ", 0)[0]+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario, departamentoId);
         }else{
-            rptTard.crearPdf("RptTardTotal"+"Personal"+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario);
+            rptTard.crearPdf("RptTardTotal"+"Personal"+fechaImpreso+".pdf", dnis, fechaInicio, fechaFin, grupoOficina, tipo, usuario,departamentoId);
         }
         
     }

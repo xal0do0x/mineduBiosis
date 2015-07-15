@@ -22,11 +22,14 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import pruebareportes.ReporteUtil;
 import vistas.reportes.beans.ReporteAsistenciaBean;
+import vistas.reportes.beans.RptAsistenciaBean;
+import vistas.reportes.controladores.ProcAsistenciaControlador;
 import vistas.reportes.controladores.ReporteAsistenciaControlador;
 
 /**
@@ -37,8 +40,9 @@ public class rptAsistenciaTotalTest {
     
     private final EmpleadoControlador ec = new EmpleadoControlador();
     private final ReporteAsistenciaControlador rac = new ReporteAsistenciaControlador();
+    private final ProcAsistenciaControlador pac = new ProcAsistenciaControlador();
     
-    public void crearPdf(String nombreFile,List<String> dnis,Date fechaInicio,Date fechaFin, String oficina,String tipo, String usuario, boolean isSelectedComp, boolean isSelectedHoraM) 
+    public void crearPdf(String nombreFile,List<String> dnis,Date fechaInicio,Date fechaFin, String oficina,String tipo, String usuario, boolean isSelectedComp, boolean isSelectedHoraM,int departamentoId) 
             throws IOException, DocumentException{
         Document documento = new Document(PageSize.A4);
         PdfWriter.getInstance(documento, new FileOutputStream(nombreFile));
@@ -91,7 +95,7 @@ public class rptAsistenciaTotalTest {
         //documento.add(ReporteUtil.darEspaciado(15));
         //documento.add(new Paragraph(ReporteUtil.unirChunks(labelUsuario,nombreUsuario)));
         documento.add(ReporteUtil.darEspaciado(20));
-        PdfPTable tabla = new rptAsistenciaTotalTest().crearTabla(dnis, fechaInicio, fechaFin, isSelectedComp,isSelectedHoraM,tipo);
+        PdfPTable tabla = new rptAsistenciaTotalTest().crearTabla(dnis, fechaInicio, fechaFin, isSelectedComp,isSelectedHoraM,tipo,departamentoId);
         documento.add(tabla);
         documento.close();
         try {
@@ -101,7 +105,7 @@ public class rptAsistenciaTotalTest {
             ex.printStackTrace();
         }
     }
-    public PdfPTable crearTabla(List<String> dnis,Date fechaInicio,Date fechaFin,boolean isSelectedComp, boolean isSelectedHoraM,String tipo) throws DocumentException{
+    public PdfPTable crearTabla(List<String> dnis,Date fechaInicio,Date fechaFin,boolean isSelectedComp, boolean isSelectedHoraM,String tipo, int departamentoId) throws DocumentException{
         /**
          * Procesamiento para info para generar tablas
          */
@@ -217,11 +221,22 @@ public class rptAsistenciaTotalTest {
         /**
          * Procesamiento de los datos para generar los registros de la entrada
          */
-        
+        List<ReporteAsistenciaBean> listaRegistros = new ArrayList<>();
+        List<RptAsistenciaBean> listaRegistrosPA = new ArrayList<>();
         Calendar calC = Calendar.getInstance();
-        List<ReporteAsistenciaBean> listaRegistros= rac.analisisAsistencia(fechaInicio, fechaFin, dnis, isSelectedComp, isSelectedHoraM);
+        if(tipo == "P"){
+            listaRegistros= rac.analisisAsistencia(fechaInicio, fechaFin, dnis, isSelectedComp, isSelectedHoraM);
+            System.out.println("Hora q termino registro: "+Calendar.getInstance().getTime());
+        }else
+        if (tipo == "O"){
+            listaRegistrosPA = pac.analisisAsistencia(departamentoId, fechaInicio, fechaFin);
+            System.out.println("Hora q termino registro: "+Calendar.getInstance().getTime());
+        }
+        //List<ReporteAsistenciaBean> listaRegistros= rac.analisisAsistencia(fechaInicio, fechaFin, dnis, isSelectedComp, isSelectedHoraM);
+       
         //List<ReporteAsistenciaBean> listaRegistrosThread = rac.iniciarAnalisis(fechaInicio, fechaFin, dnis);
-        for(ReporteAsistenciaBean registro : listaRegistros){ 
+        if(tipo=="P"){
+            for(ReporteAsistenciaBean registro : listaRegistros){ 
             
                 PdfPCell celdaNombre = new PdfPCell(new Phrase(registro.getDni(),fontCelda));
                 celdaNombre.setMinimumHeight(15f);
@@ -274,6 +289,62 @@ public class rptAsistenciaTotalTest {
                 }
                // iterador.add(Calendar.DATE, 1);
             }
+        }else if(tipo=="O"){
+            for(RptAsistenciaBean registroPa : listaRegistrosPA){ 
+                System.out.println("NOMBRE: "+registroPa.getNombre()+" Fecha: "+registroPa.getFechaRegistro()+" Dni: "+registroPa.getDni());
+                PdfPCell celdaNombre = new PdfPCell(new Phrase(registroPa.getDni(),fontCelda));
+                celdaNombre.setMinimumHeight(15f);
+                if(tipo!="P"){
+                    //DNI
+                    celdaNombre.setHorizontalAlignment(1);
+                    tabla.addCell(celdaNombre);
+                    //Nombre
+                    String celda0 = registroPa.getNombre();
+                    celdaNombre.setPhrase(new Phrase(celda0,fontCelda));
+                    celdaNombre.setHorizontalAlignment(0);
+                    tabla.addCell(celdaNombre);
+                }
+                //Fecha
+                String celdaA = ReporteUtil.obtenerFechaFormateada(registroPa.getFechaRegistro(),"/");
+                celdaNombre.setPhrase(new Phrase(celdaA,fontCelda));
+                celdaNombre.setHorizontalAlignment(1);
+                tabla.addCell(celdaNombre);
+                //Hora Marcacion de entrada
+                String celda = registroPa.getMarcacionEntrada();
+                celdaNombre.setPhrase(new Phrase(celda,fontCelda));
+                celdaNombre.setHorizontalAlignment(1);                             
+                tabla.addCell(celdaNombre);
+                //Hora Marcacion de Salida
+                String celdaM = registroPa.getMarcacionSalida();
+                celdaNombre.setPhrase(new Phrase(celdaM,fontCelda));
+                celdaNombre.setHorizontalAlignment(1);
+                tabla.addCell(celdaNombre);
+                //Asistencia
+                String celda1 = registroPa.getEstado();
+                celdaNombre.setPhrase(new Phrase(celda1,fontCelda));
+                celdaNombre.setHorizontalAlignment(1);                             
+                tabla.addCell(celdaNombre);
+                //Permiso
+                String celda2 = registroPa.getObservacion();
+                celdaNombre.setPhrase(new Phrase(celda2,fontCelda));
+                celdaNombre.setHorizontalAlignment(1);                             
+                tabla.addCell(celdaNombre);
+                //Vacacion
+                String celda3 = registroPa.getVacaciones();
+                celdaNombre.setPhrase(new Phrase(celda3,fontCelda));
+                celdaNombre.setHorizontalAlignment(1);                             
+                tabla.addCell(celdaNombre);
+                //Compensacion
+                if(isSelectedComp){
+                    String celda4 = Integer.toString(registroPa.getMinCompensacion());
+                    celdaNombre.setPhrase(new Phrase(celda4,fontCelda));
+                    celdaNombre.setHorizontalAlignment(1);
+                    tabla.addCell(celdaNombre);
+                }
+               // iterador.add(Calendar.DATE, 1);
+            }
+        }
+            System.out.println("Hora de finalizacion de reporte: "+Calendar.getInstance().getTime());
             return tabla;
         }
         
