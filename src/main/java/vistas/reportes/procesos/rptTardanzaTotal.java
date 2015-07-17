@@ -202,10 +202,10 @@ public class rptTardanzaTotal {
             diaColumna.setHorizontalAlignment(1);
             tabla.addCell(diaColumna);
         }
-        
+        tabla.setHeaderRows(2);
         Calendar cal = Calendar.getInstance();
         //List<ReporteAsistenciaBean> listaAsistencia = rac.analisisAsistencia(fechaInicio, fechaFin, dnis, false, false);
-        List<RptAsistenciaBean> listaAsistenciaPA = pac.analisisAsistencia(departamentoId, fechaInicio, fechaFin);
+        List<RptAsistenciaBean> listaAsistenciaPA = pac.analisisDescuento(departamentoId, fechaInicio, fechaFin);
         List<Integer> conteoDias = new ArrayList<>();
         int minutosTarde = 0;
         int minutosDescuentoPermisos = 0;

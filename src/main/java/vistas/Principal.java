@@ -98,6 +98,7 @@ public class Principal extends javax.swing.JFrame {
         mnuMarcaciones = new javax.swing.JMenu();
         mnuVerEmpleados = new javax.swing.JMenuItem();
         mnuMarcacionesSinProcesar = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         mnuSalir = new javax.swing.JMenuItem();
         mnuHorario = new javax.swing.JMenu();
         mnuJornada = new javax.swing.JMenuItem();
@@ -255,6 +256,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         mnuMarcaciones.add(mnuMarcacionesSinProcesar);
+
+        jMenuItem13.setText("Exoneración de Marcado");
+        mnuMarcaciones.add(jMenuItem13);
 
         mnuSalir.setMnemonic('x');
         mnuSalir.setText("Salir");
@@ -701,6 +705,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
