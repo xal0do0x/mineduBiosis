@@ -221,11 +221,13 @@ public class rptAsistenciaTotalTest {
         /**
          * Procesamiento de los datos para generar los registros de la entrada
          */
-        List<ReporteAsistenciaBean> listaRegistros = new ArrayList<>();
+        //Revisamos si hay cumpleaños o no
+        rac.analisisOnomasticos(fechaInicio, fechaFin, dnis);
+        //List<ReporteAsistenciaBean> listaRegistros = new ArrayList<>();
         List<RptAsistenciaBean> listaRegistrosPA = new ArrayList<>();
-        Calendar calC = Calendar.getInstance();
+        //Calendar calC = Calendar.getInstance();
         if(tipo == "P"){
-            listaRegistros= rac.analisisAsistencia(fechaInicio, fechaFin, dnis, isSelectedComp, isSelectedHoraM);
+            listaRegistrosPA= pac.analisisAsistenciaP(dnis.get(0), fechaInicio, fechaFin);
             System.out.println("Hora q termino registro: "+Calendar.getInstance().getTime());
         }else
         if (tipo == "O"){
@@ -236,7 +238,7 @@ public class rptAsistenciaTotalTest {
        
         //List<ReporteAsistenciaBean> listaRegistrosThread = rac.iniciarAnalisis(fechaInicio, fechaFin, dnis);
         if(tipo=="P"){
-            for(ReporteAsistenciaBean registro : listaRegistros){ 
+            for(RptAsistenciaBean registro : listaRegistrosPA){ 
             
                 PdfPCell celdaNombre = new PdfPCell(new Phrase(registro.getDni(),fontCelda));
                 celdaNombre.setMinimumHeight(15f);

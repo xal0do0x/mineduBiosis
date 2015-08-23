@@ -1812,3 +1812,201 @@ line 1:75: unexpected token: c
 2015-07-17 10:43:17.867	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
 2015-07-17 12:34:02.475	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
 2015-07-17 12:34:02.537	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-19 23:45:12.592	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save(): entidades.DetalleCondicion org.hibernate.id.IdentifierGenerationException: ids for this class must be manually assigned before calling save(): entidades.DetalleCondicion
+2015-07-19 23:56:07.616	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-07-20 02:03:38.764	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-07-20 02:03:39.423	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-07-20 02:11:04.396	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-07-20 02:12:17.670	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-07-20 02:13:56.040	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-07-20 02:26:52.045	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-07-20 09:52:31.172	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:307	MSJE:Unable to build entity manager factory
+2015-07-20 09:52:45.957	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:Unable to build entity manager factory
+2015-07-20 09:53:00.707	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:323	MSJE:Unable to build entity manager factory
+2015-07-20 16:39:01.247	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Connection reset
+2015-07-20 16:39:01.278	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:La conexión está cerrada.
+2015-07-20 16:39:01.278	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.GenericJDBCException: could not inspect JDBC autocommit mode org.hibernate.exception.GenericJDBCException: could not inspect JDBC autocommit mode
+2015-07-20 16:39:02.720	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:La conexión está cerrada.
+2015-07-20 16:39:02.720	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:La conexión está cerrada.
+2015-07-20 16:39:02.720	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.GenericJDBCException: could not inspect JDBC autocommit mode org.hibernate.exception.GenericJDBCException: could not inspect JDBC autocommit mode
+2015-07-20 16:39:22.814	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:La conexión está cerrada.
+2015-07-20 16:39:22.815	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:La conexión está cerrada.
+2015-07-20 16:39:22.815	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.GenericJDBCException: could not inspect JDBC autocommit mode org.hibernate.exception.GenericJDBCException: could not inspect JDBC autocommit mode
+2015-07-21 14:34:26.045	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-21 14:34:26.076	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-21 14:43:32.037	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-21 14:43:32.037	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-21 14:43:42.088	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-21 14:43:42.088	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-21 14:45:28.606	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-21 14:45:28.606	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-21 14:47:19.559	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-21 14:47:19.559	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-21 14:48:08.219	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-21 14:48:08.235	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-22 15:01:00.545	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-22 15:01:00.592	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-22 15:03:31.064	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-22 15:03:31.064	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-22 15:04:16.856	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-22 15:04:16.856	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-22 16:37:40.182	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-22 16:37:40.182	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-23 16:02:33.200	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:line 1:98: unexpected token: a
+2015-07-23 16:02:33.202	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:line 1:98: unexpected token: a
+line 1:98: unexpected token: a
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.concatenation(HqlBaseParser.java:668)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.relationalExpression(HqlBaseParser.java:2721)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.equalityExpression(HqlBaseParser.java:2677)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.negatedExpression(HqlBaseParser.java:2546)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalAndExpression(HqlBaseParser.java:2462)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalOrExpression(HqlBaseParser.java:2427)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.expression(HqlBaseParser.java:2137)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.logicalExpression(HqlBaseParser.java:1913)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.whereClause(HqlBaseParser.java:474)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.queryRule(HqlBaseParser.java:729)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.selectStatement(HqlBaseParser.java:316)
+	at org.hibernate.hql.internal.antlr.HqlBaseParser.statement(HqlBaseParser.java:179)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:295)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:203)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at controladores.DetalleCondicionControlador.contarXEmpleadoXFecha(DetalleCondicionControlador.java:65)
+	at vistas.AsignarExoneracion.listar(AsignarExoneracion.java:821)
+	at vistas.AsignarExoneracion.buscar(AsignarExoneracion.java:808)
+	at vistas.AsignarExoneracion.btnBuscarActionPerformed(AsignarExoneracion.java:608)
+	at vistas.AsignarExoneracion.access$700(AsignarExoneracion.java:49)
+	at vistas.AsignarExoneracion$8.actionPerformed(AsignarExoneracion.java:251)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:747)
+	at java.awt.EventQueue.access$300(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:706)
+	at java.awt.EventQueue$3.run(EventQueue.java:704)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.awt.EventQueue$4.run(EventQueue.java:718)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:717)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-07-23 16:06:29.752	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-07-23 16:14:00.183	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-07-23 16:14:53.752	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-07-23 17:16:55.314	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [8688361] did not match expected type [java.lang.String (n/a)] Parameter value [8688361] did not match expected type [java.lang.String (n/a)]
+2015-07-23 17:18:27.813	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2015-07-23 18:37:14.850	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-23 18:37:14.866	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-23 18:49:33.014	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-23 18:49:33.014	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-24 14:30:16.234	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-07-24 14:30:16.314	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-24 15:46:18.758	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near ')'.
+2015-07-24 15:46:18.758	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-30 03:22:17.177	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.CompensacionEspecial.empleadoNroDocumento org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.CompensacionEspecial.empleadoNroDocumento
+2015-07-30 03:30:12.550	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: guardar	LINEA:92	MSJE:ERROR EN EL GUARDADO: org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.CompensacionEspecial.empleadoNroDocumento org.hibernate.PropertyValueException: not-null property references a null or transient value : entidades.CompensacionEspecial.empleadoNroDocumento
+2015-07-30 14:22:17.746	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Negative value (-5) passed to setFirstResult Negative value (-5) passed to setFirstResult
+2015-07-31 16:19:24.256	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-31 16:19:24.295	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-31 16:24:45.305	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-31 16:24:45.306	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-31 18:02:30.695	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-31 18:02:30.695	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-31 18:11:33.831	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:78	MSJE:<AST>:1:166: unexpected AST node: (
+2015-07-31 18:11:33.832	ERROR	[AWT-EventQueue-0]	CLASE: ErrorCounter	 METODO: reportError	LINEA:73	MSJE:<AST>:1:166: unexpected AST node: (
+<AST>:1:166: unexpected AST node: (
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.logicalExpr(HqlSqlBaseWalker.java:2104)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.logicalExpr(HqlSqlBaseWalker.java:2021)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.logicalExpr(HqlSqlBaseWalker.java:2021)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.logicalExpr(HqlSqlBaseWalker.java:2049)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.whereClause(HqlSqlBaseWalker.java:794)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.query(HqlSqlBaseWalker.java:595)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.selectStatement(HqlSqlBaseWalker.java:299)
+	at org.hibernate.hql.internal.antlr.HqlSqlBaseWalker.statement(HqlSqlBaseWalker.java:247)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.analyze(QueryTranslatorImpl.java:278)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:206)
+	at org.hibernate.hql.internal.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:158)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:126)
+	at org.hibernate.engine.query.spi.HQLQueryPlan.<init>(HQLQueryPlan.java:88)
+	at org.hibernate.engine.query.spi.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:190)
+	at org.hibernate.internal.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:301)
+	at org.hibernate.internal.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:236)
+	at org.hibernate.internal.SessionImpl.createQuery(SessionImpl.java:1796)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:328)
+	at controladores.DetalleCondicionControlador.contarXEmpleadoXFecha(DetalleCondicionControlador.java:68)
+	at vistas.AsignarExoneracionTest.listar(AsignarExoneracionTest.java:887)
+	at vistas.AsignarExoneracionTest.buscar(AsignarExoneracionTest.java:874)
+	at vistas.AsignarExoneracionTest.btnBuscarActionPerformed(AsignarExoneracionTest.java:669)
+	at vistas.AsignarExoneracionTest.access$700(AsignarExoneracionTest.java:53)
+	at vistas.AsignarExoneracionTest$8.actionPerformed(AsignarExoneracionTest.java:257)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2018)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2341)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6516)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3321)
+	at java.awt.Component.processEvent(Component.java:6281)
+	at java.awt.Container.processEvent(Container.java:2229)
+	at java.awt.Component.dispatchEventImpl(Component.java:4872)
+	at java.awt.Container.dispatchEventImpl(Container.java:2287)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4832)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4492)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4422)
+	at java.awt.Container.dispatchEventImpl(Container.java:2273)
+	at java.awt.Window.dispatchEventImpl(Window.java:2719)
+	at java.awt.Component.dispatchEvent(Component.java:4698)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:747)
+	at java.awt.EventQueue.access$300(EventQueue.java:103)
+	at java.awt.EventQueue$3.run(EventQueue.java:706)
+	at java.awt.EventQueue$3.run(EventQueue.java:704)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:87)
+	at java.awt.EventQueue$4.run(EventQueue.java:720)
+	at java.awt.EventQueue$4.run(EventQueue.java:718)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:76)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:717)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:242)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:161)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:150)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:146)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:138)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:91)
+2015-07-31 19:58:07.889	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-31 19:58:07.889	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-07-31 20:00:34.945	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-07-31 20:00:34.945	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-08-04 13:25:48.574	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
+2015-08-04 13:25:48.589	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet

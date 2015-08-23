@@ -10,6 +10,8 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -24,10 +26,9 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "detalle_condicion")
 public class DetalleCondicion implements Serializable {
-    private static final long serialVersionUID = 1L;
+    @Column(unique = false, updatable = true, insertable = true, nullable = true, length = 255, scale = 0, precision = 0)
     @Id
-    @Basic(optional = false)
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Basic(optional = false)
     @Column(name = "fecha_inicio")
@@ -39,10 +40,12 @@ public class DetalleCondicion implements Serializable {
     @Basic(optional = false)
     @Column(name = "empleado_nro_documento")
     private String empleadoNroDocumento;
-    @JoinColumn(name = "condicion_id", referencedColumnName = "id")
-    @ManyToOne(optional = false)
+    @JoinColumn(name = "condicion_id", referencedColumnName = "id", insertable = true, nullable = false, unique = false, updatable = true)
+    @ManyToOne(optional = false, targetEntity = Condicion.class)
     private Condicion condicionId;
-
+    //@ManyToOne(optional = false, targetEntity = Periodo.class)
+    //@JoinColumn(name = "periodo_anio", referencedColumnName = "anio", insertable = true, nullable = false, unique = false, updatable = true)
+    //private Periodo periodo;
     public DetalleCondicion() {
     }
 

@@ -91,13 +91,13 @@ public class ImportarPermisos extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("CREACIÓN DE GRUPOS HORARIO");
+        setTitle("INGRESO DE PERMISOS");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 5, 0};
         layout.rowHeights = new int[] {0};
         getContentPane().setLayout(layout);
 
-        pnlDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos del período"));
+        pnlDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Permisos"));
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
         jPanel2Layout.columnWidths = new int[] {0};
         jPanel2Layout.rowHeights = new int[] {0, 5, 0};
@@ -224,7 +224,7 @@ public class ImportarPermisos extends javax.swing.JInternalFrame {
                     if(!listaString.get(4).isEmpty()){
                         horaFin = formatterHora.parse(listaString.get(4));
                     }else{
-                        horaFin = formatterHora.parse("17:15:00");
+                        horaFin = formatterHora.parse("18:00:00");
                     }
                     diferencia = FechaUtil.soloHora(horaFin).getTime() - FechaUtil.soloHora(horaInicio).getTime();
                 }else{

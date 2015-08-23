@@ -42,9 +42,11 @@ import javax.swing.JInternalFrame;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import pruebareportes.RptTardanzaConsolidado;
 import utiles.UsuarioActivo;
+import vistas.mantenimientos.CRUDGrupoHorarioTest;
 import vistas.reportes.procesos.rptVacacionesExcel;
 import vistas.reportes.RptAsistenciaEntrada;
 import vistas.reportes.RptAsistenciaTotal;
+import vistas.reportes.RptCompensacion;
 import vistas.reportes.RptFaltas;
 import vistas.reportes.RptTardanzaTotal;
 import vistas.reportes.RptTardanzasFaltas;
@@ -98,32 +100,29 @@ public class Principal extends javax.swing.JFrame {
         mnuMarcaciones = new javax.swing.JMenu();
         mnuVerEmpleados = new javax.swing.JMenuItem();
         mnuMarcacionesSinProcesar = new javax.swing.JMenuItem();
-        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
         mnuSalir = new javax.swing.JMenuItem();
         mnuHorario = new javax.swing.JMenu();
         mnuJornada = new javax.swing.JMenuItem();
         mnuHorarios = new javax.swing.JMenuItem();
-        mnuGruposHorario = new javax.swing.JMenuItem();
-        mnuAsignarHorario = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         mnuPermiso = new javax.swing.JMenu();
         mnuTiposPermiso = new javax.swing.JMenuItem();
-        mnuAsignarPermiso = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
         mnuAsignarPapeleta = new javax.swing.JMenuItem();
         mnuAsignarVacaciones = new javax.swing.JMenuItem();
         mnuImportarV = new javax.swing.JMenuItem();
         mnuImportarP = new javax.swing.JMenuItem();
         mnuReportes = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         mnuConfiguracion = new javax.swing.JMenu();
         mnuPeriodos = new javax.swing.JMenuItem();
         mnuControlUsuario = new javax.swing.JMenuItem();
@@ -257,8 +256,13 @@ public class Principal extends javax.swing.JFrame {
         });
         mnuMarcaciones.add(mnuMarcacionesSinProcesar);
 
-        jMenuItem13.setText("Exoneración de Marcado");
-        mnuMarcaciones.add(jMenuItem13);
+        jMenuItem15.setText("Exoneracion de Marcado");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem15ActionPerformed(evt);
+            }
+        });
+        mnuMarcaciones.add(jMenuItem15);
 
         mnuSalir.setMnemonic('x');
         mnuSalir.setText("Salir");
@@ -292,29 +296,29 @@ public class Principal extends javax.swing.JFrame {
         });
         mnuHorario.add(mnuHorarios);
 
-        mnuGruposHorario.setText("Grupos horario");
-        mnuGruposHorario.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem16.setText("Grupo horario");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuGruposHorarioActionPerformed(evt);
+                jMenuItem16ActionPerformed(evt);
             }
         });
-        mnuHorario.add(mnuGruposHorario);
+        mnuHorario.add(jMenuItem16);
 
-        mnuAsignarHorario.setText("Asignar horario");
-        mnuAsignarHorario.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("Asignar horario");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuAsignarHorarioActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        mnuHorario.add(mnuAsignarHorario);
+        mnuHorario.add(jMenuItem1);
 
-        jMenuItem8.setText("Prueba asig. horario");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem4.setText("Horario con Compensacion/Especial");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                jMenuItem4ActionPerformed(evt);
             }
         });
-        mnuHorario.add(jMenuItem8);
+        mnuHorario.add(jMenuItem4);
 
         menuBar.add(mnuHorario);
 
@@ -328,13 +332,13 @@ public class Principal extends javax.swing.JFrame {
         });
         mnuPermiso.add(mnuTiposPermiso);
 
-        mnuAsignarPermiso.setText("Asignar permiso");
-        mnuAsignarPermiso.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem14.setText("Asignar permiso");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuAsignarPermisoActionPerformed(evt);
+                jMenuItem14ActionPerformed(evt);
             }
         });
-        mnuPermiso.add(mnuAsignarPermiso);
+        mnuPermiso.add(jMenuItem14);
 
         mnuAsignarPapeleta.setText("Asignar papeleta de salida");
         mnuPermiso.add(mnuAsignarPapeleta);
@@ -367,14 +371,6 @@ public class Principal extends javax.swing.JFrame {
 
         mnuReportes.setText("Reportes");
 
-        jMenuItem1.setText("Reportes de asistencia");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        mnuReportes.add(jMenuItem1);
-
         jMenuItem2.setText("Reportes de permisos / licencias / comisiones de servicio");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -390,30 +386,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         mnuReportes.add(jMenuItem3);
-
-        jMenuItem4.setText("Reporte de faltas y tardanzas en el día");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        mnuReportes.add(jMenuItem4);
-
-        jMenuItem6.setText("Reporte de Tardanza Consolidado");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        mnuReportes.add(jMenuItem6);
-
-        jMenuItem9.setText("Vacaciones - xls");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        mnuReportes.add(jMenuItem9);
 
         jMenuItem10.setText("Reporte Asistencia de Entrada");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
@@ -446,6 +418,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         mnuReportes.add(jMenuItem12);
+
+        jMenuItem6.setText("Reporte de Compensación");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        mnuReportes.add(jMenuItem6);
 
         menuBar.add(mnuReportes);
 
@@ -541,34 +521,17 @@ public class Principal extends javax.swing.JFrame {
         agregarAPanel(periodos, true);
     }//GEN-LAST:event_mnuPeriodosActionPerformed
 
-    private void mnuGruposHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuGruposHorarioActionPerformed
-        // TODO add your handling code here:
-        CRUDGrupoHorario grupos = new CRUDGrupoHorario();
-        agregarAPanel(grupos, true);
-    }//GEN-LAST:event_mnuGruposHorarioActionPerformed
-
     private void mnuMarcacionesSinProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMarcacionesSinProcesarActionPerformed
         // TODO add your handling code here:
         marcaciones();
 
     }//GEN-LAST:event_mnuMarcacionesSinProcesarActionPerformed
 
-    private void mnuAsignarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAsignarHorarioActionPerformed
-        // TODO add your handling code here:
-        FrmAsignacionHorario asignacion = new FrmAsignacionHorario();
-        agregarAPanel(asignacion, true);
-    }//GEN-LAST:event_mnuAsignarHorarioActionPerformed
-
     private void mnuTiposPermisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuTiposPermisoActionPerformed
         // TODO add your handling code here:
         CRUDTipoPermiso tipos = new CRUDTipoPermiso();
         agregarAPanel(tipos, true);
     }//GEN-LAST:event_mnuTiposPermisoActionPerformed
-
-    private void mnuAsignarPermisoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAsignarPermisoActionPerformed
-        // TODO add your handling code here:
-        permiso();
-    }//GEN-LAST:event_mnuAsignarPermisoActionPerformed
 
     private void mnuAsignarVacacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAsignarVacacionesActionPerformed
         // TODO add your handling code here:
@@ -601,11 +564,6 @@ public class Principal extends javax.swing.JFrame {
         registroAsistencia();
     }//GEN-LAST:event_btnRegistroAsistenciaActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        reporteAsistencia();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         reportePermiso();
@@ -628,22 +586,10 @@ public class Principal extends javax.swing.JFrame {
         passwd.setVisible(true);
     }//GEN-LAST:event_mnuCambiarPasswdActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-        RptTardanzasFaltas tyf = new RptTardanzasFaltas();
-        agregarAPanel(tyf, true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
         agregarAPanel(new EjecutarSQL(),true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-        RptTardanzaConsolidado tc = new RptTardanzaConsolidado();
-        agregarAPanel(tc,true);
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void mnuImportarVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuImportarVActionPerformed
         // TODO add your handling code here:
@@ -657,12 +603,6 @@ public class Principal extends javax.swing.JFrame {
         agregarAPanel(importacion, true);
     }//GEN-LAST:event_mnuImportarPActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
-        RptVacacionesEx reporte = new RptVacacionesEx();
-        agregarAPanel(reporte);
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
         RptAsistenciaEntrada asistenciaEntrada = new RptAsistenciaEntrada();
@@ -674,12 +614,6 @@ public class Principal extends javax.swing.JFrame {
         RptAsistenciaTotal asistenciaTotal = new RptAsistenciaTotal();
         agregarAPanel(asistenciaTotal,true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
-        FrmAsignacionHorario_1 frmAsigHorario = new FrmAsignacionHorario_1();
-        agregarAPanel(frmAsigHorario, true);
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
@@ -693,6 +627,42 @@ public class Principal extends javax.swing.JFrame {
         agregarAPanel(rptTar,true);
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        // TODO add your handling code here:
+        AsignarPermisoTest asigPt = new AsignarPermisoTest();
+        agregarAPanel(asigPt, true);
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        // TODO add your handling code here:
+        AsignarExoneracionTest asigEt = new AsignarExoneracionTest();
+        agregarAPanel(asigEt, true);
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        // TODO add your handling code here:
+        CRUDGrupoHorarioTest crudGH = new CRUDGrupoHorarioTest();
+        agregarAPanel(crudGH, true);
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        AsignarHorario asgh = new AsignarHorario();
+        agregarAPanel(asgh, true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        AsignarCompensacion asgC = new AsignarCompensacion();
+        agregarAPanel(asgC,true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        RptCompensacion rptComp = new RptCompensacion();
+        agregarAPanel(rptComp,true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsignarPermiso;
@@ -705,29 +675,26 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblJuvitec;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem mnuAsignarHorario;
     private javax.swing.JMenuItem mnuAsignarPapeleta;
-    private javax.swing.JMenuItem mnuAsignarPermiso;
     private javax.swing.JMenuItem mnuAsignarVacaciones;
     private javax.swing.JMenuItem mnuCambiarPasswd;
     private javax.swing.JMenu mnuConfiguracion;
     private javax.swing.JMenuItem mnuConfiguracionBD;
     private javax.swing.JMenuItem mnuControlUsuario;
-    private javax.swing.JMenuItem mnuGruposHorario;
     private javax.swing.JMenu mnuHorario;
     private javax.swing.JMenuItem mnuHorarios;
     private javax.swing.JMenuItem mnuImportarP;
@@ -794,7 +761,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
     private void permiso() {
-        AsignarPermiso asignar = new AsignarPermiso();
+        AsignarPermisoTest asignar = new AsignarPermisoTest();
         agregarAPanel(asignar, true);
     }
 
@@ -909,7 +876,7 @@ public class Principal extends javax.swing.JFrame {
         mnuHorario.setEnabled(horario);
         mnuPeriodos.setEnabled(periodo);
         mnuTiposPermiso.setEnabled(permiso);
-        mnuAsignarPermiso.setEnabled(permiso);
+        //mnuAsignarPermiso.setEnabled(permiso);
         mnuAsignarVacaciones.setEnabled(vacacion);
         mnuReportes.setEnabled(reportes);
         mnuConfiguracionBD.setEnabled(configuracion);

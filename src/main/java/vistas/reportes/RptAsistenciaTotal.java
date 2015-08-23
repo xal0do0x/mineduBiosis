@@ -62,7 +62,7 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
     /**
      * Creates new form RptRegistroAsistencia
      */
-    private final ReporteUtil reporteador;
+
     private final DateFormat dfFecha;
     private final EmpleadoControlador ec;
 
@@ -73,7 +73,7 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
         pc = new PeriodoControlador();
         dc = new DepartamentoControlador();
         dfFecha = new SimpleDateFormat("dd/MM/yyyy");
-        reporteador = new ReporteUtil();
+
 //        FormularioUtil.modeloSpinnerFechaHora(spFechaInicio, "dd/MM/yyyy");
 //        FormularioUtil.modeloSpinnerFechaHora(spFechaFin, "dd/MM/yyyy");
         inicializar();
@@ -600,7 +600,12 @@ public class RptAsistenciaTotal extends javax.swing.JInternalFrame {
                 }
             }
         }else if(radPersonalizado.isSelected()){
-            grupoOficina = dc.buscarXDni(Integer.parseInt(dnis.get(0))).get(0).getNombre();
+            if(!dc.buscarXDni(Integer.parseInt(dnis.get(0))).isEmpty()){
+                grupoOficina = dc.buscarXDni(Integer.parseInt(dnis.get(0))).get(0).getNombre();
+            }else{
+                grupoOficina = "SIN OFICINA";
+            }
+            
             tipo = "P";
         }else if(radGrupo.isSelected()){
             grupoOficina = grupoSeleccionado.getNombre();

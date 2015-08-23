@@ -62,7 +62,6 @@ public class RptTardanzaTotal extends javax.swing.JInternalFrame {
     /**
      * Creates new form RptRegistroAsistencia
      */
-    private final ReporteUtil reporteador;
     private final DateFormat dfFecha;
     private final EmpleadoControlador ec;
 
@@ -73,7 +72,6 @@ public class RptTardanzaTotal extends javax.swing.JInternalFrame {
         pc = new PeriodoControlador();
         dc = new DepartamentoControlador();
         dfFecha = new SimpleDateFormat("dd/MM/yyyy");
-        reporteador = new ReporteUtil();
 //        FormularioUtil.modeloSpinnerFechaHora(spFechaInicio, "dd/MM/yyyy");
 //        FormularioUtil.modeloSpinnerFechaHora(spFechaFin, "dd/MM/yyyy");
         inicializar();

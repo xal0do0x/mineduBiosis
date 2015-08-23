@@ -10,21 +10,19 @@ import controladores.Controlador;
 import controladores.EmpleadoControlador;
 import controladores.PermisoControlador;
 import controladores.TCAnalisisControlador;
-import entidades.AsignacionHorario;
-import entidades.AsignacionPermiso;
 import entidades.Empleado;
 import entidades.Permiso;
 import entidades.TipoPermiso;
 import vistas.dialogos.DlgEmpleado;
-import vistas.dialogos.DlgTipoPermiso;
-import vistas.modelos.MTAsignacionPermiso;
 import vistas.modelos.MTEmpleado;
-import com.personal.utiles.FechaUtil;
 import com.personal.utiles.FormularioUtil;
 import com.personal.utiles.ReporteUtil;
+import controladores.CondicionControlador;
 import controladores.DetalleCondicionControlador;
+import entidades.Condicion;
+import entidades.DetalleCondicion;
+import java.awt.Component;
 import java.io.File;
-import java.math.BigDecimal;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,10 +31,16 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.swing.DefaultListCellRenderer;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.SpinnerNumberModel;
+import org.jdesktop.beansbinding.AutoBinding;
 import org.jdesktop.observablecollections.ObservableCollections;
+import org.jdesktop.swingbinding.JComboBoxBinding;
+import org.jdesktop.swingbinding.SwingBindings;
 import utiles.UsuarioActivo;
+import vistas.modelos.MTDetalleCondicion;
 
 /**
  *
@@ -47,12 +51,12 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
     /**
      * Creates new form CRUDPeriodo
      */
-    private List<AsignacionPermiso> listado;
+    private List<DetalleCondicion> listado;
     private List<Empleado> integrantes;
     private PermisoControlador controlador;
     private EmpleadoControlador ec;
+    private CondicionControlador cc;
     private int accion;
-    private TipoPermiso tipoSeleccionado;
     private Empleado empleadoSeleccionado;
     private AsignacionPermisoControlador ac;
     private DetalleCondicionControlador dcc;
@@ -63,7 +67,7 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         inicializar();
         bindeoSalvaje();
         reporteador = new ReporteUtil();
-        this.radLote.setVisible(false);
+
     }
 
     /**
@@ -103,41 +107,23 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblEmpleados = new org.jdesktop.swingx.JXTable();
         btnAgregar = new javax.swing.JButton();
         btnQuitar = new javax.swing.JButton();
-        txtTipoPermiso = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtMotivo = new javax.swing.JTextArea();
-        jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        txtDocumento = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        spHoraFin = new javax.swing.JSpinner();
-        spHoraInicio = new javax.swing.JSpinner();
         dcFechaFin = new com.toedter.calendar.JDateChooser();
         dcFechaInicio = new com.toedter.calendar.JDateChooser();
         pnlOpcion = new javax.swing.JPanel();
-        radFecha = new javax.swing.JRadioButton();
-        radHora = new javax.swing.JRadioButton();
-        radLote = new javax.swing.JRadioButton();
+        cboCondicion = new javax.swing.JComboBox();
         jPanel5 = new javax.swing.JPanel();
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
-        btnImprimirTodo = new javax.swing.JButton();
-        opciones.add(radFecha);
-        opciones.add(radHora);
-        opciones.add(radLote);
 
         setClosable(true);
         setMaximizable(true);
-        setTitle("ASIGNAR PERMISO A EMPLEADO(S)");
+        setTitle("ASIGNAR CONDICION DE MARCADO A EMPLEADO(S)");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 5, 0};
         layout.rowHeights = new int[] {0};
@@ -346,7 +332,7 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         getContentPane().add(pnlListado, gridBagConstraints);
 
-        pnlDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de permiso"));
+        pnlDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de Detalle Condición"));
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
         jPanel2Layout.columnWidths = new int[] {0};
         jPanel2Layout.rowHeights = new int[] {0, 5, 0};
@@ -357,7 +343,7 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         jPanel4Layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         jPanel4.setLayout(jPanel4Layout);
 
-        jLabel1.setText("Tipo de permiso:");
+        jLabel1.setText("Tipo condición:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -370,13 +356,6 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         gridBagConstraints.gridy = 18;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanel4.add(jLabel2, gridBagConstraints);
-
-        jLabel3.setText("Motivo:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanel4.add(jLabel3, gridBagConstraints);
 
         tblEmpleados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
@@ -420,36 +399,6 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.PAGE_START;
         jPanel4.add(btnQuitar, gridBagConstraints);
 
-        txtTipoPermiso.setEditable(false);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.weightx = 0.1;
-        jPanel4.add(txtTipoPermiso, gridBagConstraints);
-
-        txtMotivo.setColumns(20);
-        txtMotivo.setRows(5);
-        txtMotivo.setTabSize(4);
-        jScrollPane2.setViewportView(txtMotivo);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weighty = 0.1;
-        jPanel4.add(jScrollPane2, gridBagConstraints);
-
-        jLabel4.setText("Hora inicio:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanel4.add(jLabel4, gridBagConstraints);
-
         jLabel7.setText("Fecha inicio:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -457,66 +406,12 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanel4.add(jLabel7, gridBagConstraints);
 
-        jLabel8.setText("Opción:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanel4.add(jLabel8, gridBagConstraints);
-
-        jButton1.setText("...");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 2;
-        jPanel4.add(jButton1, gridBagConstraints);
-
-        jLabel10.setText("Documento:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanel4.add(jLabel10, gridBagConstraints);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        jPanel4.add(txtDocumento, gridBagConstraints);
-
-        jLabel11.setText("Hora fin:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanel4.add(jLabel11, gridBagConstraints);
-
         jLabel12.setText("Fecha fin:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanel4.add(jLabel12, gridBagConstraints);
-
-        spHoraFin.setModel(new javax.swing.SpinnerDateModel());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 16;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanel4.add(spHoraFin, gridBagConstraints);
-
-        spHoraInicio.setModel(new javax.swing.SpinnerDateModel());
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 14;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        jPanel4.add(spHoraInicio, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 12;
@@ -533,38 +428,19 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         jPanel4.add(dcFechaInicio, gridBagConstraints);
 
         pnlOpcion.setLayout(new java.awt.GridLayout(1, 0));
-
-        radFecha.setSelected(true);
-        radFecha.setText("Por fecha");
-        radFecha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radFechaActionPerformed(evt);
-            }
-        });
-        pnlOpcion.add(radFecha);
-
-        radHora.setText("Por hora");
-        radHora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radHoraActionPerformed(evt);
-            }
-        });
-        pnlOpcion.add(radHora);
-
-        radLote.setText("Por lote");
-        radLote.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radLoteActionPerformed(evt);
-            }
-        });
-        pnlOpcion.add(radLote);
-
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.gridwidth = 3;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         jPanel4.add(pnlOpcion, gridBagConstraints);
+
+        cboCondicion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        jPanel4.add(cboCondicion, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -593,14 +469,6 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
             }
         });
         jPanel5.add(btnCancelar);
-
-        btnImprimirTodo.setText("Imprimir todo");
-        btnImprimirTodo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImprimirTodoActionPerformed(evt);
-            }
-        });
-        jPanel5.add(btnImprimirTodo);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -631,7 +499,7 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
         this.accion = Controlador.NUEVO;
-        controlador.prepararCrear();
+        dcc.prepararCrear();
         this.controles(accion);
         integrantes.clear();
     }//GEN-LAST:event_btnNuevoActionPerformed
@@ -641,10 +509,11 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         int fila = tblTabla.getSelectedRow();
         if (fila != -1) {
             this.accion = Controlador.MODIFICAR;
-            tipoSeleccionado = this.listado.get(fila).getPermiso().getTipoPermiso();
-            controlador.setSeleccionado(this.listado.get(fila).getPermiso());
+            //tipoSeleccionado = this.listado.get(fila);
+            dcc.setSeleccionado(this.listado.get(fila));
+            //controlador.setSeleccionado(this.listado.get(fila));
             this.controles(accion);
-            FormularioUtil.activarComponente(txtTipoPermiso, false);
+            //FormularioUtil.activarComponente(txtTipoPermiso, false);
         }
     }//GEN-LAST:event_btnModificarActionPerformed
 
@@ -654,60 +523,27 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
             return;
         }
         if (FormularioUtil.dialogoConfirmar(this, accion)) {
-            Permiso seleccionada = this.controlador.getSeleccionado();
+            DetalleCondicion seleccionada = dcc.getSeleccionado();
 
             FormularioUtil.convertirMayusculas(this.pnlDatos);
-
-//            if (accion == Controlador.NUEVO) {
-//                seleccionada.setCodigo(txtTipoPermiso.getText());
-//            }
-            seleccionada.setMotivo(txtMotivo.getText());
-            seleccionada.setTipoPermiso(tipoSeleccionado);
+            System.out.println("Indice: "+cboCondicion.getSelectedIndex());
+            System.out.println("Condicion tomada: "+condicionList.get(cboCondicion.getSelectedIndex()).getNombre());
+            
             seleccionada.setFechaInicio(dcFechaInicio.getDate());
-            seleccionada.setPorFecha(radFecha.isSelected());
-            seleccionada.setDocumento(txtDocumento.getText());
-            Long diferencia;
-            if (radFecha.isSelected()) {
+            if(dcFechaFin.getDate()!= null){
                 seleccionada.setFechaFin(dcFechaFin.getDate());
-                diferencia = seleccionada.getFechaFin().getTime() - seleccionada.getFechaInicio().getTime();
-                seleccionada.setOpcion('F');
-            } else {
-                seleccionada.setCubreEntrada(false);
-                seleccionada.setCubreSalida(false);
-                seleccionada.setHoraInicio((Date) spHoraInicio.getValue());
-                seleccionada.setHoraFin((Date) spHoraFin.getValue());
-                seleccionada.setFechaFin((Date) dcFechaInicio.getDate());
-                seleccionada.setOpcion('H');
-                diferencia = FechaUtil.soloHora(seleccionada.getHoraFin()).getTime() - FechaUtil.soloHora(seleccionada.getHoraInicio()).getTime();
+            }else{
+                seleccionada.setFechaFin(null);
             }
-
-            BigDecimal diferenciaMin = new BigDecimal(diferencia / (60 * 1000 * 60));
-
-            seleccionada.setDiferencia(diferenciaMin);
-
-            List<String> dnis = new ArrayList<>();
-            for (AsignacionPermiso asignacion : seleccionada.getAsignacionPermisoList()) {
-                dnis.add(asignacion.getEmpleado());
-                //System.out.println(asignacion.getEmpleado());
-            }
-
-            retrocederTiempo(dnis, seleccionada.getFechaInicio());
-
-            if (controlador.accion(accion)) {
-                FormularioUtil.mensajeExito(this, accion);
-                this.accion = 0;
-                FormularioUtil.limpiarComponente(this.pnlDatos);
-                this.integrantes.clear();
-                this.controles(accion);
-                this.actualizarTabla();
-
-                if (FormularioUtil.dialogoConfirmar(this, 4)) {
-                    this.imprimirBoleta(seleccionada);
+            seleccionada.setCondicionId(condicionList.get(cboCondicion.getSelectedIndex()));
+            for (Empleado ep : integrantes) {
+                seleccionada.setEmpleadoNroDocumento(ep.getNroDocumento());
+                if(dcc.accion(1)){
+                    System.out.println("Guardado");
+                }else{
+                    System.out.println("Falla al ingresar");
                 }
-            } else {
-                FormularioUtil.mensajeError(this, accion);
-            }
-
+            }        
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -721,9 +557,9 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int fila = tblTabla.getSelectedRow();
         if (fila != -1) {
-            Permiso permiso = listado.get(fila).getPermiso();
-            mostrar(permiso);
-            FormularioUtil.activarComponente(this.btnImprimirTodo, true);
+            DetalleCondicion detalle = listado.get(fila);
+            mostrar(detalle);
+            //FormularioUtil.activarComponente(this.btnImprimirTodo, true);
         }
     }//GEN-LAST:event_tblTablaMouseReleased
 
@@ -734,18 +570,6 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
             quitarEmpleado(fila);
         }
     }//GEN-LAST:event_btnQuitarActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        DlgTipoPermiso dialogo = new DlgTipoPermiso(this);
-        tipoSeleccionado = dialogo.getSeleccionado();
-        if (tipoSeleccionado == null) {
-            System.out.println("ES NULL");
-            txtTipoPermiso.setText("");
-        } else {
-            txtTipoPermiso.setText(tipoSeleccionado.getNombre());
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtEmpleadoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmpleadoKeyReleased
         // TODO add your handling code here:
@@ -818,17 +642,6 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         this.actualizarControlesNavegacion();
     }//GEN-LAST:event_cboTamanioActionPerformed
 
-    private void btnImprimirTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirTodoActionPerformed
-        // TODO add your handling code here:
-        int fila = this.tblTabla.getSelectedRow();
-        if (fila != -1) {
-//            List<AsignacionPermiso> lista = new ArrayList<>();
-            AsignacionPermiso asignacion = this.listado.get(fila);
-//            lista.add(asignacion);
-            imprimirBoleta(asignacion.getPermiso());
-        }
-    }//GEN-LAST:event_btnImprimirTodoActionPerformed
-
     private void tblEmpleadosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblEmpleadosMouseReleased
         // TODO add your handling code here:
         int fila;
@@ -841,21 +654,6 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmpleadoActionPerformed
 
-    private void radFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radFechaActionPerformed
-        // TODO add your handling code here:
-        opciones();
-    }//GEN-LAST:event_radFechaActionPerformed
-
-    private void radHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radHoraActionPerformed
-        // TODO add your handling code here:
-        opciones();
-    }//GEN-LAST:event_radHoraActionPerformed
-
-    private void radLoteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radLoteActionPerformed
-        // TODO add your handling code here:
-        opciones();
-    }//GEN-LAST:event_radLoteActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
@@ -863,7 +661,6 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnImprimirTodo;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnNuevo;
@@ -871,26 +668,20 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnQuitar;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnUltimo;
+    private javax.swing.JComboBox cboCondicion;
     private javax.swing.JComboBox cboTamanio;
     private com.toedter.calendar.JDateChooser dcFechaFin;
     private com.toedter.calendar.JDateChooser dcFechaInicio;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private org.jdesktop.swingx.JXBusyLabel lblBusqueda;
     private javax.swing.ButtonGroup opciones;
@@ -898,63 +689,49 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlListado;
     private javax.swing.JPanel pnlNavegacion;
     private javax.swing.JPanel pnlOpcion;
-    private javax.swing.JRadioButton radFecha;
-    private javax.swing.JRadioButton radHora;
-    private javax.swing.JRadioButton radLote;
     private javax.swing.JSpinner spFechaFin1;
     private javax.swing.JSpinner spFechaInicio1;
-    private javax.swing.JSpinner spHoraFin;
-    private javax.swing.JSpinner spHoraInicio;
     private javax.swing.JSpinner spPagina;
     private org.jdesktop.swingx.JXTable tblEmpleados;
     private org.jdesktop.swingx.JXTable tblTabla;
-    private javax.swing.JTextField txtDocumento;
     private javax.swing.JTextField txtEmpleado;
-    private javax.swing.JTextArea txtMotivo;
-    private javax.swing.JTextField txtTipoPermiso;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 
-    private void mostrar(Permiso permiso) {
-        txtMotivo.setText(permiso.getMotivo());
-        txtTipoPermiso.setText(permiso.getTipoPermiso().getNombre());
-        this.radFecha.setSelected(permiso.isPorFecha());
-        dcFechaInicio.setDate(permiso.getFechaInicio());
-        txtDocumento.setText(permiso.getDocumento());
-        if (permiso.isPorFecha()) {
-            Calendar cal = Calendar.getInstance();
-            cal.set(Calendar.HOUR_OF_DAY, 0);
-            cal.set(Calendar.MINUTE, 0);
-            cal.set(Calendar.SECOND, 0);
-            dcFechaFin.setDate(permiso.getFechaFin());
-            spHoraInicio.setValue(cal.getTime());
-            spHoraFin.setValue(cal.getTime());
-        } else {
-            dcFechaFin.setDate(permiso.getFechaInicio());
-            spHoraInicio.setValue(permiso.getHoraInicio());
-            spHoraFin.setValue(permiso.getHoraFin());
-        }
+    private void mostrar(DetalleCondicion detalle) {
+        dcFechaInicio.setDate(detalle.getFechaInicio());
+        dcFechaFin.setDate(detalle.getFechaFin());
+        cboCondicion.setSelectedItem(detalle.getCondicionId());
 
-        List<String> listaDNI = obtenerListadoDNI(permiso.getAsignacionPermisoList());
+        List<String> listaDNI = obtenerListadoDNI(detalle);
         if (!listaDNI.isEmpty()) {
             mostrarIntegrantes(listaDNI);
         }
 
     }
-
+    private List<Condicion> condicionList;
     private void bindeoSalvaje() {
         listado = new ArrayList<>();
         listado = ObservableCollections.observableList(listado);
-
+        condicionList = cc.buscarTodos();
         integrantes = ObservableCollections.observableList(new ArrayList<Empleado>());
 
         String[] columnasIntegrantes = {"Nro Documento", "Empleado"};
-
-        MTAsignacionPermiso mt = new MTAsignacionPermiso(listado);
+        JComboBoxBinding bindingCondicion = SwingBindings.createJComboBoxBinding(AutoBinding.UpdateStrategy.READ, condicionList, cboCondicion);
+        bindingCondicion.bind();
+        MTDetalleCondicion mt = new MTDetalleCondicion(listado);
         MTEmpleado mtIntegrantes = new MTEmpleado(integrantes, columnasIntegrantes);
         tblTabla.setModel(mt);
         tblEmpleados.setModel(mtIntegrantes);
-
+        cboCondicion.setRenderer(new DefaultListCellRenderer(){
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                if (value instanceof Condicion) {
+                    value = ((Condicion) value).getNombre();
+                }
+                return super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+            }
+        });
         actualizarTabla();
     }
 
@@ -979,12 +756,9 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
 
         controlador = new PermisoControlador();
         ec = new EmpleadoControlador();
+        cc = new CondicionControlador();
         ac = new AsignacionPermisoControlador();
         dcc = new DetalleCondicionControlador();
-//        FormularioUtil.modeloSpinnerFechaHora(spFechaInicio, "dd/MM/yyyy");
-//        FormularioUtil.modeloSpinnerFechaHora(spFechaFin, "dd/MM/yyyy");
-        FormularioUtil.modeloSpinnerFechaHora(spHoraInicio, "HH:mm");
-        FormularioUtil.modeloSpinnerFechaHora(spHoraFin, "HH:mm");
         FormularioUtil.modeloSpinnerFechaHora(spFechaInicio1, "dd/MM/yyyy");
         FormularioUtil.modeloSpinnerFechaHora(spFechaFin1, "dd/MM/yyyy");
         this.controles(accion);
@@ -995,37 +769,29 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
 
         FormularioUtil.activarComponente(this.pnlListado, !bandera);
         FormularioUtil.activarComponente(this.pnlDatos, bandera);
-        FormularioUtil.activarComponente(this.btnImprimirTodo, false);
 
         if (accion != Controlador.MODIFICAR) {
             FormularioUtil.limpiarComponente(this.pnlDatos);
         }
 
-        this.txtTipoPermiso.setEditable(false);
         checkPorFecha(accion);
     }
 
-    private List<String> obtenerListadoDNI(List<AsignacionPermiso> detalles) {
+    private List<String> obtenerListadoDNI(DetalleCondicion detalle) {
         List<String> listadoDNI = new ArrayList<>();
-        for (AsignacionPermiso detalle : detalles) {
-            listadoDNI.add(detalle.getEmpleado());
-        }
+        
+            listadoDNI.add(detalle.getEmpleadoNroDocumento());
+        
         return listadoDNI;
     }
 
     public void agregarEmpleado(Empleado empleado) {
         integrantes.add(empleado);
-
-        AsignacionPermiso detalle = new AsignacionPermiso();
-        detalle.setEmpleado(empleado.getNroDocumento());
-        detalle.setPermiso(controlador.getSeleccionado());
-
-        controlador.getSeleccionado().getAsignacionPermisoList().add(detalle);
+        dcc.getSeleccionado().setEmpleadoNroDocumento(empleado.getNroDocumento());
     }
 
     private void quitarEmpleado(int fila) {
         integrantes.remove(fila);
-        controlador.getSeleccionado().getAsignacionPermisoList().remove(fila);
     }
 
     private int paginaActual = 1;
@@ -1039,20 +805,20 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         Date fechaInicio = (Date) spFechaInicio1.getValue();
         Date fechaFin = (Date) spFechaFin1.getValue();
         listado.clear();
-        List<AsignacionPermiso> lista = this.listar(empleadoSeleccionado, fechaInicio, fechaFin, paginaActual, tamanioPagina);
+        List<DetalleCondicion> lista = this.listar(empleadoSeleccionado, fechaInicio, fechaFin, paginaActual, tamanioPagina);
         System.out.println("LISTA: " + lista.size());
         listado.addAll(lista);
 
         tblTabla.packAll();
     }
 
-    private List<AsignacionPermiso> listar(Empleado empleado, Date fechaInicio, Date fechaFin, int pagina, int tamanio) {
+    private List<DetalleCondicion> listar(Empleado empleado, Date fechaInicio, Date fechaFin, int pagina, int tamanio) {
         int total;
 
         if (empleado == null) {
-            total = ac.contarXFecha(fechaInicio, fechaFin);
+            total = dcc.contarXFecha(fechaInicio, fechaFin);
         } else {
-            total = ac.contarXEmpleadoXFecha(empleado.getNroDocumento(), fechaInicio, fechaFin);
+            total = dcc.contarXEmpleadoXFecha(empleado.getNroDocumento(), fechaInicio, fechaFin);
         }
 
         if (total % tamanio == 0) {
@@ -1066,9 +832,9 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         }
 
         if (empleado == null) {
-            return ac.buscarXFecha(fechaInicio, fechaFin, (pagina - 1) * tamanio, tamanio);
+            return dcc.buscarXFecha(fechaInicio, fechaFin, (pagina - 1) * tamanio, tamanio);
         } else {
-            return ac.buscarXEmpleadoXFecha(empleado.getNroDocumento(), fechaInicio, fechaFin, (pagina - 1) * tamanio, tamanio);
+            return dcc.buscarXEmpleadoXFecha(empleado.getNroDocumento(), fechaInicio, fechaFin, (pagina - 1) * tamanio, tamanio);
         }
 
     }
@@ -1120,72 +886,9 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
     private final DateFormat dfFecha = new SimpleDateFormat("dd/MM/yyyy");
     private final DateFormat dfHora = new SimpleDateFormat("HH:mm");
 
-    private void imprimirBoleta(Permiso seleccionada) {
-
-        File reporte = new File("reportes/r_papeleta_permiso_lote.jasper");
-//        List<Long> lista = new ArrayList<>();
-        String tipoPermiso = "";
-        String conGoce = "";
-        String fechas = "";
-        switch (seleccionada.getTipoPermiso().getTipoDescuento()) {
-            case 'C':
-                conGoce += "SI";
-                break;
-            case 'S':
-                conGoce += "NO";
-                break;
-        }
-
-        switch (seleccionada.getTipoPermiso().getClase()) {
-            case 'L':
-                tipoPermiso = "LICENCIA - " + seleccionada.getTipoPermiso().getNombre();
-                break;
-            case 'P':
-                tipoPermiso = "PERMISO - " + seleccionada.getTipoPermiso().getNombre();
-                break;
-            case 'C':
-                tipoPermiso = "COMISIÓN DE SERVICIOS";
-                break;
-        }
-
-        if (seleccionada.isPorFecha()) {
-            fechas = dfFecha.format(seleccionada.getFechaInicio()) + " - " + dfFecha.format(seleccionada.getFechaFin());
-        } else {
-            fechas = dfFecha.format(seleccionada.getFechaInicio()) + " " + dfHora.format(seleccionada.getHoraInicio()) + " - " + dfFecha.format(seleccionada.getFechaFin()) + " " + dfHora.format(seleccionada.getHoraFin());
-        }
-
-//        for (AsignacionPermiso asignacion : seleccionada.getAsignacionPermisoList()) {
-//            lista.add(asignacion.getId());
-//        }
-        Map<String, Object> parametros = new HashMap<>();
-        parametros.put("permiso_id", seleccionada.getId());
-        parametros.put("tipoPermiso", tipoPermiso);
-        parametros.put("conGoce", conGoce);
-        System.out.println("NULL 1 ");
-        parametros.put("usuario", UsuarioActivo.getUsuario().getLogin());
-        System.out.println("NULL 2 ");
-        parametros.put("CONEXION_EMPLEADOS", ec.getDao().getConexion());
-        parametros.put("fechas", fechas);
-        System.out.println("NULL 3 ");
-
-        reporteador.setConn(controlador.getDao().getConexion());
-        reporteador.generarReporte(reporte, parametros, JOptionPane.getFrameForComponent(this));
-
-    }
-
-    private final TCAnalisisControlador tcac = new TCAnalisisControlador();
-
-    private void retrocederTiempo(List<String> dnis, Date fechaInicio) {
-        tcac.retrocederTiempo(dnis, fechaInicio);
-    }
-
     private void checkPorFecha(int accion) {
         if (accion != 0) {
             FormularioUtil.activarComponente(dcFechaInicio, true);
-            FormularioUtil.activarComponente(dcFechaFin, radFecha.isSelected());
-
-            spHoraInicio.setEnabled(!radFecha.isSelected());
-            spHoraFin.setEnabled(!radFecha.isSelected());
         }
     }
 
@@ -1198,66 +901,34 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
             errores++;
             mensaje = ">Debe seleccionar uno o mas empleados\n";
         }
-        if (radFecha.isSelected()) {
+        if(dcFechaInicio.getDate()==null){
+            errores++;
+            mensaje = ">Debes escoger al menos una fecha inicio\n";
+        }
+        if(dcFechaFin.getDate()!=null){
             Date fechaFin = dcFechaFin.getDate();
             if (fechaInicio.compareTo(fechaFin) > 0) {
                 errores++;
                 mensaje = ">La fecha de inicio debe ser menor que la fecha de fin\n";
             }
-            //Traemos los dnis de los empleados
-            if(accion==1){
-                Permiso paraComprobar = this.controlador.getSeleccionado();
-                //List<String> dnis = new ArrayList<>();
-                for (AsignacionPermiso asignacion : paraComprobar.getAsignacionPermisoList()) {
-                    //dnis.add(asignacion.getEmpleado());
-                    System.out.println(asignacion.getEmpleado());
-                    List<AsignacionPermiso> lista = ac.buscarXFechaDni(asignacion.getEmpleado(), fechaInicio);
-                    System.out.println("Fecha y hora: "+fechaInicio.toString());
-                    if(lista.isEmpty()){
-                        
-                    }else{
-                       errores++;
-                       mensaje = "El empleado "+asignacion.getEmpleado()+" tiene conflicto con un permiso añadido anteriormente \n Ingrese otro rango de fechas \n";
-                       break;
-                    }
-                }
-            }
-            //Traemos los permisos por dni
         }
-        if(radHora.isSelected()){ 
-            Date horaInicio = (Date) spHoraInicio.getValue();
-            Date horaFin = (Date) spHoraFin.getValue();
-//            
-//            Calendar fechaConHora = Calendar.getInstance();
-//            fechaConHora.setTime(fechaInicio);
-//            
-//            Calendar hora = Calendar.getInstance();
-//            hora.setTime(horaInicio);
-// 
-//            fechaConHora.set(Calendar.HOUR_OF_DAY, hora.get(Calendar.HOUR_OF_DAY));
-//            fechaConHora.set(Calendar.MINUTE, hora.get(Calendar.MINUTE));
-//            fechaConHora.set(Calendar.SECOND, hora.get(Calendar.SECOND));
-//      
-//            Date fechaValidada = fechaConHora.getTime();
-            if(horaInicio.compareTo(horaFin) > 0){
-                errores++;
-                mensaje = ">La hora de inicio debe ser menor que la hora de fin \n";
+            
+        //Traemos los dnis de los empleados
+        if(accion==1){
+            DetalleCondicion paraComprobar = dcc.getSeleccionado();
+            System.out.println("Para comprobar: "+paraComprobar.getEmpleadoNroDocumento());
+            //System.out.println(asignacion.getEmpleado());
+            List<DetalleCondicion> lista = dcc.buscarXFechaDni(paraComprobar.getEmpleadoNroDocumento(), fechaInicio);
+            //System.out.println("Fecha y hora: "+fechaInicio.toString());
+            if(lista.isEmpty()){
+
+            }else{
+               errores++;
+               mensaje = "El empleado "+paraComprobar.getEmpleadoNroDocumento()+" tiene una condición asignada \n Ingrese una fecha fin a la condición anterior \n O ingrese otro rango de fechas \n";
             }
-            if(accion==1){
-                Permiso paraComprobar = this.controlador.getSeleccionado();
-                for(AsignacionPermiso asignacion : paraComprobar.getAsignacionPermisoList()){
-                    List<AsignacionPermiso> lista = ac.buscarXHora(asignacion.getEmpleado(), horaInicio, fechaInicio);
-                    if(lista.isEmpty()){
-                        
-                    }else{
-                        errores++;
-                        mensaje = "El empleado "+asignacion.getEmpleado()+" tiene conflicto con un permiso añadido anteriormente \n Ingrese otro rango de horas\n";
-                        break;
-                    }
-                }
-            }
+
         }
-        System.out.println("Nombre: "+this.controlador.getSeleccionado().getMotivo() );
+
         if (errores > 0) {
             JOptionPane.showMessageDialog(this, "Se ha(n) encontrado el(los) siguiente(s) error(es):\n" + mensaje, "Mensaje del sistema", JOptionPane.ERROR_MESSAGE);
         }
@@ -1269,14 +940,6 @@ public class AsignarExoneracion extends javax.swing.JInternalFrame {
         cal.setTime(empleado.getFechaInicioContrato());
 
         Date fInicio = dcFechaInicio.getDate();
-
-    }
-
-    private void opciones() {
-        FormularioUtil.activarComponente(dcFechaInicio, radFecha.isSelected() || radLote.isSelected());
-        FormularioUtil.activarComponente(dcFechaFin, radFecha.isSelected() || radLote.isSelected());
-        spHoraInicio.setEnabled(radHora.isSelected() || radLote.isSelected());
-        spHoraFin.setEnabled(radHora.isSelected() || radLote.isSelected());
 
     }
 }

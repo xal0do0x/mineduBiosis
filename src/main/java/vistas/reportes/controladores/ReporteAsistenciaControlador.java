@@ -618,7 +618,7 @@ public class ReporteAsistenciaControlador {
         }
     }
     
-    public int minutosSinGocePorPermisos(String dni, Date fechaInicio, Date fechaFin){
+    public int minutosSinGocePorLicencias(String dni, Date fechaInicio, Date fechaFin){
         Calendar cal = Calendar.getInstance();
         Calendar iterador = Calendar.getInstance();
         int diasDescuento = 0;
@@ -662,7 +662,67 @@ public class ReporteAsistenciaControlador {
                             Date horaInicio1 = permisoProcesar.getHoraInicio();
                             Date horaFin1 = permisoProcesar.getHoraFin();
                             if(horaInicio1.compareTo(horaFin1)<0){
-                                minDescuento = ReporteUtil.restarFechas(permisoProcesar.getHoraFin(), permisoProcesar.getHoraInicio(),"m");
+                                minDescuento += ReporteUtil.restarFechas(permisoProcesar.getHoraFin(), permisoProcesar.getHoraInicio(),"m");
+                            }
+                            System.out.println("Minutos de permisos sin goce por horas: "+minDescuento);
+                        }
+                   }
+                }
+            }else{
+                System.out.println("No hay registros");
+            }
+            iterador.add(Calendar.DATE, 1);
+        }
+        System.out.println("Dias de descuento: "+(diasDescuento+diasDescuentoSimple));
+        int minutosT = (diasDescuento+diasDescuentoSimple) * 480;
+        return (int) (minutosT + minDescuento);
+    }
+ 
+    public int minutosSinGocePorPermisos(String dni, Date fechaInicio, Date fechaFin){
+        Calendar cal = Calendar.getInstance();
+        Calendar iterador = Calendar.getInstance();
+        int diasDescuento = 0;
+        int diasDescuentoSimple = 0;
+        double minDescuento = 0;
+        iterador.setTime(fechaInicio);
+        List<Integer> listaPermisos = new ArrayList<>();
+        while(iterador.getTime().compareTo(fechaFin)<=0){
+            iterador.set(Calendar.HOUR_OF_DAY, 0);
+            iterador.set(Calendar.MINUTE, 0);
+            iterador.set(Calendar.SECOND, 0);
+            AsignacionPermiso asignaciones = aspc.buscarXDiaPP(dni,iterador.getTime());
+            System.out.println("Fecha ingresada : "+iterador.getTime());
+            if(asignaciones!=null){
+                System.out.println("Asignacion: "+asignaciones.getPermiso().toString());
+                Permiso permisoProcesar = asignaciones.getPermiso();
+                System.out.println("Tiene un permiso"+permisoProcesar.getMotivo());
+                if(permisoProcesar.getTipoPermiso().getTipoDescuento()=='S'){
+                    if(permisoProcesar.getOpcion()=='F'){
+                        if(!listaPermisos.contains(permisoProcesar.getId().intValue())){
+                            Date fechaInicio1 = permisoProcesar.getFechaInicio();
+                            Date fechaFin1 = permisoProcesar.getFechaFin();
+                            if(fechaInicio1.compareTo(fechaFin1)<=0){
+                                cal.setTime(fechaInicio1);
+                                //int diaInicio = cal.get(Calendar.DAY_OF_MONTH);
+                                //cal.setTime(fechaFin1);
+                                //int diaFin = cal.get(Calendar.DAY_OF_MONTH);
+                                //while(cal.getTime().compareTo(fechaFin1)<=0){
+                                    diasDescuento += 1;
+                                //}
+                                //diasDescuento += diaFin - diaInicio + 1;
+                                System.out.println("dias: "+diasDescuento);
+                            }
+                            //else if(fechaInicio1.compareTo(fechaFin1)==0){
+                              //  diasDescuentoSimple += 1;
+                            //}
+                            //listaPermisos.add(permisoProcesar.getId().intValue());
+                        }
+                    }else{
+                        if(permisoProcesar.getOpcion()=='H'){
+                            Date horaInicio1 = permisoProcesar.getHoraInicio();
+                            Date horaFin1 = permisoProcesar.getHoraFin();
+                            if(horaInicio1.compareTo(horaFin1)<0){
+                                minDescuento += ReporteUtil.restarFechas(permisoProcesar.getHoraFin(), permisoProcesar.getHoraInicio(),"m");
                             }
                             System.out.println("Minutos de permisos sin goce por horas: "+minDescuento);
                         }
@@ -678,13 +738,43 @@ public class ReporteAsistenciaControlador {
         return (int) (minutosT + minDescuento);
     }
     
-    /**
-     * Prueba para procedimiento almacenado
-     */
-    public List<RptAsistenciaBean> analisisAsistenciaSP(){
-        List<RptAsistenciaBean> registros = new ArrayList<>();
-        
-        return registros;
+    public void analisisOnomasticos(Date fechaInicio, Date fechaFin, List<String> dnis){  
+        for(String dni : dnis){     
+            Calendar iterador = Calendar.getInstance();
+            iterador.setTime(fechaInicio);
+            while(iterador.getTime().compareTo(fechaFin) <= 0){
+                Date fecha = iterador.getTime();
+                //Descartar si es sabado o domingo
+                System.out.println("Dni: "+dni+" Fecha: "+fecha.toString());
+                
+                EmpleadoT empleado = ec.buscarPorDni(dni);
+                /**
+                 * Generacion de permiso por onomastico
+                 */
+                if(isOnosmatico(fecha, empleado)){
+                    Calendar fechaPermisoOno =Calendar.getInstance();
+                    fechaPermisoOno.setTime(fecha);
+
+                    while(fc.buscarXDia(fechaPermisoOno.getTime())!=null){
+                        fechaPermisoOno.add(Calendar.DATE, 1);
+                    }
+                    while(!ReporteUtil.isDiaLaboral(fechaPermisoOno.getTime())){
+                        fechaPermisoOno.add(Calendar.DATE, 1);
+                    }
+                    if(ReporteUtil.isDiaLaboral(fechaPermisoOno.getTime())){
+                        //busca onomastico
+                        if(aspc.buscarXDiaOnosmatico(dni, fechaPermisoOno.getTime())!=null){
+                            System.out.println("Hay cumpleañosd d_d");
+                        }else{
+                            System.out.println("Crear Cumple");
+                            crearOnomastico(fechaPermisoOno.getTime(), empleado);
+                        }
+                    }
+                }else{
+                    System.out.println("No cumple");
+                }
+                iterador.add(Calendar.DATE, 1);
+            }
+        }
     }
-    
 }

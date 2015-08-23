@@ -937,7 +937,12 @@ public class AsignarPermiso extends javax.swing.JInternalFrame {
     private void mostrar(Permiso permiso) {
         txtMotivo.setText(permiso.getMotivo());
         txtTipoPermiso.setText(permiso.getTipoPermiso().getNombre());
-        this.radFecha.setSelected(permiso.isPorFecha());
+        if(permiso.isPorFecha()){
+            this.radFecha.setSelected(true);
+        }else{
+            this.radHora.setSelected(true);
+        }
+        //this.radFecha.setSelected(permiso.isPorFecha());
         dcFechaInicio.setDate(permiso.getFechaInicio());
         txtDocumento.setText(permiso.getDocumento());
         if (permiso.isPorFecha()) {
@@ -1042,8 +1047,18 @@ public class AsignarPermiso extends javax.swing.JInternalFrame {
     }
 
     private void quitarEmpleado(int fila) {
+        //integrantes.remove(fila);
+        //controlador.getSeleccionado().getAsignacionPermisoList().remove(fila);
+        
+        String dni = integrantes.get(fila).getNroDocumento();
+        List<AsignacionPermiso> asignacionPermisos = controlador.getSeleccionado().getAsignacionPermisoList();
+        for(AsignacionPermiso asignacionPermiso : asignacionPermisos){
+            if(asignacionPermiso.getEmpleado().equals(dni)){
+               controlador.getSeleccionado().getAsignacionPermisoList().remove(asignacionPermiso);
+               break;
+            }
+        }
         integrantes.remove(fila);
-        controlador.getSeleccionado().getAsignacionPermisoList().remove(fila);
     }
 
     private int paginaActual = 1;

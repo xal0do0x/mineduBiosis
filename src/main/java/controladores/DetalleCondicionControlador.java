@@ -22,10 +22,12 @@ public class DetalleCondicionControlador extends Controlador<DetalleCondicion> {
     }
     
     public List<DetalleCondicion> buscarXEmpleadoXFecha(String dni,Date fechaInicio,Date fechaFin, int desde, int tamanio){
-        String jpql = "SELECT d FROM DetalleCondicion d WHERE (CAST(d.empleadoNroDocumento AS INTEGER) = CAST(:dni AS INTEGER) AND d.fechaInicio BETWEEN :fechaInicio AND :fechaFin) OR "
-                + "(CAST(d.empleadoNroDocumento AS INTEGER) = CAST(:dni AS INTEGER) AND d.fechaInicio >= :fechaInicio AND d.fechaFin IS NULL)";
+        int dniT = Integer.parseInt(dni);
+        String jpql = "SELECT d FROM DetalleCondicion d WHERE CAST(d.empleadoNroDocumento AS int) = :dni AND "
+                + "d.fechaInicio BETWEEN :fechaInicio AND :fechaFin) OR "
+                + "d.empleadoNroDocumento = :dni  AND d.fechaInicio >= :fechaInicio AND d.fechaFin IS NULL)";
         Map<String, Object> mapa = new HashMap<>();
-        mapa.put("dni",dni);
+        mapa.put("dni",dniT);
         mapa.put("fechaInicio",fechaInicio);
         mapa.put("fechaFin",fechaFin);
         return this.getDao().buscar(jpql,mapa,desde,tamanio);
@@ -41,16 +43,17 @@ public class DetalleCondicionControlador extends Controlador<DetalleCondicion> {
     }       
      
     public List<DetalleCondicion> buscarXFechaDni(String dni,Date fechaInicio){
-        String jpl = "SELECT d FROM DetalleCondicion d WHERE (CAST(d.empleadoNroDocumento AS INTEGER) = CAST(:dni AS INTEGER) AND :fechaInicio BETWEEN d.fechaInicio and d.fechaFin) OR"
-                + "(CAST(d.empleadoNroDocumento AS INTEGER) = CAST(:dni AS INTEGER) AND :fechaInicio >= d.fechaInicio and d.fechaFin IS NULL) ";
+        int dniT = Integer.parseInt(dni);
+        String jpl = "SELECT d FROM DetalleCondicion d WHERE CAST(d.empleadoNroDocumento as int)  = :dni  AND :fechaInicio BETWEEN d.fechaInicio and d.fechaFin) OR"
+                + "d.empleadoNroDocumento  = :dni AND :fechaInicio >= d.fechaInicio and d.fechaFin IS NULL) ";
         Map<String, Object> mapa = new HashMap<>();
-        mapa.put("dni", dni);
+        mapa.put("dni", dniT);
         mapa.put("fechaInicio", fechaInicio);
         return this.getDao().buscar(jpl, mapa);
     }
     
      public int contarXFecha(Date fechaInicio, Date fechaFin) {
-        String jpql = "SELECT COUNT(a.id) FROM AsignacionPermiso a WHERE a.permiso.fechaInicio BETWEEN :fechaInicio AND :fechaFin";
+        String jpql = "SELECT COUNT(d.id) FROM DetalleCondicion d WHERE (d.fechaInicio BETWEEN :fechaInicio AND :fechaFin) OR (d.fechaInicio >= :fechaInicio AND d.fechaFin IS NULL)" ;
         Long cont = (Long) this.getDao().getEntityManager().createQuery(jpql)
                 .setParameter("fechaInicio", fechaInicio)
                 .setParameter("fechaFin", fechaFin).getSingleResult();
@@ -58,4 +61,15 @@ public class DetalleCondicionControlador extends Controlador<DetalleCondicion> {
         System.out.println("CONTEO"+conteo);
         return conteo;
     }
+     
+    public int contarXEmpleadoXFecha(String dni, Date fechaInicio, Date fechaFin) {
+        int dniT = Integer.parseInt(dni);
+        String jpql = "SELECT COUNT(d.id) FROM DetalleCondicion d WHERE (CAST(d.empleadoNroDocumento as int) = :dni AND d.fechaInicio BETWEEN :fechaInicio AND :fechaFin) OR (CAST(d.empleadoNroDocumento as int) = :dni AND d.fechaInicio >= :fechaInicio AND d.fechaFin IS NULL)";
+        Long cont = (Long) this.getDao().getEntityManager().createQuery(jpql)
+                .setParameter("dni", dniT)
+                .setParameter("fechaInicio", fechaInicio)
+                .setParameter("fechaFin", fechaFin).getSingleResult();
+        int conteo = cont.intValue();
+        return conteo;
+    } 
 }

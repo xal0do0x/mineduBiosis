@@ -7,6 +7,7 @@ package controladores;
 
 import dao.DAOMINEDU;
 import entidades.Empleado;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,16 +51,20 @@ public class EmpleadoControlador extends Controlador<Empleado> {
     }
 
     public List<Empleado> buscarPorLista(List<String> lista) {
+        List<Integer> listaDniE = new ArrayList<>();
+        for(String dni : lista){
+            listaDniE.add(Integer.parseInt(dni));
+        }
         String jpql = "SELECT e FROM Empleado e WHERE "
-                + "e.nroDocumento IN :lista";
+                + " CAST(e.nroDocumento as int) IN :lista";
         Map<String, Object> mapa = new HashMap<>();
-        mapa.put("lista", lista);
+        mapa.put("lista", listaDniE);
         return this.getDao().buscar(jpql, mapa);
     }
     
     public List<Empleado> buscarPorListaInt(List<Integer> lista) {
         String jpql = "SELECT e FROM Empleado e WHERE "
-                + " CAST(e.nroDocumento AS INT) IN :lista";
+                + " CAST(e.nroDocumento as int) IN :lista";
         Map<String, Object> mapa = new HashMap<>();
         mapa.put("lista", lista);
         return this.getDao().buscar(jpql, mapa);
@@ -67,7 +72,7 @@ public class EmpleadoControlador extends Controlador<Empleado> {
     
     public List<Empleado> buscarPorListaEnteros(List<Integer> lista){
         String jpql = "SELECT e FROM Empleado e WHERE "
-                + "CAST(e.nroDocumento AS integer) IN :lista";
+                + "CAST(e.nroDocumento as integer) IN :lista";
         Map<String, Object> mapa = new HashMap<>();
         mapa.put("lista", lista);
         return this.getDao().buscar(jpql, mapa);
@@ -75,7 +80,7 @@ public class EmpleadoControlador extends Controlador<Empleado> {
  
     public Empleado buscarPorId(int id) {
         String jpql = "SELECT e FROM Empleado e WHERE "
-                + "CAST(e.nroDocumento AS integer) = :id ";
+                + "CAST(e.nroDocumento as integer) = :id ";
         Map<String, Object> mapa = new HashMap<>();
         mapa.put("id", id);
 
@@ -88,9 +93,10 @@ public class EmpleadoControlador extends Controlador<Empleado> {
     }
     
     public Empleado buscarPorDni(String dni){
-        String jpql = "SELECT e FROM Empleado e WHERE e.nroDocumento = :id ";
+        int dniT = Integer.parseInt(dni);
+        String jpql = "SELECT e FROM Empleado e WHERE CAST(e.nroDocumento as int) = :id ";
         Map<String, Object> mapa = new HashMap<>();
-        mapa.put("id", dni);
+        mapa.put("id", dniT);
 
         List<Empleado> empleados = this.getDao().buscar(jpql, mapa, -1, 1);
         if (empleados.isEmpty()) {
@@ -113,7 +119,11 @@ public class EmpleadoControlador extends Controlador<Empleado> {
     }
     
     public List<Empleado> buscarTodosRecursivo(int cantidad, List<String> lista){
-        String jpql = "SELECT e FROM Empleado e WHERE e.nroDocumento NOT IN :lista";
-        return this.getDao().getEntityManager().createQuery(jpql).setParameter("lista",lista).setMaxResults(cantidad).getResultList();
+        List<Integer> listaDniE = new ArrayList<>();
+        for(String dni : lista){
+            listaDniE.add(Integer.parseInt(dni));
+        }
+        String jpql = "SELECT e FROM Empleado e WHERE CAST(e.nroDocumento as int) NOT IN :lista";
+        return this.getDao().getEntityManager().createQuery(jpql).setParameter("lista",listaDniE).setMaxResults(cantidad).getResultList();
     }
 }

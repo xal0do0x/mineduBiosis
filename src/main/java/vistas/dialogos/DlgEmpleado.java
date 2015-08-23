@@ -23,7 +23,9 @@ import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.observablecollections.ObservableCollections;
 import org.jdesktop.swingbinding.JTableBinding;
 import org.jdesktop.swingbinding.SwingBindings;
+import vistas.AsignarExoneracion;
 import vistas.reportes.RptAsistenciaTotal;
+import vistas.reportes.RptCompensacion;
 import vistas.reportes.RptTardanzaTotal;
 import vistas.reportes.RptVacaciones;
 
@@ -310,6 +312,12 @@ public class DlgEmpleado extends javax.swing.JDialog {
                 }
                 else if(this.padre instanceof RptTardanzaTotal && agregar){
                     ((RptTardanzaTotal)this.padre).agregarEmpleado(lista.get(fila));
+                }
+                else if(this.padre instanceof AsignarExoneracion && agregar){
+                    ((AsignarExoneracion)this.padre).agregarEmpleado(lista.get(fila));
+                }
+                else if(this.padre instanceof RptCompensacion && agregar)  {
+                    ((RptCompensacion)this.padre).agregarEmpleado(lista.get(fila));
                 }
                 else{
                     empleadoSeleccionado = lista.get(fila);

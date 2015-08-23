@@ -6,7 +6,9 @@
 package vistas.modelos;
 
 import com.personal.utiles.ModeloTabla;
+import controladores.EmpleadoControlador;
 import entidades.DetalleCondicion;
+import entidades.Empleado;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -17,6 +19,7 @@ import java.util.List;
  */
 public class MTDetalleCondicion extends ModeloTabla<DetalleCondicion> {
     private final DateFormat dfFecha;
+    private final EmpleadoControlador ec = new EmpleadoControlador();
     
     public MTDetalleCondicion(List<DetalleCondicion> datos){
         super(datos);
@@ -27,9 +30,10 @@ public class MTDetalleCondicion extends ModeloTabla<DetalleCondicion> {
     @Override
     public Object getValorEn(int rowIndex, int columnIndex){
         DetalleCondicion detalle = this.datos.get(rowIndex);
+        Empleado e = ec.buscarPorDni(detalle.getEmpleadoNroDocumento());
         switch(columnIndex){
             case 0:
-                return detalle.getEmpleadoNroDocumento();
+                return detalle.getEmpleadoNroDocumento()+" "+e.getApellidoPaterno()+" "+e.getApellidoMaterno()+" "+e.getNombre();
             case 1:
                 return detalle.getCondicionId().getNombre();
             case 2:
