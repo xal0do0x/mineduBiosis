@@ -73,6 +73,17 @@ public class Vacacion implements Serializable {
     
     @OneToMany(mappedBy = "vacacionOrigen", cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Vacacion> vacacionList;
+    
+    @Column(name = "reprogramacion_total", nullable = true)
+    private Boolean reprogramacionTotal;
+
+    public Boolean isReprogramacionTotal() {
+        return reprogramacionTotal;
+    }
+
+    public void setReprogramacionTotal(Boolean reprogramacionTotal) {
+        this.reprogramacionTotal = reprogramacionTotal;
+    }
 
     public List<Vacacion> getVacacionList() {
         return vacacionList;

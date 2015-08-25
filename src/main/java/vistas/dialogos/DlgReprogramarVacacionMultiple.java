@@ -75,11 +75,11 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        grpOpcion = new javax.swing.ButtonGroup();
         pnlVacacionDatosGenerales = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         txtEmpleadoDatos = new javax.swing.JTextField();
         dcVacacionFechaInicio = new com.toedter.calendar.JDateChooser();
         dcVacacionFechaFin = new com.toedter.calendar.JDateChooser();
@@ -90,6 +90,8 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
         txtVacacionDocumento = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtReprogramacionDocumento = new javax.swing.JTextField();
+        radInterrupcion = new javax.swing.JRadioButton();
+        radTotal = new javax.swing.JRadioButton();
         pnlReprogramacionDatos = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -105,6 +107,8 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         btnGuardarCambios = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        grpOpcion.add(radInterrupcion);
+        grpOpcion.add(radTotal);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Reprogramación de vacaciones");
@@ -133,14 +137,6 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlVacacionDatosGenerales.add(jLabel3, gridBagConstraints);
-
-        jLabel4.setText("Fecha de interrupción:");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        pnlVacacionDatosGenerales.add(jLabel4, gridBagConstraints);
 
         txtEmpleadoDatos.setEditable(false);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -180,7 +176,7 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 7;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
@@ -217,6 +213,33 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlVacacionDatosGenerales.add(txtReprogramacionDocumento, gridBagConstraints);
+
+        radInterrupcion.setSelected(true);
+        radInterrupcion.setText("Goce de vacaciones hasta:");
+        radInterrupcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radInterrupcionActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pnlVacacionDatosGenerales.add(radInterrupcion, gridBagConstraints);
+
+        radTotal.setText("Reprogramación total de vacaciones");
+        radTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radTotalActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 6;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pnlVacacionDatosGenerales.add(radTotal, gridBagConstraints);
 
         getContentPane().add(pnlVacacionDatosGenerales, java.awt.BorderLayout.PAGE_START);
 
@@ -270,7 +293,7 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlReprogramacionDatos.add(txtVacacionDiasRestantes, gridBagConstraints);
 
-        jPanel3.setLayout(new java.awt.GridLayout());
+        jPanel3.setLayout(new java.awt.GridLayout(1, 0));
 
         btnAgregarReprogramacion.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         btnAgregarReprogramacion.setText(">>");
@@ -366,6 +389,7 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
         this.vacacionOrigen.setHayReprogramacion(true);
         this.vacacionOrigen.setDocumentoReprogramacion(txtReprogramacionDocumento.getText());
         this.vacacionOrigen.setFechaInterrupcion(dcReprogramacionFechaInterrupcion.getDate());
+        this.vacacionOrigen.setReprogramacionTotal(!radInterrupcion.isSelected());
         vacc.setSeleccionado(this.vacacionOrigen);
         if(vacc.accion(Controlador.MODIFICAR)){
             System.out.println("SE GUARDÓ CORRECTAMENTE");
@@ -430,6 +454,16 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void radInterrupcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radInterrupcionActionPerformed
+        // TODO add your handling code here:
+        cambioOpcion(false);
+    }//GEN-LAST:event_radInterrupcionActionPerformed
+
+    private void radTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radTotalActionPerformed
+        // TODO add your handling code here:
+        cambioOpcion(false);
+    }//GEN-LAST:event_radTotalActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -472,11 +506,11 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
     private com.toedter.calendar.JDateChooser dcReprogramacionFechaInterrupcion;
     private com.toedter.calendar.JDateChooser dcVacacionFechaFin;
     private com.toedter.calendar.JDateChooser dcVacacionFechaInicio;
+    private javax.swing.ButtonGroup grpOpcion;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -488,6 +522,8 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pnlReprogramacionDatos;
     private javax.swing.JPanel pnlVacacionDatosGenerales;
+    private javax.swing.JRadioButton radInterrupcion;
+    private javax.swing.JRadioButton radTotal;
     private javax.swing.JTable tblReprogramaciones;
     private javax.swing.JTextField txtEmpleadoDatos;
     private javax.swing.JTextField txtReprogramacionDocumento;
@@ -503,6 +539,7 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
         FormularioUtil.activarComponente(dcVacacionFechaInicio, false);
         FormularioUtil.activarComponente(dcVacacionFechaFin, false);
         FormularioUtil.activarComponente(txtVacacionDiasRestantes, false);
+        cambioOpcion(iniciarReprogramacion);
     }
 
     private void inicializarComponentes() {
@@ -558,6 +595,10 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
         
         return cruces > 0;
     }
+
+    private void cambioOpcion(boolean iniciarReprogramacion) {
+        FormularioUtil.activarComponente(this.dcReprogramacionFechaInterrupcion, this.radInterrupcion.isSelected() && !iniciarReprogramacion);
+    }
     
     
 
@@ -591,10 +632,9 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
 
     private void actualizarDiasHabilesRestantes() {
         //RECORREMOS FECHA A FECHA Y COMPARAMOS SI ES DIA HABIL O NO
-
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(dcReprogramacionFechaInterrupcion.getDate());
-        calendar.add(Calendar.DATE, -1);
+        calendar.setTime(radInterrupcion.isSelected() ? dcReprogramacionFechaInterrupcion.getDate() : dcVacacionFechaFin.getDate());
+//        calendar.add(Calendar.DATE, -1);
 
         int acumuladoReprogramacion = acumuladoReprogramacion();
         int diasHabilesOriginal = obtenerDiasHabiles(vacacionOrigen.getFechaInicio(), calendar.getTime());
