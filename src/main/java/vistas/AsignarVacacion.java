@@ -43,6 +43,7 @@ import org.jdesktop.observablecollections.ObservableCollections;
 import org.jdesktop.swingbinding.JComboBoxBinding;
 import org.jdesktop.swingbinding.SwingBindings;
 import utiles.UsuarioActivo;
+import vistas.dialogos.DlgReprogramarVacacionMultiple;
 
 /**
  *
@@ -88,6 +89,7 @@ public class AsignarVacacion extends javax.swing.JInternalFrame {
         btnNuevo = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTabla = new org.jdesktop.swingx.JXTable();
@@ -168,6 +170,14 @@ public class AsignarVacacion extends javax.swing.JInternalFrame {
             }
         });
         jPanel3.add(jButton2);
+
+        jButton5.setText("Reprogramar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton5);
 
         jButton3.setText("Imprimir boleta");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -746,6 +756,21 @@ public class AsignarVacacion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmpleadoSeleccionadoActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        int fila = this.tblTabla.getSelectedRow();
+        if(fila != -1){
+            Vacacion vacacion = this.listado.get(fila);
+            if(vacacion.isHayReprogramacion()){
+                JOptionPane.showMessageDialog(this, "Esta vacación ya ha sido reprogramada", "Mensaje del sistema", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                DlgReprogramarVacacionMultiple reprogramarVacacionMultiple = new DlgReprogramarVacacionMultiple(JOptionPane.getRootFrame(), vacacion);
+                reprogramarVacacionMultiple.setVisible(true);
+                this.actualizarTabla();
+            }
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
@@ -768,6 +793,7 @@ public class AsignarVacacion extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

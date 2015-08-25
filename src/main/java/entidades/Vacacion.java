@@ -2,7 +2,9 @@ package entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -67,6 +70,17 @@ public class Vacacion implements Serializable {
     private Vacacion vacacionOrigen;
     @Column(name = "documento_reprogramacion")
     private String documentoReprogramacion;
+    
+    @OneToMany(mappedBy = "vacacionOrigen", cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Vacacion> vacacionList;
+
+    public List<Vacacion> getVacacionList() {
+        return vacacionList;
+    }
+
+    public void setVacacionList(List<Vacacion> vacacionList) {
+        this.vacacionList = vacacionList;
+    }
 
     public boolean isHayReprogramacion() {
         return hayReprogramacion;
