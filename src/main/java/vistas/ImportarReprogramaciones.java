@@ -25,6 +25,7 @@ import entidades.Vacacion;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -37,7 +38,7 @@ import vistas.dialogos.DlgImportarCSV;
  *
  * @author fesquivelc
  */
-public class ImportarVacaciones extends javax.swing.JInternalFrame {
+public class ImportarReprogramaciones extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CRUDPeriodo
@@ -52,7 +53,7 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
     private int accion;
 
     
-    public ImportarVacaciones() {
+    public ImportarReprogramaciones() {
         initComponents();
         inicializar();
         bindeoSalvaje();
@@ -82,13 +83,13 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("VACACIONES A IMPORTAR");
+        setTitle("REPROGRAMACION DE VACACIONES A IMPORTAR");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 5, 0};
         layout.rowHeights = new int[] {0};
         getContentPane().setLayout(layout);
 
-        pnlDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de vacaciones"));
+        pnlDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de reprogramaciones de vacaciones"));
         java.awt.GridBagLayout jPanel2Layout = new java.awt.GridBagLayout();
         jPanel2Layout.columnWidths = new int[] {0};
         jPanel2Layout.rowHeights = new int[] {0, 5, 0};
@@ -99,7 +100,7 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
         jPanel4Layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         jPanel4.setLayout(jPanel4Layout);
 
-        jLabel2.setText("Vacaciones:");
+        jLabel2.setText("Reprogramaciones:");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -152,7 +153,7 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         pnlDatos.add(jPanel5, gridBagConstraints);
 
-        jButton1.setText("Importar Vacaciones");
+        jButton1.setText("Importar Reprogramaciones");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -190,35 +191,15 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
 //            Vacacion seleccionada = this.controlador.getSeleccionado();
         for(Vacacion vacacion : listaGuardar){
             vc.setSeleccionado(vacacion);
-            if (vc.accion(1)) {
-                List<String> dni = new ArrayList<>();
-                System.out.println("Dni de empleado: "+vacacion.getEmpleado());
-                System.out.println("Periodo pasado a buscarcrear: "+vacacion.getPeriodo().getNombre());
-                Empleado empleado = ec.buscarPorDni(vacacion.getEmpleado());
-                //System.out.println("Empleado nombre: "+empleado.getNombre());
-                if(empleado!=null){
-                    System.out.println("Diferente de null");
-                    dni.add(vacacion.getEmpleado());
-                    retrocederTiempo(dni, vacacion.getFechaInicio());
-
-                    SaldoVacacional sv = buscarCrear(empleado, vacacion.getPeriodo());
-                    int[] saldos = obtenerSaldos(empleado,vacacion.getPeriodo());
-                    System.out.println("Saldo 1: "+saldos[0]);
-                    System.out.println("Saldo 2: "+saldos[1]);
-                    System.out.println("Saldo 3: "+saldos[2]);
-                    if(sv!=null){
-                        sv.setDiasRestantes(30 - (saldos[0] + saldos[1] + saldos[2]));
-                        sv.setLunesViernes(saldos[0]);
-                        sv.setSabado(saldos[1]);
-                        sv.setDomingo(saldos[2]);
-                        svc.modificar(sv);
-                    }
-                    
+            System.out.println("NUMERO DE REPROGRAMACIONES AL MOMENTO DE GUARDAR: "+vacacion.getVacacionList().size());
+            if (vc.accion(Controlador.MODIFICAR)) {             
+                    System.out.println("SE GUARDÓ CORRECTAMENTE");
+                    FormularioUtil.mensajeExito(this, Controlador.MODIFICAR);
+                    this.dispose();
                 }else{
-                    System.out.println("El dni no esta en la base de datos: "+vacacion.getEmpleado());
+                    System.out.println("HUBO UN ERROR");
+                    FormularioUtil.mensajeError(this, Controlador.MODIFICAR);
                 }
-                
-            }
 
         }     
         listaGuardar.clear();
@@ -232,15 +213,16 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
         //Creacion de vacaciones **CONSIDERAR HACER UNA CLASE MAS QUE PROCESE EL CONJUNTO DE DATOS ANTES DE INGRESARLOS AL LIST QUE SERA GUARDADO**
         int numero = 1;
         List<Vacacion> listaVacaciones = new ArrayList<>();
+        List<Vacacion> listaReprogramaciones = new ArrayList<>();
+        List<Vacacion> listaVacReprog = new ArrayList<>();
         Calendar date = Calendar.getInstance();
         
        
         for(String[] a : info){
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            
             List<String> listaString = new ArrayList<>();
-            for(String item: a){
-                listaString.add(item);
-            }
+            listaString.addAll(Arrays.asList(a));
             int contadorV = 0;
             //String documento = listaString.get(0);
             //String dni = listaString.get(1);
@@ -249,29 +231,48 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
             String sinad = "";
             String observacion = "";
             Date fechaCalculo = null;
+            Date fechaInterrupcion = null;
+            Vacacion vacacionOriginal = null;
             String dni = listaString.get(0);
             try {
                 fechaCalculo = formatter.parse(listaString.get(1));
             } catch (ParseException ex) {
                 Logger.getLogger(ImportarVacaciones.class.getName()).log(Level.SEVERE, null, ex);
             }
-            if(!listaString.get(2).isEmpty()){
-                resolucion = listaString.get(2);
-            }
-            if(!listaString.get(11).isEmpty()){
-                documento = listaString.get(11);
-            }
-            if(!listaString.get(12).isEmpty()){
-                sinad = listaString.get(12);
+            if(!listaString.get(14).isEmpty()){
+                resolucion = listaString.get(14);
             }
             if(!listaString.get(13).isEmpty()){
-                observacion = listaString.get(13);
+                documento = listaString.get(13);
             }
-            if(!listaString.get(3).isEmpty()){
+            if(!listaString.get(15).isEmpty()){
+                sinad = listaString.get(15);
+            }
+            if(!listaString.get(16).isEmpty()){
+                observacion = listaString.get(16);
+            }
+            if(!listaString.get(2).isEmpty() && !listaString.get(3).isEmpty()){
+                try {
+                    //Busqueda de la vacacion a reprogramar
+                    Date fechaInicio = formatter.parse(listaString.get(2));
+                    vacacionOriginal = vc.buscarXDia(dni, fechaInicio);
+                } catch (ParseException ex) {
+                    Logger.getLogger(ImportarVacaciones.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(!listaString.get(4).isEmpty()){
+                try {
+                    //Fecha de interrupcion
+                    fechaInterrupcion = formatter.parse(listaString.get(4));
+                } catch (ParseException ex) {
+                    Logger.getLogger(ImportarVacaciones.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            if(!listaString.get(5).isEmpty()){
                 try {
                     System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(3)+" "+listaString.get(4));
-                    Date priVacacionInicio = formatter.parse(listaString.get(3));
-                    Date priVacacionFin = formatter.parse(listaString.get(4));
+                    Date priVacacionInicio = formatter.parse(listaString.get(5));
+                    Date priVacacionFin = formatter.parse(listaString.get(6));
                     Vacacion ingreso = new Vacacion();
                     ingreso.setResolucion(resolucion);
                     ingreso.setDocumento(documento);
@@ -283,7 +284,7 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                     ingreso.setHayInterrupcion(false);
                     date.setTime(fechaCalculo);
                     ingreso.setPeriodo(pc.buscarPorAnio(date.get(Calendar.YEAR)));
-                    listaVacaciones.add(ingreso);
+                    listaReprogramaciones.add(ingreso);
                     numero++;
                     contadorV+=1;
                     System.out.println("");
@@ -291,11 +292,11 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                     Logger.getLogger(ImportarVacaciones.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            if(!listaString.get(5).isEmpty()){
+            if(!listaString.get(7).isEmpty()){
                 try {
                     System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(5)+" "+listaString.get(6));
-                    Date segVacacionInicio = formatter.parse(listaString.get(5));
-                    Date segVacacionFin = formatter.parse(listaString.get(6));  
+                    Date segVacacionInicio = formatter.parse(listaString.get(7));
+                    Date segVacacionFin = formatter.parse(listaString.get(8));  
                     Vacacion ingreso = new Vacacion();
                     ingreso.setResolucion(resolucion);
                     ingreso.setDocumento(documento);
@@ -307,7 +308,7 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                     ingreso.setHayInterrupcion(false);
                     date.setTime(fechaCalculo);
                     ingreso.setPeriodo(pc.buscarPorAnio(date.get(Calendar.YEAR)));
-                    listaVacaciones.add(ingreso);
+                    listaReprogramaciones.add(ingreso);
                     numero++;
                     contadorV+=1;
                     System.out.println("");
@@ -315,11 +316,11 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                     Logger.getLogger(ImportarVacaciones.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            if(!listaString.get(7).isEmpty()){
+            if(!listaString.get(9).isEmpty()){
                 try {
                     System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(7)+" "+listaString.get(8));
-                    Date tercVacacionInicio = formatter.parse(listaString.get(7));
-                    Date tercVacacionFin = formatter.parse(listaString.get(8));
+                    Date tercVacacionInicio = formatter.parse(listaString.get(9));
+                    Date tercVacacionFin = formatter.parse(listaString.get(10));
                     Vacacion ingreso = new Vacacion();
                     ingreso.setResolucion(resolucion);
                     ingreso.setDocumento(documento);
@@ -331,7 +332,7 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                     ingreso.setHayInterrupcion(false);
                     date.setTime(fechaCalculo);
                     ingreso.setPeriodo(pc.buscarPorAnio(date.get(Calendar.YEAR)));
-                    listaVacaciones.add(ingreso);
+                    listaReprogramaciones.add(ingreso);
                     numero++;
                     contadorV+=1;
                     System.out.println("");
@@ -339,13 +340,13 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                     Logger.getLogger(ImportarVacaciones.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            if(!listaString.get(9).isEmpty()){
+            if(!listaString.get(11).isEmpty()){
                 try {
                     System.out.print("Vacacion: "+"Dni: "+dni+" Numero:"+numero+" "+listaString.get(9)+" "+listaString.get(10));
-                    Date cuartVacacionInicio = formatter.parse(listaString.get(9));
-                    Date cuartVacacionFin = formatter.parse(listaString.get(10));
+                    Date cuartVacacionInicio = formatter.parse(listaString.get(11));
+                    Date cuartVacacionFin = formatter.parse(listaString.get(12));
                     Vacacion ingreso = new Vacacion();
-                   ingreso.setResolucion(resolucion);
+                    ingreso.setResolucion(resolucion);
                     ingreso.setDocumento(documento);
                     ingreso.setSinad(sinad);
                     ingreso.setObservacion(observacion);
@@ -355,7 +356,7 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                     ingreso.setHayInterrupcion(false);
                     date.setTime(fechaCalculo);
                     ingreso.setPeriodo(pc.buscarPorAnio(date.get(Calendar.YEAR)));
-                    listaVacaciones.add(ingreso);
+                    listaReprogramaciones.add(ingreso);
                     numero++;
                     contadorV+=1;
                     System.out.println("");
@@ -364,19 +365,55 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
                 }
             }
             System.out.println("Contador: "+contadorV);
-        }
-        //Validacion de vacaciones
-        for(Vacacion vacacion : listaVacaciones){
-            List<Vacacion> validacion = vc.buscarXEmpleadoXFechaXDni(vacacion.getEmpleado(),vacacion.getFechaInicio());
-            if(!validacion.isEmpty()){
-                System.out.println("Vacacion repetida, no se ingreso vacacion de "+ vacacion.getEmpleado());
+            //if(vacacionOriginal.isReprogramacionTotal()!=null){
+            if(!vacacionOriginal.isReprogramacionTotal() || !vacacionOriginal.isHayReprogramacion()){
+                if(fechaInterrupcion!=null){
+                    //int diferenciaDias = vacacionOriginal.getFechaFin() - vacacionOriginal.getFechaInicio();
+                    //Restamos la fecha interrupcion de la fecha fin
+                    //Luego esa cantidad la comparamos con la cantidad de dias de la repogrmacion para poder comparar si estan bien el numero de dias
+                    //validando eso lo registramos
+                    int diasVacaciones = this.restarFechas(fechaInterrupcion,vacacionOriginal.getFechaFin())+1;
+                    vacacionOriginal.getVacacionList().addAll(listaReprogramaciones);
+                    vacacionOriginal.setHayReprogramacion(true);
+                    vacacionOriginal.setReprogramacionTotal(false);
+                    vacacionOriginal.setDocumentoReprogramacion(documento);
+                    System.out.println("Dias para reprogramar parcial: "+diasVacaciones);
+                }else{
+                    //int diferenciaDias = vacacionOriginal.getFechaFin() - vacacionOriginal.getFechaInicio();
+                    //Restamos la fecha inicio de la fecha fin
+                    //Luego esa cantidad la comparamos con la cantidad de dias de la repogrmacion para poder comparar si estan bien el numero de dias
+                    //validando eso lo registramos
+                    int diasVacaciones = this.restarFechas(vacacionOriginal.getFechaInicio(),vacacionOriginal.getFechaFin())+1;
+                    vacacionOriginal.getVacacionList().addAll(listaReprogramaciones);
+                    vacacionOriginal.setHayReprogramacion(true);
+                    vacacionOriginal.setReprogramacionTotal(true);
+                    vacacionOriginal.setDocumentoReprogramacion(documento);
+                    System.out.println("Dias para reprogramar total: "+diasVacaciones);
+                }
+                
+                //listaVacaciones.add(vacacionOriginal);
+                listaGuardar.add(vacacionOriginal);
             }else{
-                listaGuardar.add(vacacion);
+               listaVacReprog.add(vacacionOriginal);
             }
+            System.out.println("Tamaño de lista de reprogramaciones: "+listaReprogramaciones.size());
+            listaReprogramaciones.clear();
+            //}
         }
+        //Verificar si vacacion no esta reprogramada antes
+        
+        //Validacion de vacaciones
+//        for(Vacacion vacacion : listaVacaciones){
+//            List<Vacacion> validacion = vc.buscarXEmpleadoXFechaXDni(vacacion.getEmpleado(),vacacion.getFechaInicio());
+//            if(!validacion.isEmpty()){
+//                System.out.println("Vacacion repetida, no se ingreso vacacion de "+ vacacion.getEmpleado());
+//            }else{
+//                listaGuardar.add(vacacion);
+//            }
+//        }
         
         
-        System.out.println("Cantidad Total de vacaciones: "+listaVacaciones.size());
+        //System.out.println("Cantidad Total de vacaciones: "+listaVacaciones.size());
         System.out.println("Cantidad Total de vacaciones a ingresar: "+listaGuardar.size());
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -558,5 +595,11 @@ public class ImportarVacaciones extends javax.swing.JInternalFrame {
         saldo[1] = sabado;
         saldo[2] = domingo;
         return saldo;
+    }
+    public int restarFechas(Date fechaIn, Date fechaFinal ){
+        long in = fechaIn.getTime();
+        long fin = fechaFinal.getTime();
+        Long diff= (fin-in)/1000;
+        return diff.intValue()/86400;
     }
 }

@@ -383,7 +383,7 @@ public class CRUDGrupoHorarioTest extends javax.swing.JInternalFrame {
         for (EmpleadoT e : empleados) {
             //Metodo agregar para borrar asignaciones de grupo horario, presenta fallas cuando se hace dos veces click a un grupo horario
             //pendiente a revisar
-            this.borrarEmpleado(e);
+            //this.borrarEmpleado(e);
             this.agregarEmpleado(e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed

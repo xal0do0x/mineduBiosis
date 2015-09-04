@@ -44,18 +44,20 @@ public class MTVacacion extends AbstractTableModel {
         lunesAViernes = 0;
         
         for (Vacacion vacacion : vacaciones) {
-            Date fechaInicio = vacacion.getFechaInicio();
-            Date fechaFin = vacacion.isHayInterrupcion() ? vacacion.getFechaInterrupcion() : vacacion.getFechaFin();
+            if(!vacacion.isHayReprogramacion()){
+                Date fechaInicio = vacacion.getFechaInicio();
+                Date fechaFin = vacacion.isHayInterrupcion() ? vacacion.getFechaInterrupcion() : vacacion.getFechaFin();
 
-            while (fechaInicio.compareTo(fechaFin) <= 0) {
-                cal.setTime(fechaInicio);
-                if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-//                    sabadoADomingo++;
-                } else {
-                    lunesAViernes++;
+                while (fechaInicio.compareTo(fechaFin) <= 0) {
+                    cal.setTime(fechaInicio);
+                    if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+    //                    sabadoADomingo++;
+                    } else {
+                        lunesAViernes++;
+                    }
+                    cal.add(Calendar.DAY_OF_MONTH, 1);
+                    fechaInicio = cal.getTime();
                 }
-                cal.add(Calendar.DAY_OF_MONTH, 1);
-                fechaInicio = cal.getTime();
             }
         }
         int division = lunesAViernes / 5;

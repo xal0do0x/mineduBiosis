@@ -25,6 +25,7 @@ import controladores.PermisoControlador;
 import controladores.TCAnalisisControlador;
 import controladores.TipoPermisoControlador;
 import entidades.AsignacionPermiso;
+import entidades.Horario;
 import entidades.Permiso;
 import entidades.Vacacion;
 import java.math.BigDecimal;
@@ -53,6 +54,10 @@ public class ImportarPermisos extends javax.swing.JInternalFrame {
     private List<Empleado> integrantes;
     private GrupoHorarioControlador controlador;
     private GrupoHorarioControlador tcontrolador;
+    //para controlar la papeleta
+    private DetalleGrupoControlador dgc;
+    private AsignacionHorarioControlador ashc;
+    //
     private MarcacionControlador mc;
     private EmpleadoControlador ec;
     private DetalleGrupoControlador dgh;
@@ -209,9 +214,37 @@ public class ImportarPermisos extends javax.swing.JInternalFrame {
                  */
                 //Para la asignacion de permiso
                 String dni = listaString.get(0);
+                
                 //Atributos propios de permiso
                 Date fechaInicio = formatter.parse(listaString.get(1));
                 Date fechaFin = formatter.parse(listaString.get(2));
+//                //Traemos al empleado para validar su jornada
+                Empleado empleadoPermiso = ec.buscarPorDni(dni);
+                //System.out.println("Empleado: "+empleadoPermiso.getNroDocumento());
+//                List<DetalleGrupoHorario> dg = dgc.buscarXEmpleado(empleadoPermiso);
+//                DetalleGrupoHorario dhEscogido = dg.get(0);
+//                System.out.println("Detalle grupo: "+dhEscogido.getGrupoHorario().getNombre());
+//                GrupoHorario gHorario = dhEscogido.getGrupoHorario();
+//                List<AsignacionHorario> listHorario = ashc.buscarXGrupo(gHorario);
+//                Date horaSalida = null;
+//                //Ver que hora de salida usar de acuerdo al horario actual que maneja
+//                if(ashc.buscarXEmpleadosXAll(dni, fechaInicio) != null){
+//                    List<AsignacionHorario> listaHorario = ashc.buscarXEmpleadosXAll(dni, fechaInicio);
+//                    if(!listaHorario.isEmpty()){
+//                       AsignacionHorario asEmpleado = listaHorario.get(0);
+//                       horaSalida = asEmpleado.getHorario().getJornada().getTurnoHS();
+//                    }
+//                    
+//                }else{
+//                    horaSalida = listHorario.get(0).getHorario().getJornada().getTurnoHS();
+//                    System.out.println("Hora de Salida: "+horaSalida.toString());
+//                }
+                //
+                //System.out.println("Hora de Salida: "+horaSalida.toString());
+                Date horaJornadaHS = obtenerHorarios(empleadoPermiso, fechaInicio).get(0).getJornada().getTurnoHS();
+                
+                System.out.println("Hora a tomar en cuenta: "+horaJornadaHS.toString());
+                
                 char opcion;
                 boolean porFecha;
                 Date horaInicio = null;
@@ -224,9 +257,10 @@ public class ImportarPermisos extends javax.swing.JInternalFrame {
                     if(!listaString.get(4).isEmpty()){
                         horaFin = formatterHora.parse(listaString.get(4));
                     }else{
-                        horaFin = formatterHora.parse("18:00:00");
+                        horaFin = horaJornadaHS;
+                        //horaFin = formatterHora.parse("18:00:00");
                     }
-                    diferencia = FechaUtil.soloHora(horaFin).getTime() - FechaUtil.soloHora(horaInicio).getTime();
+                    diferencia = fechaFin.getTime() - fechaInicio.getTime();
                 }else{
                     porFecha = true;
                     opcion = 'F';                   
@@ -297,8 +331,47 @@ public class ImportarPermisos extends javax.swing.JInternalFrame {
             }       
         }
         System.out.println("Cantidad de permisos a ingresar: "+listaGuardar.size());
+        System.out.println("Lista permisos a ingresar:");
+        for(Permiso p : listaGuardar){
+           if(p.getHoraInicio()!=null){
+                System.out.println("Permiso a guardar: "+p.getDocumento()+" Fecha Inicio: "+p.getFechaInicio().toString()+" Fecha Fin: "+p.getFechaFin().toString()+" Fecha Hora: "+p.getHoraFin().toString());
+           }else{
+               System.out.println("Permiso a guardar: "+p.getDocumento()+" Fecha Inicio: "+p.getFechaInicio().toString()+" Fecha Fin: "+p.getFechaFin().toString());
+           }
+           
+       }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
+    public List<Horario> obtenerHorarios(Empleado empleado,Date fecha) {
+        //PRIMERO OBTENEMOS LOS GRUPOS HORARIOS ASIGNADOS
+
+        List<DetalleGrupoHorario> detalles = dgc.buscarXEmpleado(empleado);
+        List<GrupoHorario> grupos = new ArrayList<>();
+        List<AsignacionHorario> horarioEspecial = ashc.buscarXEmpleadosXAll(empleado.getNroDocumento(), fecha);
+        List<Horario> horarios = new ArrayList<>();
+        List<AsignacionHorario> asignaciones = new ArrayList<>();
+
+        for (DetalleGrupoHorario detalle : detalles) {
+            grupos.add(detalle.getGrupoHorario());
+        }
+
+        if (!grupos.isEmpty()) {
+            asignaciones.addAll(ashc.buscarXGrupos(grupos));
+        }
+        
+        if(!horarioEspecial.isEmpty()){
+            asignaciones.addAll(ashc.buscarXEmpleadosXAll(empleado.getNroDocumento(),fecha));
+        }
+        
+
+        if (!asignaciones.isEmpty()) {
+            for (AsignacionHorario asignacion : asignaciones) {
+                horarios.add(asignacion.getHorario());
+            }
+        }
+
+        return horarios;
+    }
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
        for(Permiso p : listaGuardar){
@@ -381,6 +454,8 @@ public class ImportarPermisos extends javax.swing.JInternalFrame {
         tpc = new TipoPermisoControlador();
         pc = new PermisoControlador();
         asc = new AsignacionPermisoControlador();
+        ashc = new AsignacionHorarioControlador();
+        dgc = new DetalleGrupoControlador();
         this.controles(accion);
     }
 

@@ -436,6 +436,8 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(this, "¿Está seguro que desea cancelar esta acción?", "Mensaje del Sistema", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            this.reprogramacionList.clear();
+            this.vacacionOrigen.getVacacionList().clear();
             this.dispose();
         }
 
@@ -658,9 +660,9 @@ public class DlgReprogramarVacacionMultiple extends javax.swing.JDialog {
         iterador.setTime(fechaInicio);
         int contador = 0;
         while (!iterador.getTime().after(fechaFin)) {
-            if (iterador.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY && iterador.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
+            //if (iterador.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY && iterador.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
                 contador++;
-            }
+            //}
             iterador.add(Calendar.DATE, 1);
         }
         return contador;

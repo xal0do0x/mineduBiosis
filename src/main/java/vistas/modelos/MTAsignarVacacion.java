@@ -21,7 +21,7 @@ public class MTAsignarVacacion extends ModeloTabla<Vacacion>{
     public MTAsignarVacacion(List<Vacacion> datos) {
         super(datos);
         dfFecha = new SimpleDateFormat("dd/MM/yyyy");
-        this.nombreColumnas = new String[]{"Nro de documento","Fecha de inicio","Fecha de fin","¿Interrumpida?","Fecha de interrupción"};
+        this.nombreColumnas = new String[]{"Nro de documento","Fecha de inicio","Fecha de fin","¿Interrumpida?","Fecha de interrupción","¿Tiene reprogramación?"};
     }
 
     @Override
@@ -42,6 +42,8 @@ public class MTAsignarVacacion extends ModeloTabla<Vacacion>{
                 }else{
                     return null;
                 }
+            case 5:
+                return vacacion.isHayReprogramacion();
             default:
                 return null;
         }
@@ -51,6 +53,8 @@ public class MTAsignarVacacion extends ModeloTabla<Vacacion>{
     public Class<?> getColumnClass(int columnIndex) {
         switch(columnIndex){
             case 3:
+                return Boolean.class;
+            case 5:
                 return Boolean.class;
             default:
                 return String.class;
