@@ -2010,3 +2010,8 @@ line 1:98: unexpected token: a
 2015-07-31 20:00:34.945	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
 2015-08-04 13:25:48.574	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:The incoming tabular data stream (TDS) remote procedure call (RPC) protocol stream is incorrect. Too many parameters were provided in this RPC request. The maximum is 2100.
 2015-08-04 13:25:48.589	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: org.hibernate.exception.SQLGrammarException: could not extract ResultSet org.hibernate.exception.SQLGrammarException: could not extract ResultSet
+2015-09-04 02:12:49.003	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Error while committing the transaction Error while committing the transaction
+2015-09-04 02:15:46.583	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Error while committing the transaction Error while committing the transaction
+2015-10-04 21:26:31.187	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:307	MSJE:Unable to build entity manager factory
+2015-10-04 21:26:46.237	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:Unable to build entity manager factory
+2015-10-04 21:27:01.114	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:323	MSJE:Unable to build entity manager factory
