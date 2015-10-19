@@ -34,7 +34,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.apache.poi.ss.usermodel.PrintSetup;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import pruebareportes.ReporteUtil;
 import vistas.reportes.beans.RptAsistenciaBean;
 import vistas.reportes.controladores.ProcAsistenciaControlador;
@@ -104,7 +112,7 @@ public class rptTardanzaTotal {
         Calendar fechaFinC = Calendar.getInstance();
         fechaInicioC.setTime(fechaInicio);
         fechaFinC.setTime(fechaFin);
-        
+               
         // Dias contados desde un inicio y fin fecha
         ArrayList<Integer> listaDias = new ArrayList<>();
         ArrayList<Date> listaDiasF = new ArrayList<>();
@@ -581,5 +589,64 @@ public class rptTardanzaTotal {
             conteoDias.clear();
         }
         return tabla;
+    }
+    
+     /**
+     * Create a library of cell styles
+     */
+    private static Map<String, CellStyle> createStyles(Workbook wb){
+        Map<String, CellStyle> styles = new HashMap<String, CellStyle>();
+        CellStyle style;
+        org.apache.poi.ss.usermodel.Font titleFont = wb.createFont();
+        titleFont.setFontHeightInPoints((short)18);
+        titleFont.setBoldweight(org.apache.poi.ss.usermodel.Font.BOLDWEIGHT_BOLD);
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFont(titleFont);
+        styles.put("title", style);
+
+        org.apache.poi.ss.usermodel.Font monthFont = wb.createFont();
+        monthFont.setFontHeightInPoints((short)11);
+        monthFont.setColor(IndexedColors.WHITE.getIndex());
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFillForegroundColor(IndexedColors.GREY_50_PERCENT.getIndex());
+        style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        style.setFont(monthFont);
+        style.setWrapText(true);
+        styles.put("header", style);
+
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setWrapText(true);
+        style.setBorderRight(CellStyle.BORDER_THIN);
+        style.setRightBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderLeft(CellStyle.BORDER_THIN);
+        style.setLeftBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderTop(CellStyle.BORDER_THIN);
+        style.setTopBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderBottom(CellStyle.BORDER_THIN);
+        style.setBottomBorderColor(IndexedColors.BLACK.getIndex());
+        styles.put("cell", style);
+
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+        style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        style.setDataFormat(wb.createDataFormat().getFormat("0.00"));
+        styles.put("formula", style);
+
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_CENTER);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFillForegroundColor(IndexedColors.GREY_40_PERCENT.getIndex());
+        style.setFillPattern(CellStyle.SOLID_FOREGROUND);
+        style.setDataFormat(wb.createDataFormat().getFormat("0.00"));
+        styles.put("formula_2", style);
+
+        return styles;
     }
 }
