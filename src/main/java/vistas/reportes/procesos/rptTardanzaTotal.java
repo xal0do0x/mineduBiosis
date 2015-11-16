@@ -29,6 +29,7 @@ import controladores.PermisoControlador;
 import controladores.RegistroAsistenciaControlador;
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,11 +38,14 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.apache.poi.ss.usermodel.PrintSetup;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import pruebareportes.ReporteUtil;
 import vistas.reportes.beans.RptAsistenciaBean;
@@ -93,7 +97,7 @@ public class rptTardanzaTotal {
         documento.add(ReporteUtil.darEspaciado(15));
         documento.add(new Paragraph(ReporteUtil.unirChunks(labelUsuario,nombreUsuario)));
         documento.add(ReporteUtil.darEspaciado(20));
-        PdfPTable tabla = new rptTardanzaTotal().crearTabla(dnis, fechaInicio, fechaFin, departamentoId);
+        PdfPTable tabla = new rptTardanzaTotal().crearTabla(dnis, fechaInicio, fechaFin, departamentoId,oficina,ReporteUtil.obtenerNombreMes(fechaInicio).toUpperCase(),usuario.toUpperCase());
         documento.add(tabla);
         documento.close();
         try {
@@ -103,7 +107,7 @@ public class rptTardanzaTotal {
             ex.printStackTrace();
         }
     }
-    public PdfPTable crearTabla(List<String> dnis,Date fechaInicio,Date fechaFin, int departamentoId) throws DocumentException{
+    public PdfPTable crearTabla(List<String> dnis,Date fechaInicio,Date fechaFin, int departamentoId,String nombreOficina,String nombreMes,String nombreUsuario) throws DocumentException, FileNotFoundException, IOException{
         /**
          * Procesamiento para info para generar tablas
          */
@@ -134,7 +138,7 @@ public class rptTardanzaTotal {
         System.out.println("Numero de dias a agregar: "+listaDias.size());
         for (Integer listaDia : listaDias) {
             System.out.println("Dia numero: "+listaDia);
-        }
+        }       
         /**
          * Procesamiento para elaborar tabla con datos
          */
@@ -160,6 +164,92 @@ public class rptTardanzaTotal {
         }
         tabla.setWidths(widthColumna);
         //Definimos celdas iniciales
+        
+        /**
+         * Procesamiento excel
+         */
+        /**
+         * Procesamiento adicional para generar un excel
+         */
+        Workbook wb;
+        wb = new XSSFWorkbook();
+        Map<String, CellStyle> styles = createStyles(wb);
+        
+        Sheet sheet = wb.createSheet("Descuentos");
+        PrintSetup printSetup = sheet.getPrintSetup();
+        printSetup.setLandscape(true);
+        sheet.setFitToPage(true);
+        sheet.setHorizontallyCenter(true);
+        
+        //Fila de titulo del excel
+        Row titleRow = sheet.createRow(0);
+        Row oficinaRow =sheet.createRow(1);
+        Row mesRow = sheet.createRow(2);
+        titleRow.setHeightInPoints(45);
+        oficinaRow.setHeightInPoints(25);
+        mesRow.setHeightInPoints(25);
+        Cell titleCell = titleRow.createCell(0);
+        Cell oficinaCell = oficinaRow.createCell(0);
+        Cell mesCell = mesRow.createCell(0);
+        Cell usuarioCell = mesRow.createCell(1);
+        
+        titleCell.setCellValue("REPORTE DE CONSOLIDADO DE TARDANZA");
+        titleCell.setCellStyle(styles.get("title"));
+        oficinaCell.setCellValue(nombreOficina);
+        oficinaCell.setCellStyle(styles.get("subtitle"));
+        mesCell.setCellValue(nombreMes);
+        mesCell.setCellStyle(styles.get("subtitle"));
+        usuarioCell.setCellValue(nombreUsuario);
+        usuarioCell.setCellStyle(styles.get("subtitle"));
+      
+        
+        sheet.addMergedRegion(CellRangeAddress.valueOf("$A$1:$I$1"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("$A$2:$I$2"));
+        sheet.addMergedRegion(CellRangeAddress.valueOf("$A$3:$I$3"));
+        /**
+         * 
+         */
+        //header row
+        Row headerRow = sheet.createRow(3);
+        headerRow.setHeightInPoints(25);
+        Cell headerCell;
+        
+        headerCell = headerRow.createCell(0);
+        headerCell.setCellValue("Nro");
+        headerCell.setCellStyle(styles.get("header"));
+        
+        headerCell = headerRow.createCell(1);
+        headerCell.setCellValue("Nombre empleado");
+        headerCell.setCellStyle(styles.get("header"));
+        
+        headerCell = headerRow.createCell(2);
+        headerCell.setCellValue("Dni");
+        headerCell.setCellStyle(styles.get("header"));
+        
+        headerCell = headerRow.createCell(3);
+        headerCell.setCellValue("Codigo Modular");
+        headerCell.setCellStyle(styles.get("header"));
+      
+        headerCell = headerRow.createCell(4);
+        headerCell.setCellValue("Minutos tardanza");
+        headerCell.setCellStyle(styles.get("header"));
+        
+        headerCell = headerRow.createCell(5);
+        headerCell.setCellValue("Faltas");
+        headerCell.setCellStyle(styles.get("header"));
+        
+        headerCell = headerRow.createCell(6);
+        headerCell.setCellValue("Permiso Personal");
+        headerCell.setCellStyle(styles.get("header"));
+        
+        headerCell = headerRow.createCell(7);
+        headerCell.setCellValue("Licencia Sin Goce");
+        headerCell.setCellStyle(styles.get("header"));
+        
+        headerCell = headerRow.createCell(8);
+        headerCell.setCellValue("Descuento Total");
+        headerCell.setCellStyle(styles.get("header"));
+        //Terminado cabecera de excel    
         Font fontCabecera = new Font(Font.HELVETICA,8,Font.BOLD);
         Font fontCelda = new Font(Font.HELVETICA,7);
         
@@ -307,7 +397,9 @@ public class rptTardanzaTotal {
         Calendar cal = Calendar.getInstance();
         int diferenciaRegDia = 0;
         int nOrden = 1;
+        int iteradorExcel = 4;
         int contador = 0;
+        Row empleadoFila = null;
         //List<ReporteAsistenciaBean> listaAsistencia = rac.analisisAsistencia(fechaInicio, fechaFin, dnis, false, false);
         List<RptAsistenciaBean> listaAsistenciaPA = pac.analisisDescuento(departamentoId, fechaInicio, fechaFin);
         List<Integer> conteoDias = new ArrayList<>();
@@ -332,29 +424,45 @@ public class rptTardanzaTotal {
                     registrosDni.add(registro);                   
                 }
             }
-//            //Nro orden
-//            celdaNombre.setPhrase(new Phrase(""+nOrden,fontCelda));
-//            celdaNombre.setVerticalAlignment(Element.ALIGN_JUSTIFIED);
-//            celdaNombre.setHorizontalAlignment(Element.ALIGN_CENTER);
-//            //celdaNombre.setHorizontalAlignment(0);
-//            tabla.addCell(celdaNombre);
-//            nOrden ++;
-            
             for(RptAsistenciaBean registro : registrosDni){
                 if(banderaNombre){
                     if(dni.equals(registro.getDni())){
+                        //Para Excel
+                        System.out.println("Iteracion Nro: "+iteradorExcel);
+                        empleadoFila = sheet.createRow(iteradorExcel);
+                        headerRow.setHeightInPoints(25);
+                        Cell empleadoCell;
+                        empleadoCell = empleadoFila.createCell(0);
+                        empleadoCell.setCellValue(nOrden);
+                        empleadoCell.setCellStyle(styles.get("cell"));
+                        
+                        empleadoCell = empleadoFila.createCell(1);
+                        empleadoCell.setCellValue(registro.getNombre());
+                        sheet.autoSizeColumn(1);
+                        empleadoCell.setCellStyle(styles.get("name"));
+                        
+                        empleadoCell = empleadoFila.createCell(2);
+                        empleadoCell.setCellValue(registro.getDni());
+                        empleadoCell.setCellStyle(styles.get("cell"));
+                        
+                        empleadoCell = empleadoFila.createCell(3);
+                        empleadoCell.setCellValue(em.buscarPorDni(registro.getDni()).getCodigoModular());
+                        sheet.autoSizeColumn(3);
+                        empleadoCell.setCellStyle(styles.get("cell"));
                         //Nro orden
                         celdaNombre.setPhrase(new Phrase(""+nOrden,fontCelda));
                         celdaNombre.setVerticalAlignment(Element.ALIGN_JUSTIFIED);
                         celdaNombre.setHorizontalAlignment(Element.ALIGN_CENTER);
                         //celdaNombre.setHorizontalAlignment(0);
                         tabla.addCell(celdaNombre);
+                        iteradorExcel++;
                         nOrden ++;
                         //Nombre
                         celdaNombre.setPhrase(new Phrase(registro.getNombre(),fontCelda));
                         celdaNombre.setHorizontalAlignment(0);
                         tabla.addCell(celdaNombre);
                         banderaNombre = false;
+                        
                     }
                 }    
                 for(Integer dia : listaDias){
@@ -577,6 +685,29 @@ public class rptTardanzaTotal {
             celdaNombre.setPhrase(new Phrase(horaT,fontCelda));
             celdaNombre.setHorizontalAlignment(0);
             tabla.addCell(celdaNombre);
+            //Celda
+            Cell empleadoCell;
+
+            empleadoCell = empleadoFila.createCell(4);          
+            empleadoCell.setCellValue(this.minutosFormateados(minutosTarde));
+            empleadoCell.setCellStyle(styles.get("cell"));
+            
+            empleadoCell = empleadoFila.createCell(5);
+            empleadoCell.setCellValue(this.minutosFormateados(minutosT));
+            empleadoCell.setCellStyle(styles.get("cell"));
+            
+            empleadoCell = empleadoFila.createCell(6);
+            empleadoCell.setCellValue(this.minutosFormateados(minutosDescuentoPermisosPP));
+            empleadoCell.setCellStyle(styles.get("cell"));
+            
+            empleadoCell = empleadoFila.createCell(7);
+            empleadoCell.setCellValue(this.minutosFormateados(minutosDescuentoPermisos));
+            empleadoCell.setCellStyle(styles.get("cell"));
+            
+            int sumaMinutos = minutosTarde+minutosT+minutosDescuentoPermisos+minutosDescuentoPermisosPP;
+            empleadoCell = empleadoFila.createCell(8);
+            empleadoCell.setCellValue(this.minutosFormateados(sumaMinutos));
+            empleadoCell.setCellStyle(styles.get("cell"));
             
             registrosDni.clear();
             banderaNombre = true;
@@ -588,7 +719,22 @@ public class rptTardanzaTotal {
             diasDescuento = 0;
             conteoDias.clear();
         }
+        // Write the output to a file
+        String file = "reporteDescuento"+nombreOficina.split(" ",0)[0]+"_"+nombreMes+".xls";
+        if(wb instanceof XSSFWorkbook) file += "x";
+        FileOutputStream out = new FileOutputStream(file);
+        wb.write(out);
+        out.close();
+        try {
+            File path = new File (file);
+            Desktop.getDesktop().open(path);
+        }catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        
         return tabla;
+        
+        
     }
     
      /**
@@ -603,6 +749,7 @@ public class rptTardanzaTotal {
         style = wb.createCellStyle();
         style.setAlignment(CellStyle.ALIGN_CENTER);
         style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setWrapText(true);
         style.setFont(titleFont);
         styles.put("title", style);
 
@@ -616,6 +763,14 @@ public class rptTardanzaTotal {
         style.setFillPattern(CellStyle.SOLID_FOREGROUND);
         style.setFont(monthFont);
         style.setWrapText(true);
+        style.setBorderRight(CellStyle.BORDER_THIN);
+        style.setRightBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderLeft(CellStyle.BORDER_THIN);
+        style.setLeftBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderTop(CellStyle.BORDER_THIN);
+        style.setTopBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderBottom(CellStyle.BORDER_THIN);
+        style.setBottomBorderColor(IndexedColors.BLACK.getIndex());
         styles.put("header", style);
 
         style = wb.createCellStyle();
@@ -630,6 +785,28 @@ public class rptTardanzaTotal {
         style.setBorderBottom(CellStyle.BORDER_THIN);
         style.setBottomBorderColor(IndexedColors.BLACK.getIndex());
         styles.put("cell", style);
+        
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_LEFT);
+        style.setWrapText(true);
+        style.setBorderRight(CellStyle.BORDER_THIN);
+        style.setRightBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderLeft(CellStyle.BORDER_THIN);
+        style.setLeftBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderTop(CellStyle.BORDER_THIN);
+        style.setTopBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderBottom(CellStyle.BORDER_THIN);
+        style.setBottomBorderColor(IndexedColors.BLACK.getIndex());
+        styles.put("name", style);
+        
+        org.apache.poi.ss.usermodel.Font subtitleFont = wb.createFont();
+        subtitleFont.setFontHeightInPoints((short)11);
+        subtitleFont.setBoldweight(org.apache.poi.ss.usermodel.Font.BOLDWEIGHT_NORMAL);
+        style = wb.createCellStyle();
+        style.setAlignment(CellStyle.ALIGN_LEFT);
+        style.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
+        style.setFont(subtitleFont);
+        styles.put("subtitle", style);
 
         style = wb.createCellStyle();
         style.setAlignment(CellStyle.ALIGN_CENTER);
@@ -648,5 +825,15 @@ public class rptTardanzaTotal {
         styles.put("formula_2", style);
 
         return styles;
+    }
+
+    public String minutosFormateados(int minutos){
+        int horas=0;
+        int minutosF = 0;
+        horas = minutos/60;
+        minutosF = minutos%60;
+        
+        String tiempoFormateado = horas+"."+minutosF;
+        return tiempoFormateado;
     }
 }

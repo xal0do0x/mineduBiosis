@@ -192,7 +192,7 @@ public class pruebaExcel {
 
         style = wb.createCellStyle();
         style.setAlignment(CellStyle.ALIGN_CENTER);
-        style.setWrapText(true);
+        //style.setWrapText(true);
         style.setBorderRight(CellStyle.BORDER_THIN);
         style.setRightBorderColor(IndexedColors.BLACK.getIndex());
         style.setBorderLeft(CellStyle.BORDER_THIN);

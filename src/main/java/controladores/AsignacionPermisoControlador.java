@@ -42,7 +42,7 @@ public class AsignacionPermisoControlador extends Controlador<AsignacionPermiso>
 
     //Query para comprobacion de permisos en rango de fecha
     public List<AsignacionPermiso> buscarXFechaDni(String dni,Date fechaInicio){
-        String jpl = "SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND :fechaInicio BETWEEN a.permiso.fechaInicio and a.permiso.fechaFin ";
+        String jpl = "SELECT a FROM AsignacionPermiso a WHERE a.empleado = :dni AND :fechaInicio BETWEEN a.permiso.fechaInicio and a.permiso.fechaFin and a.permiso.porFecha=1";
         Map<String, Object> mapa = new HashMap<>();
         mapa.put("dni", dni);
         mapa.put("fechaInicio", fechaInicio);

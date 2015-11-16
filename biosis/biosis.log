@@ -2019,3 +2019,5 @@ line 1:98: unexpected token: a
 2015-10-05 16:44:45.045	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid object name 'TB_USER'.
 2015-10-05 16:47:49.445	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid object name 'TB_USER'.
 2015-10-05 17:03:51.845	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near 'GO'.
+2015-11-11 09:20:15.158	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Error while committing the transaction Error while committing the transaction
+2015-11-11 09:20:38.013	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Error while committing the transaction Error while committing the transaction
