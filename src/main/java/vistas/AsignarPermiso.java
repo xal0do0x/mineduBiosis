@@ -180,6 +180,14 @@ public class AsignarPermiso extends javax.swing.JInternalFrame {
         gridBagConstraints.gridwidth = 15;
         pnlListado.add(jPanel3, gridBagConstraints);
 
+        tblTabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         tblTabla.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tblTablaMouseReleased(evt);

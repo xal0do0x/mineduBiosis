@@ -119,9 +119,7 @@ public class Principal extends javax.swing.JFrame {
         mnuReportes = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         mnuConfiguracion = new javax.swing.JMenu();
@@ -396,14 +394,6 @@ public class Principal extends javax.swing.JFrame {
         });
         mnuReportes.add(jMenuItem3);
 
-        jMenuItem10.setText("Reporte Asistencia de Entrada");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        mnuReportes.add(jMenuItem10);
-
         jMenuItem7.setText("Reporte Asistencia Total");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -411,14 +401,6 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         mnuReportes.add(jMenuItem7);
-
-        jMenuItem11.setText("Reporte de Faltas");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
-            }
-        });
-        mnuReportes.add(jMenuItem11);
 
         jMenuItem12.setText("Reporte Descuento");
         jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
@@ -612,23 +594,11 @@ public class Principal extends javax.swing.JFrame {
         agregarAPanel(importacion, true);
     }//GEN-LAST:event_mnuImportarPActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
-        RptAsistenciaEntrada asistenciaEntrada = new RptAsistenciaEntrada();
-        agregarAPanel(asistenciaEntrada);
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
-
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
         RptAsistenciaTotal asistenciaTotal = new RptAsistenciaTotal();
         agregarAPanel(asistenciaTotal,true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        // TODO add your handling code here:
-        RptFaltas rptFaltas = new RptFaltas();
-        agregarAPanel(rptFaltas, true);
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
         // TODO add your handling code here:
@@ -687,8 +657,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistroAsistencia;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;

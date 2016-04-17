@@ -2021,3 +2021,40 @@ line 1:98: unexpected token: a
 2015-10-05 17:03:51.845	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Incorrect syntax near 'GO'.
 2015-11-11 09:20:15.158	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Error while committing the transaction Error while committing the transaction
 2015-11-11 09:20:38.013	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: modificar	LINEA:119	MSJE:ERROR AL MODIFICAR: Error while committing the transaction Error while committing the transaction
+2016-02-07 00:47:37.708	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:307	MSJE:Unable to build entity manager factory
+2016-02-07 00:48:29.366	ERROR	[AWT-EventQueue-0]	CLASE: DlgConfiguracion	 METODO: iniciar	LINEA:448	MSJE:Unable to build entity manager factory
+2016-02-07 00:48:35.722	ERROR	[AWT-EventQueue-0]	CLASE: DlgConfiguracion	 METODO: iniciar	LINEA:448	MSJE:Unable to build entity manager factory
+2016-02-07 00:48:44.609	ERROR	[AWT-EventQueue-0]	CLASE: DlgConfiguracion	 METODO: iniciar	LINEA:448	MSJE:Unable to build entity manager factory
+2016-02-07 00:49:20.257	ERROR	[AWT-EventQueue-0]	CLASE: DlgConfiguracion	 METODO: iniciar	LINEA:448	MSJE:Unable to build entity manager factory
+2016-04-11 18:31:32.519	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid object name 'v_empleados2'.
+2016-04-11 18:33:02.963	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid object name 'v_empleados2'.
+2016-04-11 18:46:19.844	ERROR	[AWT-EventQueue-0]	CLASE: SqlExceptionHelper	 METODO: logExceptions	LINEA:146	MSJE:Invalid object name 'v_empleados2'.
+2016-04-11 21:42:09.293	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 21:45:03.508	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 21:46:38.466	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 21:54:17.579	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 21:56:25.901	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 21:58:19.658	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 22:03:18.598	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 22:16:33.566	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 22:16:46.798	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 22:16:56.605	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 22:19:33.564	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 22:30:11.845	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 22:32:47.215	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 22:36:22.862	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 22:42:11.715	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [6737070] did not match expected type [java.lang.String (n/a)] Parameter value [6737070] did not match expected type [java.lang.String (n/a)]
+2016-04-11 22:43:56.424	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [6737070] did not match expected type [java.lang.String (n/a)] Parameter value [6737070] did not match expected type [java.lang.String (n/a)]
+2016-04-11 22:48:00.542	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [6737070] did not match expected type [java.lang.String (n/a)] Parameter value [6737070] did not match expected type [java.lang.String (n/a)]
+2016-04-11 22:48:19.882	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: Parameter value [6737070] did not match expected type [java.lang.String (n/a)] Parameter value [6737070] did not match expected type [java.lang.String (n/a)]
+2016-04-11 22:56:57.240	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 23:01:18.570	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 23:05:17.129	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 23:12:37.951	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 23:16:26.661	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
+2016-04-11 23:25:31.016	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:No Persistence provider for EntityManager named biostar-PU
+2016-04-11 23:28:53.055	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:No Persistence provider for EntityManager named biostar-PU
+2016-04-11 23:32:28.668	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:307	MSJE:No Persistence provider for EntityManager named biosis-PU
+2016-04-11 23:32:28.927	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:315	MSJE:No Persistence provider for EntityManager named biostar-PU
+2016-04-11 23:32:29.104	ERROR	[main]	CLASE: DlgLogin	 METODO: iniciar	LINEA:323	MSJE:No Persistence provider for EntityManager named rrhh-PU
+2016-04-12 13:09:53.197	ERROR	[AWT-EventQueue-0]	CLASE: DAO	 METODO: buscar	LINEA:170	MSJE:ERROR AL BUSCAR: null null
